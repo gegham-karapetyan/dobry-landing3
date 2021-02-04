@@ -8,7 +8,8 @@ let swiper = new Swiper(".swiper-container", {
   speed: 1500,
   effect: "slide",
   parallax: true,
-  shortSwipes: false,
+  shortSwipes: true,
+
   on: {
     init() {
       swiperSlides.forEach((slide) => slide.classList.add("overflow-visible"));
