@@ -1,0 +1,29 @@
+.return-btn {
+  display: none;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  bottom: 10px;
+  right: 3%;
+  text-align: center;
+
+  &--apple {
+    display: block;
+    background-color: $blurry-apple;
+  }
+  &--appleCitrus {
+    display: block;
+    background-color: $blurry-appleCitrus;
+  }
+  &--tomato {
+    display: block;
+    background-color: $blurry-tomato;
+  }
+  &--multiMix {
+    display: block;
+    background-color: $blurry-multiMix;
+  }
+}

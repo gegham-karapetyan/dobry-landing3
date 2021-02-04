@@ -1,0 +1,43 @@
+@import "./fonts";
+@import "./_normalize.scss";
+@import "./variables.scss";
+@import "./_global.scss";
+@import "./_swiper";
+@import "./_header.scss";
+@import "./_inner-slider.scss";
+@import "./_menu-page.scss";
+@import "./_about-us.scss";
+@import "./_home-page.scss";
+@import "./_content.scss";
+@import "./_feedback.scss";
+@import "./_form.scss";
+@import "./_return-btn.scss";
+
+.damper {
+  flex: 5%;
+}
+// .prevent-scrolling {
+//   overflow: hidden;
+// }
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.bottom-sign {
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  bottom: 56px;
+}
+
+.test {
+  position: fixed;
+  z-index: 444444;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: var(--innerHeight);
+  background-color: violet;
+}
