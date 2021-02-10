@@ -5,10 +5,13 @@ const swiperPaginatonBullets = document.querySelectorAll(
 );
 
 let swiper = new Swiper(".swiper-container", {
-  speed: 1500,
+  speed: 2000,
   effect: "slide",
   parallax: true,
   shortSwipes: true,
+  // autoplay: {
+  //   delay: 5000,
+  // },
 
   on: {
     init() {
@@ -96,8 +99,10 @@ function burgerBtnHandler() {
 
     if (isMenuPageOpen) {
       addFormToMenuPage();
+      swiper.autoplay.stop();
     } else {
       addFormToSection();
+      swiper.autoplay.start();
     }
   }
 }
@@ -175,8 +180,13 @@ function changeClassOfBulletWhenSlideChanged() {
 //-----</ swiper slideChange event listeners >---------------
 
 function preventSlideChanges() {
-  if (window.scrollY > 30) swiper.allowTouchMove = false;
-  else swiper.allowTouchMove = true;
+  if (window.scrollY > 30) {
+    swiper.allowTouchMove = false;
+    swiper.autoplay.stop();
+  } else {
+    swiper.allowTouchMove = true;
+    swiper.autoplay.start();
+  }
 }
 
 function toggleReturnBtnActivity() {
@@ -198,7 +208,6 @@ formPrevBtn.onclick = formPrevBtnHandler;
 
 function addFormToSection() {
   let index = swiper.activeIndex;
-
   let container = document.querySelector(`.${classes[index]} .form-container`);
   container.appendChild(form);
 }
