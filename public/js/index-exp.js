@@ -3,6 +3,9 @@ const swiperSlides = document.querySelectorAll(".swiper-slide");
 const swiperPaginatonBullets = document.querySelectorAll(
   ".swiper-pagination-bullet"
 );
+const swiperPaginatonLines = document.querySelectorAll(
+  ".swiper-pagination-line"
+);
 
 let swiper = new Swiper(".swiper-container", {
   speed: 2000,
@@ -118,23 +121,17 @@ function formPrevBtnHandler() {
   formSliderTrack.classList.remove("slider-track--translate");
 }
 
-function _changeClassOfBulletWhenClicked(bullet) {
-  let activeIndex = swiper.activeIndex;
-  swiperPaginatonBullets[activeIndex].classList.remove(
-    "swiper-pagination-bullet-active"
-  );
-  bullet.classList.add("swiper-pagination-bullet-active");
-}
 function swiperPaginatonBulletsHandlers() {
-  //first time
   swiperPaginatonBullets[swiper.activeIndex].classList.add(
-    "swiper-pagination-bullet-active"
+    "swiper-pagination-bullet--active"
   );
-  //
+  swiperPaginatonLines[swiper.activeIndex].classList.add(
+    "swiper-pagination-line--active"
+  );
+
   swiperPaginatonBullets.forEach((bullet, bulletIndex) => {
     bullet.onclick = function () {
       if (swiper.allowTouchMove) {
-        _changeClassOfBulletWhenClicked(bullet);
         swiper.slideTo(bulletIndex);
       } else return;
     };
@@ -170,10 +167,10 @@ function changeClassOfBulletWhenSlideChanged() {
   let activeIndex = swiper.activeIndex;
   let prevIndex = swiper.previousIndex;
   swiperPaginatonBullets[prevIndex].classList.remove(
-    "swiper-pagination-bullet-active"
+    "swiper-pagination-bullet--active"
   );
   swiperPaginatonBullets[activeIndex].classList.add(
-    "swiper-pagination-bullet-active"
+    "swiper-pagination-bullet--active"
   );
 }
 

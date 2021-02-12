@@ -48,7 +48,20 @@ h2 {
 }
 
 .wrapper {
+  width: 100%;
   position: relative;
+  & > .social {
+    display: none;
+    width: 40px;
+    position: fixed;
+    z-index: 20;
+    right: 54px;
+    bottom: 40px;
+    & > a {
+      display: block;
+      margin: 15px 0;
+    }
+  }
 }
 .container {
   width: 83%;
@@ -60,10 +73,6 @@ h2 {
 }
 .prevent-scrolling {
   overflow: hidden;
-}
-
-.overflow-visible {
-  overflow: visible;
 }
 
 .bottom-sign {

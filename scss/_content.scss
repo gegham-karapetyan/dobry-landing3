@@ -4,10 +4,11 @@
   position: relative;
   width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-top: 100px;
-  padding-bottom: 100px;
+
   &-wrap {
-    max-width: 1060px;
+    max-width: 876px;
     width: 90%;
     margin: auto;
   }
@@ -29,30 +30,18 @@
 
   &__inner {
     width: 100%;
-    padding-bottom: 30px;
+
     margin: 0 auto;
     background-repeat: no-repeat;
     background-origin: content-box;
-
-    // background-size: cover;
-    // &.content__inner--apple {
-    //   background-image: url("../images/apple-content-bg.svg");
-    // }
-    // &.content__inner--tomato {
-    //   background-image: url("../images/tomato-content-bg.svg");
-    // }
-    // &.content__inner--appleCitrus {
-    //   background-image: url("../images/appleCitrus-content-bg.svg");
-    // }
-    // &.content__inner--multiMix {
-    //   background-image: url("../images/multiMix-content-bg.svg");
-    // }
   }
 }
 
 .descriptions {
   position: relative;
-  padding-top: 15px;
+
+  display: flex;
+  flex-flow: row wrap;
   &-bg {
     width: 100%;
     height: 100%;
@@ -107,6 +96,7 @@
     width: 100%;
   }
 }
+
 .sugar,
 .leaflet,
 .antioxidant {
@@ -135,7 +125,7 @@
   height: 72px;
 }
 .ellipse-bg--sugar {
-  transform: rotate(-30deg);
+  transform: rotate(140deg);
 }
 .ellipse-bg--leaflet {
   transform: rotate(45deg);
@@ -160,6 +150,9 @@
   position: relative;
   padding-top: 10px;
   padding-bottom: 15px;
+  & > .descriptions-bg {
+    display: none;
+  }
 }
 
 .specific-description--apple {
@@ -174,7 +167,7 @@
 .specific-description--multiMix {
   width: 87%;
 }
-.basic-composition {
+.basic-composition-outer {
   margin-top: 50px;
   height: auto;
   width: 100%;
@@ -183,30 +176,156 @@
   justify-content: flex-start;
   & img {
     width: 100%;
+    max-width: 260px;
   }
   & > div {
     flex: 50%;
   }
 }
+.basic-composition-inner {
+  display: none;
+  width: 50%;
+
+  margin-top: 40px;
+
+  justify-content: center;
+  align-items: center;
+  & .bottle-sketch {
+    position: relative;
+    min-width: 170px;
+    width: 40%;
+    height: 100%;
+  }
+  & .bottle-sketch > img {
+    position: absolute;
+  }
+  &--apple {
+    & .bottle-sketch {
+      & > img:nth-child(1) {
+        height: 100%;
+      }
+      & > img:nth-child(2) {
+        width: 53px;
+        left: 76px;
+        top: 19px;
+      }
+      & > img:nth-child(3) {
+        width: 65px;
+        left: 80px;
+        top: 101px;
+      }
+      & > img:nth-child(4) {
+        width: 70px;
+        top: 90px;
+        left: -20px;
+      }
+    }
+  }
+  &--tomato {
+    & .bottle-sketch {
+      & > img:nth-child(1) {
+        height: 100%;
+      }
+      & > img:nth-child(2) {
+        width: 77px;
+        left: 90px;
+        top: 0;
+      }
+      & > img:nth-child(3) {
+        width: 65px;
+        left: 100px;
+        top: 101px;
+      }
+      & > img:nth-child(4) {
+        width: 70px;
+        top: 90px;
+        left: -20px;
+      }
+    }
+  }
+  &--appleCitrus {
+    & .bottle-sketch {
+      & > img:nth-child(1) {
+        height: 100%;
+      }
+      & > img:nth-child(2) {
+        width: 70px;
+        left: -30px;
+        top: 11px;
+      }
+      & > img:nth-child(3) {
+        width: 50px;
+        left: 93px;
+        top: 75px;
+      }
+      & > img:nth-child(4) {
+        width: 75px;
+        top: 100px;
+        left: -20px;
+      }
+    }
+  }
+  &--multiMix {
+    & .bottle-sketch {
+      & > img:nth-child(1) {
+        height: 100%;
+      }
+      & > img:nth-child(2) {
+        width: 45px;
+        left: -16px;
+        top: 30px;
+      }
+      & > img:nth-child(3) {
+        width: 70px;
+        left: -14px;
+        top: 90px;
+      }
+      & > img:nth-child(4) {
+        width: 65px;
+        top: 11px;
+        left: 60px;
+      }
+    }
+  }
+}
+
 .sub-composition {
   margin-top: 45px;
   position: relative;
+  width: 100%;
+  height: 300px;
 }
+
+.sub-composition__inner {
+  position: absolute;
+  left: 7%;
+}
+
 .juice-glass {
   position: absolute;
-  right: 0;
+  & img {
+    width: 100%;
+  }
 
   &--apple {
-    top: 10px;
+    right: -85px;
+    width: 225px;
+    top: 25px;
   }
   &--tomato {
-    top: 20px;
+    right: -40px;
+    width: 183px;
+    top: 30px;
   }
   &--appleCitrus {
-    top: 20px;
+    right: -50px;
+    width: 240px;
+    top: 30px;
   }
   &--multiMix {
-    top: 20px;
+    right: -50px;
+    width: 224px;
+    top: 30px;
   }
 }
 
@@ -214,15 +333,18 @@
   font-weight: 700;
   padding: 0;
   margin-top: 21px;
+  width: 220px;
 
   &__elem > p {
     margin: 0;
   }
   &__elem {
+    display: inline-block;
     margin-top: 7px;
-    width: 100%;
+
     padding-left: 15px;
     padding-top: 10px;
+    padding-right: 30px;
     min-height: 38px;
     background-repeat: no-repeat;
   }
@@ -251,15 +373,15 @@
     background-image: url("../images/vitamine-bg.png");
   }
   &__elem--vitaminc {
-    color: #e7524c;
+    color: #fa7d3c;
     background-image: url("../images/vitaminc-bg.png");
   }
   &__elem--antioxidant {
-    color: #e7524c;
+    color: #fa7d3c;
     background-image: url("../images/antioxidant-bg.png");
   }
   &__elem--pektin {
-    color: #e7524c;
+    color: #fa7d3c;
     background-image: url("../images/pektin-bg.png");
   }
   &__elem--pektin-fiber {

@@ -25,6 +25,17 @@
     visibility: hidden;
   }
 }
+
+.nav-about-us {
+  margin-right: 45px;
+  display: none;
+  width: 97px;
+}
+.nav-feedback {
+  display: none;
+  width: 122px;
+}
+
 .header--sticky > .header__inner {
   margin-top: 19px;
 }
