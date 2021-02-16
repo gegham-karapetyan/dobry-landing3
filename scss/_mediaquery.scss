@@ -90,6 +90,20 @@
   }
 }
 @media only screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 1px 1px 5px gray;
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #607d8bbf;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #607d8b;
+  }
   .wrapper > .social {
     display: block;
   }
@@ -113,11 +127,14 @@
     bottom: 30px;
   }
   .swiper-pagination-lines {
-    bottom: 46px;
+    bottom: 36px;
     display: flex;
   }
   .swiper-pagination-bullets {
     display: none;
+  }
+  .hero {
+    top: 25%;
   }
   .hero__bottle {
     width: 600px;
@@ -139,9 +156,9 @@
     left: 21%;
   }
   .play-btn {
-    left: 200px;
-    top: 140px;
-    width: 100px;
+    left: 12%;
+    top: 45%;
+    width: 90px;
   }
   .fruit-chunks {
     width: 568px;
@@ -177,7 +194,7 @@
     left: 362px;
   }
   .fruit__chunk3-tomato {
-    width: 195px;
+    width: 215px;
     left: -58px;
     top: 85px;
   }
@@ -215,8 +232,8 @@
   }
   .fruit__chunk1-multiMix {
     width: 150px;
-    left: -99px;
-    top: 114px;
+    left: -68px;
+    top: 120px;
   }
 
   .fruit__chunk2-multiMix {
@@ -232,8 +249,8 @@
   }
   .fruit__chunk4-multiMix {
     width: 170px;
-    left: 0px;
-    top: 294px;
+    left: 20px;
+    top: 300px;
   }
   .juice-text2 {
     width: 136px;
@@ -287,5 +304,63 @@
   }
   .elements {
     width: 330px;
+  }
+  .contacts-feedback__mobile,
+  .copyright-mobile {
+    display: none;
+  }
+  .contacts-feedback__desktop {
+    display: flex;
+  }
+  .form-container {
+    flex: 60%;
+  }
+  form {
+    overflow: visible;
+    & .slider-track {
+      width: 100%;
+      & .slider-slide {
+        width: 45%;
+        &:first-child {
+          margin-right: 10%;
+          & .form__uname {
+            margin-top: 0;
+          }
+        }
+        &:last-child {
+          & textarea {
+            height: 200px;
+            width: 105%;
+            padding-right: 15%;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+              width: 5px;
+            }
+            &::-webkit-scrollbar-track {
+              background-color: rgba(255, 255, 255, 0.76);
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: white;
+            }
+          }
+          & .textarea__bg {
+            height: 228px;
+          }
+          & .form__note {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    & .form__btns {
+      display: none;
+    }
+    & .feedback__submit {
+      display: block;
+
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 60px;
+    }
   }
 }

@@ -47,7 +47,7 @@
 }
 .swiper-pagination-line {
   fill: rgba(255, 255, 255, 0.5);
-  width: 40px;
+  width: 50px;
   height: 15px;
 }
 
@@ -60,7 +60,7 @@
   background-image: url("../images/bullet-circle.svg");
 }
 .swiper-pagination-line--active {
-  stroke: rgb(28, 15, 209);
+  fill: rgb(255, 255, 255);
 }
 
 .swiper-pagination-bullet:nth-child(1) {

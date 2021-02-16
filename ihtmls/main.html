@@ -16,18 +16,14 @@
     <script>
       const root = document.documentElement;
 
-      function getInnerHeight() {
-        return window.innerHeight;
-      }
       function getViewHeight() {
-        let vh;
+        let viewHeight;
         root.style.height = "100vh";
-        vh = root.offsetHeight;
+        viewHeight = root.offsetHeight;
         root.style.height = "";
-        return vh;
+        return viewHeight;
       }
 
-      root.style.setProperty("--innerHeight", getInnerHeight() + "px");
       root.style.setProperty("--viewHeight", getViewHeight() + "px");
     </script>
     <link rel="stylesheet" href="css/style.css" />

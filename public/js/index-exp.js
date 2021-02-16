@@ -12,9 +12,9 @@ let swiper = new Swiper(".swiper-container", {
   effect: "slide",
   parallax: true,
   shortSwipes: true,
-  // autoplay: {
-  //   delay: 5000,
-  // },
+  autoplay: {
+    delay: 5000,
+  },
 
   on: {
     init() {
@@ -32,7 +32,7 @@ const formPrevBtn = document.querySelector(".form__prev-btn");
 const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
 const aboutUsBtn = document.querySelector("#aboutUs");
-const aboutUsPage = document.querySelector(".about-us");
+const aboutUsMobilePage = document.querySelector(".about-us-mobile");
 const menuFeedbackPage = document.querySelector(".menu-page .feedback-page");
 const menuOpenFeedbackBtn = document.querySelector("#feedback");
 const menuPagePartTop = document.querySelector(".menu-page__part-top");
@@ -42,6 +42,13 @@ const sliderTrackFruits = document.querySelector(".slider-track--fruits");
 const sliderContainerFruits = document.querySelector(
   ".slider-container--fruits"
 );
+
+const breakpoints = {
+  sm: 450,
+  md: 540,
+  lg: 768,
+  xl: 1366,
+};
 
 const classes = {
   0: "apple",
@@ -63,8 +70,11 @@ const sections = {
   3: document.querySelector(".multiMix"),
 };
 
-let homePageHeight;
-let isAboutUsPageOpen = false;
+let viewHeight;
+let viewWidth;
+let viewOrientation;
+
+let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
 let isMenuPageOpen = false;
 
@@ -73,9 +83,9 @@ function aboutUsBtnHandler() {
   burgerBtn.classList.add("burger--rotate");
   menuPagePartTop.classList.add("menu-page__part-top--active");
   menuPagePartBottom.classList.add("menu-page__part-bottom--active");
-  aboutUsPage.classList.add("about-us--active");
+  aboutUsMobilePage.classList.add("about-us-mobile--active");
   menuOpenFeedbackBtn.classList.remove("feedback--active");
-  isAboutUsPageOpen = true;
+  isAboutUsMobilePageOpen = true;
 }
 
 function menuOpenFeedbackBtnHandler() {
@@ -83,16 +93,16 @@ function menuOpenFeedbackBtnHandler() {
   menuPagePartTop.classList.add("menu-page__part-top--active");
   menuPagePartBottom.classList.add("menu-page__part-bottom--active");
   menuOpenFeedbackBtn.classList.add("feedback--active");
-  aboutUsPage.classList.remove("about-us--active");
+  aboutUsMobilePage.classList.remove("about-us-mobile--active");
   isFeedbackPageOpen = true;
 }
 
 function burgerBtnHandler() {
-  if (isAboutUsPageOpen || isFeedbackPageOpen) {
+  if (isAboutUsMobilePageOpen || isFeedbackPageOpen) {
     burgerBtn.classList.remove("burger--rotate");
     menuPagePartTop.classList.remove("menu-page__part-top--active");
     menuPagePartBottom.classList.remove("menu-page__part-bottom--active");
-    isAboutUsPageOpen = false;
+    isAboutUsMobilePageOpen = false;
     isFeedbackPageOpen = false;
   } else {
     isMenuPageOpen = !isMenuPageOpen;
@@ -172,6 +182,12 @@ function changeClassOfBulletWhenSlideChanged() {
   swiperPaginatonBullets[activeIndex].classList.add(
     "swiper-pagination-bullet--active"
   );
+  swiperPaginatonLines[prevIndex].classList.remove(
+    "swiper-pagination-line--active"
+  );
+  swiperPaginatonLines[activeIndex].classList.add(
+    "swiper-pagination-line--active"
+  );
 }
 
 //-----</ swiper slideChange event listeners >---------------
@@ -190,7 +206,7 @@ function toggleReturnBtnActivity() {
   let index = swiper.activeIndex;
 
   let className = `return-btn--${classes[index]}`;
-  if (window.scrollY > homePageHeight) returnBtn.classList.add(className);
+  if (window.scrollY > viewHeight) returnBtn.classList.add(className);
   else returnBtn.classList.remove(className);
 }
 
@@ -215,12 +231,17 @@ function addFormToMenuPage() {
 }
 
 function init() {
-  homePageHeight = document.querySelector(".home-page").offsetHeight;
+  viewHeight = swiperContainer.offsetHeight;
+  viewWidth = window.innerWidth;
+  changeMarkupOfForm(viewWidth > breakpoints.lg);
   sliderTrackFruitsTranslate();
   changeMenuPageColor();
   addFormToSection();
   changeSwiperContainerBg();
   swiperPaginatonBulletsHandlers();
+  //test-----------
+  determineWidth();
+  //test
   swiper.on("slideChange", () => {
     Promise.resolve(
       changeClassOfBulletWhenSlideChanged(),
@@ -231,9 +252,43 @@ function init() {
     );
   });
 }
+//update var(--viewHeight)
+//TODO
+function updateViewHeight() {}
+
+function changeMarkupOfForm(qualifier) {
+  const formFirst = document.querySelector(".form--first");
+  const formSecond = document.querySelector(".form--second");
+  const formPhone = document.querySelector(".form__phone");
+  const submitBtn = document.querySelector(".feedback__submit");
+  if (qualifier) {
+    formFirst.appendChild(formPhone);
+    form.appendChild(submitBtn);
+  } else {
+    formSecond.appendChild(formPhone);
+    formSecond.appendChild(submitBtn);
+  }
+}
 
 window.addEventListener("load", init, false);
-//window.addEventListener("resize", init, false);
+
+window.addEventListener(
+  "resize",
+  function () {
+    viewWidth = window.innerWidth;
+    viewHeight = window.innerHeight;
+    viewWidth > viewHeight
+      ? (viewOrientation = "landscape")
+      : (viewOrientation = "portrait");
+
+    changeMarkupOfForm(viewWidth > breakpoints.lg);
+    //test
+    determineWidth();
+    //
+  },
+  false
+);
+
 window.addEventListener(
   "scroll",
   () => {
@@ -242,3 +297,15 @@ window.addEventListener(
   },
   false
 );
+
+//---------------test-----------------//
+function determineWidth() {
+  let div = document.createElement("div");
+  div.style.position = "fixed";
+  div.style.zIndex = "999999";
+  div.style.top = "20%";
+  div.style.left = "20%";
+  div.style.background = "gray";
+  div.innerHTML = `<h3>viewHeight : ${viewHeight}</h3><h3>innerHeight : ${window.innerHeight}</h3>`;
+  document.body.appendChild(div);
+}

@@ -6,7 +6,7 @@
   & textarea {
     color: $blurry-apple;
   }
-  & .copyright {
+  & .copyright-mobile {
     background-color: $blurry-apple;
   }
 }
@@ -16,7 +16,7 @@
   & textarea {
     color: $blurry-tomato;
   }
-  & .copyright {
+  & .copyright-mobile {
     background-color: $blurry-tomato;
   }
 }
@@ -26,7 +26,7 @@
   & textarea {
     color: $blurry-appleCitrus;
   }
-  & .copyright {
+  & .copyright-mobile {
     background-color: $blurry-appleCitrus;
   }
 }
@@ -36,7 +36,7 @@
   & textarea {
     color: $blurry-multiMix;
   }
-  & .copyright {
+  & .copyright-mobile {
     background-color: $blurry-multiMix;
   }
 }
@@ -61,19 +61,38 @@
 }
 
 .form-container {
-  width: 83%;
-  flex: 40%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   padding: 0;
+  flex: 40%;
+}
+.contacts-feedback__desktop {
+  display: none;
+  margin-bottom: 50px;
+  & > button {
+    padding: 0 50px;
+    transform: rotateZ(180deg);
+  }
+  & > .ordinary-contacts {
+    font-family: "Montserrat", sans-serif;
+    line-height: 14px;
+    padding-right: 25px;
+    border-right: 1px solid white;
+  }
+  & > .copyright-desktop {
+    padding-left: 25px;
+    line-height: 14px;
+    font-family: "Montserrat", sans-serif;
+  }
 }
 
-.contacts-feedback {
+.contacts-feedback__mobile {
   margin-bottom: 32px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
 
@@ -95,11 +114,10 @@
   position: absolute;
   top: -10px;
   left: 0;
-
   width: 100%;
 }
 
-.copyright {
+.copyright-mobile {
   position: relative;
   font-family: "Montserrat", sans-serif;
   min-height: 60px;
