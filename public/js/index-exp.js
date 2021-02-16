@@ -106,7 +106,7 @@ function burgerBtnHandler() {
     isFeedbackPageOpen = false;
   } else {
     isMenuPageOpen = !isMenuPageOpen;
-    body.classList.toggle("prevent-scrolling");
+    //body.classList.toggle("prevent-scrolling");
     menuPage.classList.toggle("menu-page--active");
     burgerBtn.classList.toggle("burger--active");
 
