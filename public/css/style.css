@@ -280,10 +280,6 @@ h2 {
           flex: 5%;
 }
 
-.prevent-scrolling {
-  overflow: hidden;
-}
-
 .bottom-sign {
   position: absolute;
   width: 100%;
