@@ -259,6 +259,7 @@ function updateViewHeight() {}
 function changeMarkupOfForm(qualifier) {
   const formFirst = document.querySelector(".form--first");
   const formSecond = document.querySelector(".form--second");
+  const formBtnsSecond = document.querySelector(".form__btns--second");
   const formPhone = document.querySelector(".form__phone");
   const submitBtn = document.querySelector(".feedback__submit");
   if (qualifier) {
@@ -266,7 +267,7 @@ function changeMarkupOfForm(qualifier) {
     form.appendChild(submitBtn);
   } else {
     formSecond.appendChild(formPhone);
-    formSecond.appendChild(submitBtn);
+    formBtnsSecond.appendChild(submitBtn);
   }
 }
 
