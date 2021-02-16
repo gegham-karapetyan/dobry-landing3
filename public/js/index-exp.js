@@ -197,8 +197,10 @@ function preventSlideChanges() {
     swiper.allowTouchMove = false;
     swiper.autoplay.stop();
   } else {
-    swiper.allowTouchMove = true;
-    swiper.autoplay.start();
+    if (!isMenuPageOpen) {
+      swiper.allowTouchMove = true;
+      swiper.autoplay.start();
+    }
   }
 }
 
@@ -281,7 +283,7 @@ window.addEventListener(
     viewWidth > viewHeight
       ? (viewOrientation = "landscape")
       : (viewOrientation = "portrait");
-
+    sliderTrackFruitsTranslate();
     changeMarkupOfForm(viewWidth > breakpoints.lg);
     //test
     determineWidth();
