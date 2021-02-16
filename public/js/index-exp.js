@@ -222,12 +222,12 @@ formPrevBtn.onclick = formPrevBtnHandler;
 function addFormToSection() {
   let index = swiper.activeIndex;
   let container = document.querySelector(`.${classes[index]} .form-container`);
-  container.appendChild(form);
+  container.append(form);
 }
 
 function addFormToMenuPage() {
   let container = document.querySelector(".menu-page .form-container");
-  container.appendChild(form);
+  container.append(form);
 }
 
 function init() {
@@ -263,11 +263,11 @@ function changeMarkupOfForm(qualifier) {
   const formPhone = document.querySelector(".form__phone");
   const submitBtn = document.querySelector(".feedback__submit");
   if (qualifier) {
-    formFirst.appendChild(formPhone);
-    form.appendChild(submitBtn);
+    formFirst.append(formPhone);
+    form.append(submitBtn);
   } else {
-    formSecond.appendChild(formPhone);
-    formBtnsSecond.appendChild(submitBtn);
+    formSecond.prepend(formPhone);
+    formBtnsSecond.append(submitBtn);
   }
 }
 
@@ -308,5 +308,5 @@ function determineWidth() {
   div.style.left = "20%";
   div.style.background = "gray";
   div.innerHTML = `<h3>viewHeight : ${viewHeight}</h3><h3>innerHeight : ${window.innerHeight}</h3>`;
-  document.body.appendChild(div);
+  document.body.append(div);
 }
