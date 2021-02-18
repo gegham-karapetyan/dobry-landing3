@@ -72,9 +72,9 @@ const sections = {
   3: document.querySelector(".multiMix"),
 };
 
-let viewHeight;
-let viewWidth;
-let viewOrientation;
+let viewHeight = swiperContainer.offsetHeight; //100vh
+let viewWidth = window.innerWidth;
+let viewOrientation = defineOrentation(viewWidth, viewHeight);
 
 let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
@@ -249,9 +249,7 @@ function addFormToMenuPage() {
 }
 
 function init() {
-  viewHeight = swiperContainer.offsetHeight;
-  viewWidth = window.innerWidth;
-  changeMarkupOfForm(viewWidth > breakpoints.lg);
+  changeMarkupOfForm(viewWidth >= breakpoints.lg);
   sliderTrackFruitsTranslate();
   changeMenuPageColor();
   addFormToSection();
@@ -274,13 +272,13 @@ function init() {
 //TODO
 function updateViewHeight() {}
 
-function changeMarkupOfForm(qualifier) {
+function changeMarkupOfForm(threshold) {
   const formFirst = document.querySelector(".form--first");
   const formSecond = document.querySelector(".form--second");
   const formBtnsSecond = document.querySelector(".form__btns--second");
   const formPhone = document.querySelector(".form__phone");
   const submitBtn = document.querySelector(".feedback__submit");
-  if (qualifier) {
+  if (threshold) {
     formFirst.append(formPhone);
     form.append(submitBtn);
   } else {
@@ -295,16 +293,19 @@ window.addEventListener(
   "resize",
   function () {
     //
-    console.log("the resize occurred");
+
     window.rr = `resize ${++window.cc}`;
     //
-    viewWidth = window.innerWidth;
-    viewHeight = window.innerHeight;
-    viewWidth > viewHeight
-      ? (viewOrientation = "landscape")
-      : (viewOrientation = "portrait");
+    let currentViewWidth = window.innerWidth;
+    let currentViewHeight = window.innerHeight;
+    viewOrentation = defineOrentation(currentViewWidth, currentViewHeight);
+
+    if (currentViewWidth !== viewWidth) {
+      viewWidth = currentViewWidth;
+      changeMarkupOfForm(currentViewWidth >= breakpoints.lg);
+    }
     sliderTrackFruitsTranslate();
-    changeMarkupOfForm(viewWidth > breakpoints.lg);
+
     //test
     determineWidth();
     //
@@ -320,6 +321,13 @@ window.addEventListener(
   },
   false
 );
+//---------------helpers-------------
+
+function defineOrentation(width, height) {
+  return width >= height ? "landscape" : "portrait";
+}
+
+//--------------/ helpers------------
 
 //---------------test-----------------//
 function determineWidth() {
