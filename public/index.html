@@ -230,121 +230,6 @@
 </form>
 
       </div>
-      <div class="menu-page">
-  <div class="menu-page__wrapper">
-    <div class="opening-parts">
-      <div class="menu-page__part-top">
-        <div>
-          <button id="menuAboutUs">
-            <img src="./images/about-us.svg" alt="about-us" />
-          </button>
-        </div>
-      </div>
-      <div class="menu-page__part-bottom">
-        <div>
-          <button id="feedback">
-            <img src="./images/feedback.svg" alt="feedback" />
-          </button>
-        </div>
-
-        <div class="menu-page__social-contacts">
-          <a href="https://youtube.com"
-            ><img src="images/youtube-icon.svg" alt="youtube-icon"
-          /></a>
-          <a href="https://facebook.com"
-            ><img src="images/facebook-icon.svg" alt="facebook-icon"
-          /></a>
-          <a href="https://instagram.com"
-            ><img src="images/instagram-icon.svg" alt="instagram-icon"
-          /></a>
-        </div>
-        <div class="menu-page__ordinary-contacts">
-          <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
-          <br />
-          <a href="mailto:https://mail@dobry.am">mail@dobry.am</a>
-        </div>
-      </div>
-    </div>
-    <div class="about-us-mobile">
-  <div class="first-part">
-    <div class="bottles">
-      <img src="./images/bottles.png" alt="bottles" />
-    </div>
-    <div class="left-part"></div>
-    <div class="right-part">
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <div class="second-part">
-    <div class="container">
-      <div class="about-us-text">
-        <img src="./images/about-us2.svg" alt="about-us" />
-      </div>
-      <p>
-        «Դոբրի»-ն ներկայացնում է 100% բնական հյութերի նոր տեսականի:
-        Յուրաքանչյուր տուփում միայն 100%-անոց հյութեր են, որոնք պահպանել են
-        հասած մրգերի, բանջարեղենի և հատապտուղների բոլոր օգտակար հատկությունները:
-        Եվ ոչ մի գրամ հավելյալ շաքար:
-      </p>
-    </div>
-  </div>
-</div>
-
-    <div class="feedback-page">
-      <div class="damper"></div>
-<div class="feedback__text">
-  <img src="images/feedback2.svg" alt="feddback-text" />
-</div>
-<!-- will be dinamicly added -->
-<div class="form-container"></div>
-
-<div class="contacts-feedback">
-  <div class="contacts-feedback__mobile container">
-    <div class="social">
-      <a href="https://facebook.com"
-        ><img src="images/facebook-icon.svg" alt="facebook-icon"
-      /></a>
-      <a href="https://youtube.com"
-        ><img src="images/youtube-icon.svg" alt="youtube-icon"
-      /></a>
-      <a href="https://instagram.com"
-        ><img src="images/instagram-icon.svg" alt="instagram-icon"
-      /></a>
-    </div>
-    <div>
-      <a href="mailto:https://mail@dobry.am">mail@dobry.am</a><br />
-      <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
-    </div>
-  </div>
-  <div class="contacts-feedback__desktop">
-    <button class="upToHome">
-      <img src="images/bottom-sign.svg" alt="up-sign" />
-    </button>
-
-    <div class="ordinary-contacts">
-      <a href="mailto:https://mail@dobry.am">mail@dobry.am</a><br />
-      <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
-    </div>
-    <div class="copyright-desktop">
-      Copyright © 2020 dobry.am<br />All Rights Reserved.
-    </div>
-  </div>
-</div>
-
-<div class="copyright-mobile">
-  <div class="feedback__border">
-    <img src="images/header-border.svg" alt="border" width="100%" />
-  </div>
-  <div class="container">
-    <span>Copyright © 2020 dobry.am<br />All Rights Reserved.</span>
-  </div>
-</div>
-
-    </div>
-  </div>
-</div>
-
 
       <header class="header">
   <div class="header__inner">
@@ -424,7 +309,7 @@
     </div>
   </div>
   <div class="fruit-chunks" data-swiper-parallax="-300">
-    <div class="play-btn">
+    <div class="play-btn" id="play-btn-apple">
       <img src="images/play-button.svg" alt="" />
     </div>
     <div class="fruit__chunk1 fruit__chunk1-apple">
@@ -494,7 +379,7 @@
     </div>
   </div>
   <div class="fruit-chunks" data-swiper-parallax="-300">
-    <div class="play-btn">
+    <div class="play-btn" id="play-btn-tomato">
       <img src="images/play-button.svg" alt="" />
     </div>
     <div class="fruit__chunk1 fruit__chunk1-tomato">
@@ -564,7 +449,7 @@
     </div>
   </div>
   <div class="fruit-chunks" data-swiper-parallax="-300">
-    <div class="play-btn">
+    <div class="play-btn" id="play-btn-appleCitrus">
       <img src="images/play-button.svg" alt="" />
     </div>
     <div class="fruit__chunk1 fruit__chunk1-appleCitrus">
@@ -641,7 +526,7 @@
     </div>
   </div>
   <div class="fruit-chunks" data-swiper-parallax="-300">
-    <div class="play-btn">
+    <div class="play-btn" id="play-btn-multiMix">
       <img src="images/play-button.svg" alt="" />
     </div>
     <div class="fruit__chunk1 fruit__chunk1-multiMix">
@@ -1592,6 +1477,133 @@
         <a href="https://instagram.com"
           ><img src="images/instagram-icon.svg" alt="instagram-icon"
         /></a>
+      </div>
+      <div class="menu-page">
+  <div class="menu-page__wrapper">
+    <div class="opening-parts">
+      <div class="menu-page__part-top">
+        <div>
+          <button id="menuAboutUs">
+            <img src="./images/about-us.svg" alt="about-us" />
+          </button>
+        </div>
+      </div>
+      <div class="menu-page__part-bottom">
+        <div>
+          <button id="feedback">
+            <img src="./images/feedback.svg" alt="feedback" />
+          </button>
+        </div>
+
+        <div class="menu-page__social-contacts">
+          <a href="https://youtube.com"
+            ><img src="images/youtube-icon.svg" alt="youtube-icon"
+          /></a>
+          <a href="https://facebook.com"
+            ><img src="images/facebook-icon.svg" alt="facebook-icon"
+          /></a>
+          <a href="https://instagram.com"
+            ><img src="images/instagram-icon.svg" alt="instagram-icon"
+          /></a>
+        </div>
+        <div class="menu-page__ordinary-contacts">
+          <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
+          <br />
+          <a href="mailto:https://mail@dobry.am">mail@dobry.am</a>
+        </div>
+      </div>
+    </div>
+    <div class="about-us-mobile">
+  <div class="first-part">
+    <div class="bottles">
+      <img src="./images/bottles.png" alt="bottles" />
+    </div>
+    <div class="left-part"></div>
+    <div class="right-part">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="second-part">
+    <div class="container">
+      <div class="about-us-text">
+        <img src="./images/about-us2.svg" alt="about-us" />
+      </div>
+      <p>
+        «Դոբրի»-ն ներկայացնում է 100% բնական հյութերի նոր տեսականի:
+        Յուրաքանչյուր տուփում միայն 100%-անոց հյութեր են, որոնք պահպանել են
+        հասած մրգերի, բանջարեղենի և հատապտուղների բոլոր օգտակար հատկությունները:
+        Եվ ոչ մի գրամ հավելյալ շաքար:
+      </p>
+    </div>
+  </div>
+</div>
+
+    <div class="feedback-page">
+      <div class="damper"></div>
+<div class="feedback__text">
+  <img src="images/feedback2.svg" alt="feddback-text" />
+</div>
+<!-- will be dinamicly added -->
+<div class="form-container"></div>
+
+<div class="contacts-feedback">
+  <div class="contacts-feedback__mobile container">
+    <div class="social">
+      <a href="https://facebook.com"
+        ><img src="images/facebook-icon.svg" alt="facebook-icon"
+      /></a>
+      <a href="https://youtube.com"
+        ><img src="images/youtube-icon.svg" alt="youtube-icon"
+      /></a>
+      <a href="https://instagram.com"
+        ><img src="images/instagram-icon.svg" alt="instagram-icon"
+      /></a>
+    </div>
+    <div>
+      <a href="mailto:https://mail@dobry.am">mail@dobry.am</a><br />
+      <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
+    </div>
+  </div>
+  <div class="contacts-feedback__desktop">
+    <button class="upToHome">
+      <img src="images/bottom-sign.svg" alt="up-sign" />
+    </button>
+
+    <div class="ordinary-contacts">
+      <a href="mailto:https://mail@dobry.am">mail@dobry.am</a><br />
+      <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
+    </div>
+    <div class="copyright-desktop">
+      Copyright © 2020 dobry.am<br />All Rights Reserved.
+    </div>
+  </div>
+</div>
+
+<div class="copyright-mobile">
+  <div class="feedback__border">
+    <img src="images/header-border.svg" alt="border" width="100%" />
+  </div>
+  <div class="container">
+    <span>Copyright © 2020 dobry.am<br />All Rights Reserved.</span>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="media">
+        <div class="turnover-phone">
+  <div>
+    <img src="images/turnover-phone.svg" alt="turnover-phone" />
+  </div>
+  <div>Շրջեք սմարթֆոնը</div>
+</div>
+
+        <div class="video-wrap">
+          <video src="media/mov_bbb.mp4" controls id="video"></video>
+        </div>
       </div>
       <button type="button" class="return-btn">
         <img src="images/up-arrow.svg" alt="up-arrow" />

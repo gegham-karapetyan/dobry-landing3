@@ -24,7 +24,9 @@ let swiper = new Swiper(".swiper-container", {
 });
 
 const body = document.querySelector("body");
-
+const playBtns = document.querySelectorAll(".play-btn");
+const turnOverPhone = document.querySelector(".turnover-phone");
+const media = document.querySelector(".media");
 const form = document.querySelector("#form");
 const formSliderTrack = document.querySelector("form .slider-track");
 const formNextBtn = document.querySelector(".form__next-btn");
@@ -74,13 +76,29 @@ const sections = {
 
 let viewHeight = swiperContainer.offsetHeight; //100vh
 let viewWidth = window.innerWidth;
-let viewOrientation = defineOrentation(viewWidth, viewHeight);
+let viewOrientation = defineOrientation(viewWidth, viewHeight);
 
 let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
 let isMenuPageOpen = false;
 
 // ----------------< buttons onClick events handlers >--------------
+function playBtnHundler() {
+  media.style.display = "block";
+  openFullscreen();
+  if (viewOrientation === "portrait") {
+    let { activeIndex, previousIndex } = swiper;
+    if (previousIndex !== undefined) {
+      turnOverPhone.classList.remove(
+        `turnover-phone--${classes[previousIndex]}`
+      );
+    }
+
+    turnOverPhone.classList.add(`turnover-phone--${classes[activeIndex]}`);
+    activateTurnOverPhonePage();
+  }
+  console.log(viewOrientation);
+}
 function menuAboutUsBtnHandler() {
   burgerBtn.classList.add("burger--rotate");
   menuPagePartTop.classList.add("menu-page__part-top--active");
@@ -204,6 +222,7 @@ function changeClassOfBulletWhenSlideChanged() {
 
 //-----</ swiper slideChange event listeners >---------------
 
+// ---------< control other states >----------
 function preventSlideChanges() {
   if (window.scrollY > 30) {
     swiper.allowTouchMove = false;
@@ -215,6 +234,12 @@ function preventSlideChanges() {
     }
   }
 }
+function activateTurnOverPhonePage() {
+  turnOverPhone.style.display = "flex";
+}
+function deactivateTurnOverPhonePage() {
+  turnOverPhone.style.display = "none";
+}
 
 function toggleReturnBtnActivity() {
   let index = swiper.activeIndex;
@@ -223,6 +248,7 @@ function toggleReturnBtnActivity() {
   if (window.scrollY > viewHeight) returnBtn.classList.add(className);
   else returnBtn.classList.remove(className);
 }
+// ---------</ control other states >----------
 
 //---------------< initialize onClick events handlers >-----------------
 burgerBtn.onclick = burgerBtnHandler;
@@ -234,6 +260,9 @@ formNextBtn.onclick = formNextBtnHandler;
 formPrevBtn.onclick = formPrevBtnHandler;
 upToHomeBtns.forEach((btn) => {
   btn.onclick = returnBtnHandler;
+});
+playBtns.forEach((btn) => {
+  btn.onclick = playBtnHundler;
 });
 //---------------</ initialize onClick events handlers >-----------------
 
@@ -298,11 +327,15 @@ window.addEventListener(
     //
     let currentViewWidth = window.innerWidth;
     let currentViewHeight = window.innerHeight;
-    viewOrentation = defineOrentation(currentViewWidth, currentViewHeight);
+    viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
 
     if (currentViewWidth !== viewWidth) {
       viewWidth = currentViewWidth;
       changeMarkupOfForm(currentViewWidth >= breakpoints.lg);
+    }
+
+    if (viewOrientation === "landscape") {
+      deactivateTurnOverPhonePage();
     }
     sliderTrackFruitsTranslate();
 
@@ -323,8 +356,17 @@ window.addEventListener(
 );
 //---------------helpers-------------
 
-function defineOrentation(width, height) {
+function defineOrientation(width, height) {
   return width >= height ? "landscape" : "portrait";
+}
+function openFullscreen() {
+  if (media.requestFullscreen) {
+    media.requestFullscreen();
+  } else if (media.webkitRequestFullscreen) {
+    media.webkitRequestFullscreen();
+  } else if (media.msRequestFullscreen) {
+    media.msRequestFullscreen();
+  }
 }
 
 //--------------/ helpers------------
