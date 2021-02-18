@@ -31,13 +31,15 @@ const formNextBtn = document.querySelector(".form__next-btn");
 const formPrevBtn = document.querySelector(".form__prev-btn");
 const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
-const aboutUsBtn = document.querySelector("#aboutUs");
+const menuAboutUsBtn = document.querySelector("#menuAboutUs");
+const navFeedbackBtn = document.querySelector("#navFeedback");
 const aboutUsMobilePage = document.querySelector(".about-us-mobile");
 const menuFeedbackPage = document.querySelector(".menu-page .feedback-page");
 const menuOpenFeedbackBtn = document.querySelector("#feedback");
 const menuPagePartTop = document.querySelector(".menu-page__part-top");
 const menuPagePartBottom = document.querySelector(".menu-page__part-bottom");
 const returnBtn = document.querySelector(".return-btn");
+const upToHomeBtns = document.querySelectorAll(".upToHome");
 const sliderTrackFruits = document.querySelector(".slider-track--fruits");
 const sliderContainerFruits = document.querySelector(
   ".slider-container--fruits"
@@ -79,13 +81,23 @@ let isFeedbackPageOpen = false;
 let isMenuPageOpen = false;
 
 // ----------------< buttons onClick events handlers >--------------
-function aboutUsBtnHandler() {
+function menuAboutUsBtnHandler() {
   burgerBtn.classList.add("burger--rotate");
   menuPagePartTop.classList.add("menu-page__part-top--active");
   menuPagePartBottom.classList.add("menu-page__part-bottom--active");
   aboutUsMobilePage.classList.add("about-us-mobile--active");
   menuOpenFeedbackBtn.classList.remove("feedback--active");
   isAboutUsMobilePageOpen = true;
+}
+function navFeedbackBtnHandler() {
+  let documentHeight =
+    Math.max(
+      sections[0].offsetHeight,
+      sections[1].offsetHeight,
+      sections[2].offsetHeight,
+      sections[3].offsetHeight
+    ) + viewHeight;
+  window.scroll(0, documentHeight);
 }
 
 function menuOpenFeedbackBtnHandler() {
@@ -214,11 +226,15 @@ function toggleReturnBtnActivity() {
 
 //---------------< initialize onClick events handlers >-----------------
 burgerBtn.onclick = burgerBtnHandler;
-aboutUsBtn.onclick = aboutUsBtnHandler;
+menuAboutUsBtn.onclick = menuAboutUsBtnHandler;
+navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuOpenFeedbackBtn.onclick = menuOpenFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
 formNextBtn.onclick = formNextBtnHandler;
 formPrevBtn.onclick = formPrevBtnHandler;
+upToHomeBtns.forEach((btn) => {
+  btn.onclick = returnBtnHandler;
+});
 //---------------</ initialize onClick events handlers >-----------------
 
 function addFormToSection() {
@@ -254,7 +270,7 @@ function init() {
     );
   });
 }
-//update var(--viewHeight)
+//update 100vh
 //TODO
 function updateViewHeight() {}
 
@@ -274,10 +290,14 @@ function changeMarkupOfForm(qualifier) {
 }
 
 window.addEventListener("load", init, false);
-
+window.cc = 0;
 window.addEventListener(
   "resize",
   function () {
+    //
+    console.log("the resize occurred");
+    window.rr = `resize ${++window.cc}`;
+    //
     viewWidth = window.innerWidth;
     viewHeight = window.innerHeight;
     viewWidth > viewHeight
@@ -303,12 +323,15 @@ window.addEventListener(
 
 //---------------test-----------------//
 function determineWidth() {
-  let div = document.createElement("div");
-  div.style.position = "fixed";
-  div.style.zIndex = "999999";
-  div.style.top = "20%";
-  div.style.left = "20%";
-  div.style.background = "gray";
-  div.innerHTML = `<h3>viewHeight : ${viewHeight}</h3><h3>innerHeight : ${window.innerHeight}</h3>`;
-  document.body.append(div);
+  let infoDiv = document.getElementById("infoDiv");
+  if (!infoDiv) infoDiv = document.createElement("div");
+
+  infoDiv.id = "infoDiv";
+  infoDiv.style.position = "fixed";
+  infoDiv.style.zIndex = "999999";
+  infoDiv.style.top = "20%";
+  infoDiv.style.left = "20%";
+  infoDiv.style.background = "gray";
+  infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3><h3>innerHeight : ${window.innerHeight}</h3><h3>resize : ${window.rr}</h3>`;
+  document.body.append(infoDiv);
 }

@@ -294,7 +294,7 @@ h2 {
 
 .swiper-container {
   width: 100%;
-  height: var(--viewHeight);
+  height: 100vh;
   min-height: 586px;
   position: relative;
   overflow: hidden;
@@ -581,7 +581,7 @@ form .slider-track {
           box-sizing: border-box;
   -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
-  height: var(--viewHeight);
+  height: 100vh;
   width: 100%;
   -webkit-transition: -webkit-transform 0.4s ease-in;
   transition: -webkit-transform 0.4s ease-in;
@@ -1564,7 +1564,7 @@ form .slider-track {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
   width: 100%;
-  height: var(--viewHeight);
+  height: 100vh;
   min-height: 568px;
 }
 
@@ -1923,6 +1923,9 @@ form .slider-track--translate {
   .sub-composition {
     margin-bottom: 112px;
   }
+  form {
+    max-width: 500px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -2160,6 +2163,7 @@ form .slider-track--translate {
   }
   form {
     overflow: visible;
+    max-width: 640px;
   }
   form .slider-track {
     width: 100%;
@@ -2189,7 +2193,7 @@ form .slider-track--translate {
     background-color: white;
   }
   form .slider-track .slider-slide:last-child .textarea__bg {
-    height: 228px;
+    height: 225px;
   }
   form .slider-track .slider-slide:last-child .form__note {
     margin-top: 0;

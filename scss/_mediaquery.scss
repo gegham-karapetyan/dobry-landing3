@@ -88,6 +88,9 @@
   .sub-composition {
     margin-bottom: 112px;
   }
+  form {
+    max-width: 500px;
+  }
 }
 @media only screen and (min-width: 768px) {
   ::-webkit-scrollbar {
@@ -317,6 +320,9 @@
   }
   form {
     overflow: visible;
+
+    max-width: 640px;
+
     & .slider-track {
       width: 100%;
       & .slider-slide {
@@ -344,7 +350,7 @@
             }
           }
           & .textarea__bg {
-            height: 228px;
+            height: 225px;
           }
           & .form__note {
             margin-top: 0;
