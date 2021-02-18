@@ -340,6 +340,9 @@ function determineWidth() {
   infoDiv.style.top = "20%";
   infoDiv.style.left = "20%";
   infoDiv.style.background = "gray";
-  infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3><h3>innerHeight : ${window.innerHeight}</h3><h3>resize : ${window.rr}</h3>`;
+  infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3>
+  <h3>innerHeight : ${window.innerHeight}</h3>
+  <h3>resize : ${window.rr}</h3>
+  <h3>homePage height : ${swiperContainer.offsetHeight}</h3>`;
   document.body.append(infoDiv);
 }
