@@ -1867,9 +1867,7 @@ form .slider-track--translate {
 
 .turnover-phone {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   top: 0;
   left: 0;
   z-index: 100;

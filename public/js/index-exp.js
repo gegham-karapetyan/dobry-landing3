@@ -27,6 +27,7 @@ const body = document.querySelector("body");
 const playBtns = document.querySelectorAll(".play-btn");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
+const video = document.querySelector("#video");
 const form = document.querySelector("#form");
 const formSliderTrack = document.querySelector("form .slider-track");
 const formNextBtn = document.querySelector(".form__next-btn");
@@ -85,7 +86,7 @@ let isMenuPageOpen = false;
 // ----------------< buttons onClick events handlers >--------------
 function playBtnHundler() {
   media.style.display = "block";
-  openFullscreen();
+
   if (viewOrientation === "portrait") {
     let { activeIndex, previousIndex } = swiper;
     if (previousIndex !== undefined) {
@@ -96,6 +97,8 @@ function playBtnHundler() {
 
     turnOverPhone.classList.add(`turnover-phone--${classes[activeIndex]}`);
     activateTurnOverPhonePage();
+  } else {
+    openFullscreen();
   }
   console.log(viewOrientation);
 }
@@ -360,12 +363,12 @@ function defineOrientation(width, height) {
   return width >= height ? "landscape" : "portrait";
 }
 function openFullscreen() {
-  if (media.requestFullscreen) {
-    media.requestFullscreen();
-  } else if (media.webkitRequestFullscreen) {
-    media.webkitRequestFullscreen();
-  } else if (media.msRequestFullscreen) {
-    media.msRequestFullscreen();
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) {
+    video.msRequestFullscreen();
   }
 }
 
