@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 html {
-  user-select: none;
+  user-select: none !important;
   font-size: 12px;
   scroll-behavior: smooth;
 }

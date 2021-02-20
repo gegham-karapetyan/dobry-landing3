@@ -188,10 +188,10 @@ template {
 }
 
 html {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
   font-size: 12px;
   scroll-behavior: smooth;
 }

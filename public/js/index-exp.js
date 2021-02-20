@@ -40,6 +40,9 @@ const form = document.querySelector("#form");
 const formSliderTrack = document.querySelector("form .slider-track");
 const formNextBtn = document.querySelector(".form__next-btn");
 const formPrevBtn = document.querySelector(".form__prev-btn");
+const inputUname = form.querySelector("#uname");
+const inputMail = form.querySelector("#mail");
+const inputPhone = form.querySelector("#phone");
 const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
 const menuAboutUsBtn = document.querySelector("#menuAboutUs");
@@ -164,10 +167,15 @@ function returnBtnHandler() {
   window.scroll(0, 0);
 }
 
-function formNextBtnHandler() {
+function formNextBtnClickHandler() {
+  this.clickEventOccure = true;
   formSliderTrack.classList.add("slider-track--translate");
 }
+function formNextBtnFocusHandler() {
+  if (!this.clickEventOccure) this.onclick();
+}
 function formPrevBtnHandler() {
+  formNextBtn.clickEventOccure = false;
   formSliderTrack.classList.remove("slider-track--translate");
 }
 
@@ -266,7 +274,8 @@ menuAboutUsBtn.onclick = menuAboutUsBtnHandler;
 navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuOpenFeedbackBtn.onclick = menuOpenFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
-formNextBtn.onclick = formNextBtnHandler;
+formNextBtn.onclick = formNextBtnClickHandler;
+formNextBtn.onfocus = formNextBtnFocusHandler;
 formPrevBtn.onclick = formPrevBtnHandler;
 upToHomeBtns.forEach((btn) => {
   btn.onclick = returnBtnHandler;
