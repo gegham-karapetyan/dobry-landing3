@@ -405,7 +405,8 @@ function determineWidth() {
   infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3>
   <h3>innerHeight : ${window.innerHeight}</h3>
   <h3>resize : ${window.rr}</h3>
-  <h3>homePage height : ${swiperContainer.offsetHeight}</h3>`;
+  <h3>homePage height : ${swiperContainer.offsetHeight}</h3>
+  <h3>event : ${window.event.key}</h3>`;
   document.body.append(infoDiv);
 }
 
@@ -427,7 +428,8 @@ function toggleFullScreen() {
 }
 //document.ondblclick = toggleFullScreen;
 //videoWrap.ondblclick = stopProp;
-function stopProp(event) {
-  event.stopPropagation();
-}
+
+document.addEventListener("keydown", () => {
+  determineWidth();
+});
 //---------/test-----------
