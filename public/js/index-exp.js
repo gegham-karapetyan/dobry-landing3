@@ -17,7 +17,7 @@ let swiper = new Swiper(".swiper-container", {
   longSwipesMs: 200,
   shortSwipes: false,
 
-  touchRatio: 0.4,
+  touchRatio: 0.6,
 
   autoplay: {
     delay: 5000,
