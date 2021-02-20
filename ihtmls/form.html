@@ -10,7 +10,7 @@
             class="feedback__uname"
             autocomplete="off"
             name="uname"
-            tabindex="-11"
+            tabindex="-1"
             required
           />
           <svg class="name-input__bg">
@@ -25,6 +25,7 @@
             class="feedback__mail"
             name="mail"
             autocomplete="off"
+            tabindex="-1"
             required
           />
           <svg class="mail-input__bg">
@@ -46,6 +47,7 @@
           <input
             id="phone"
             type="tel"
+            tabindex="-1"
             autocomplete="off"
             name="phone"
             required
@@ -56,7 +58,8 @@
         </div>
         <div class="form__note">
           <label for="note">Նշում</label>
-          <textarea name="note" id="note" cols="10" rows="10"> </textarea>
+          <textarea name="note" id="note" cols="10" rows="10" tabindex="-1">
+          </textarea>
           <svg class="textarea__bg">
             <use xlink:href="#textarea-bg"></use>
           </svg>
