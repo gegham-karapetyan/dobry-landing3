@@ -167,16 +167,20 @@ function returnBtnHandler() {
   window.scroll(0, 0);
 }
 
-function formNextBtnClickHandler() {
-  alert("barev");
-  this.clickEventOccure = true;
+function formNextBtnHandler() {
   formSliderTrack.classList.add("slider-track--translate");
+  formSliderTrack.ontransitionend = function () {
+    if (!inputPhone.isFocused) {
+      inputPhone.focus();
+      inputPhone.isFocused = true;
+    } else {
+      inputPhone.isFocused = false;
+      inputMail.focus();
+    }
+  };
 }
-function formNextBtnFocusHandler() {
-  if (!this.clickEventOccure) this.onclick();
-}
+
 function formPrevBtnHandler() {
-  formNextBtn.clickEventOccure = false;
   formSliderTrack.classList.remove("slider-track--translate");
 }
 
@@ -275,8 +279,7 @@ menuAboutUsBtn.onclick = menuAboutUsBtnHandler;
 navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuOpenFeedbackBtn.onclick = menuOpenFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
-formNextBtn.onclick = formNextBtnClickHandler;
-formNextBtn.onfocus = formNextBtnFocusHandler;
+formNextBtn.onclick = formNextBtnHandler;
 formPrevBtn.onclick = formPrevBtnHandler;
 upToHomeBtns.forEach((btn) => {
   btn.onclick = returnBtnHandler;
@@ -432,4 +435,13 @@ function toggleFullScreen() {
 document.addEventListener("keydown", () => {
   determineWidth();
 });
+inputMail.onkeydown = (event) => {
+  if (event.key === "Tab") {
+    event.preventDefault();
+    formNextBtn.onclick();
+  }
+};
+inputPhone.onblur = () => {
+  console.log("blure");
+};
 //---------/test-----------
