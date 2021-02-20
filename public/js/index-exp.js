@@ -168,6 +168,7 @@ function returnBtnHandler() {
 }
 
 function formNextBtnClickHandler() {
+  alert("barev");
   this.clickEventOccure = true;
   formSliderTrack.classList.add("slider-track--translate");
 }
