@@ -12,6 +12,13 @@ let swiper = new Swiper(".swiper-container", {
   effect: "slide",
   parallax: true,
   shortSwipes: true,
+  longSwipesRatio: 0.1,
+  threshold: 5,
+  longSwipesMs: 200,
+  shortSwipes: false,
+
+  touchRatio: 0.4,
+
   autoplay: {
     delay: 5000,
   },
@@ -28,6 +35,7 @@ const playBtns = document.querySelectorAll(".play-btn");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
 const video = document.querySelector("#video");
+const videoWrap = document.querySelector(".video-wrap");
 const form = document.querySelector("#form");
 const formSliderTrack = document.querySelector("form .slider-track");
 const formNextBtn = document.querySelector(".form__next-btn");
@@ -96,9 +104,8 @@ function playBtnHundler() {
     }
 
     turnOverPhone.classList.add(`turnover-phone--${classes[activeIndex]}`);
-    activateTurnOverPhonePage();
-  } else {
-    openFullscreen();
+    //activateTurnOverPhonePage();
+    openFullscreen(turnOverPhone);
   }
   console.log(viewOrientation);
 }
@@ -362,13 +369,13 @@ window.addEventListener(
 function defineOrientation(width, height) {
   return width >= height ? "landscape" : "portrait";
 }
-function openFullscreen() {
-  if (video.requestFullscreen) {
-    video.requestFullscreen();
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen();
-  } else if (video.msRequestFullscreen) {
-    video.msRequestFullscreen();
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
   }
 }
 
@@ -391,3 +398,26 @@ function determineWidth() {
   <h3>homePage height : ${swiperContainer.offsetHeight}</h3>`;
   document.body.append(infoDiv);
 }
+
+window.onpopstate = function () {
+  media.style.display = "none";
+  console.log("popstate");
+};
+window.addEventListener("fullscreenchange", () => console.log("change"));
+
+function toggleFullScreen() {
+  if (document.fullscreenElement) {
+    document
+      .exitFullscreen()
+      .then(() => console.log("Document Exited from Full screen mode"))
+      .catch((err) => console.error(err));
+  } else {
+    document.documentElement.requestFullscreen();
+  }
+}
+//document.ondblclick = toggleFullScreen;
+//videoWrap.ondblclick = stopProp;
+function stopProp(event) {
+  event.stopPropagation();
+}
+//---------/test-----------
