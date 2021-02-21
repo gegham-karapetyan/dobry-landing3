@@ -42,6 +42,7 @@ const formNextBtn = document.querySelector(".form__next-btn");
 const formPrevBtn = document.querySelector(".form__prev-btn");
 const inputUname = form.querySelector("#uname");
 const inputMail = form.querySelector("#mail");
+const inputFake = form.querySelector("#fakeInput");
 const inputPhone = form.querySelector("#phone");
 const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
@@ -280,6 +281,7 @@ navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuOpenFeedbackBtn.onclick = menuOpenFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
 formNextBtn.onclick = formNextBtnHandler;
+inputFake.onfocus = formNextBtn.onclick;
 formPrevBtn.onclick = formPrevBtnHandler;
 upToHomeBtns.forEach((btn) => {
   btn.onclick = returnBtnHandler;
@@ -435,12 +437,7 @@ function toggleFullScreen() {
 document.addEventListener("keydown", () => {
   determineWidth();
 });
-inputMail.onkeydown = (event) => {
-  if (event.key === "Tab") {
-    event.preventDefault();
-    formNextBtn.onclick();
-  }
-};
+
 inputPhone.onblur = () => {
   console.log("blure");
 };
