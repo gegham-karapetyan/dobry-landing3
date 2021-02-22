@@ -36,7 +36,6 @@ const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
 const closeMediaBtn = document.querySelector("#closeMedia");
 const video = document.querySelector("#video");
-const videoWrap = document.querySelector(".video-wrap");
 const form = document.querySelector("#form");
 const formSliderTrack = document.querySelector("form .slider-track");
 const formNextBtn = document.querySelector(".form__next-btn");
@@ -119,6 +118,7 @@ function playBtnHundler() {
 }
 function closeMediaBtnHandler() {
   if (document.fullscreenElement) closeFullscreen(document);
+  video.pause();
   this.parentElement.style.display = "none";
 }
 function menuAboutUsBtnHandler() {
@@ -424,7 +424,8 @@ function determineWidth() {
   <h3>innerHeight : ${window.innerHeight}</h3>
   <h3>resize : ${window.rr}</h3>
   <h3>homePage height : ${swiperContainer.offsetHeight}</h3>
-  <h3>event : ${window.event.key}</h3>`;
+  <h3>event : ${window.event.key}</h3>
+  <h3>100vh : ${gage.offsetHeight}</h3>`;
   document.body.append(infoDiv);
 }
 
