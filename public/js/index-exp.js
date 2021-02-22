@@ -360,12 +360,10 @@ window.addEventListener(
     viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
 
     if (currentViewWidth !== viewWidth) {
-      console.log("change width in RESIZE");
+      if (media.isActive) turnOverPhone.style.zIndex = -1;
+
       viewWidth = currentViewWidth;
       changeMarkupOfForm(currentViewWidth >= breakpoints.lg);
-    }
-    if (media.isActive) {
-      turnOverPhone.style.zIndex = -1;
     }
 
     sliderTrackFruitsTranslate();
