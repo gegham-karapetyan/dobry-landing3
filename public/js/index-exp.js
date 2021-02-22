@@ -34,6 +34,7 @@ const body = document.querySelector("body");
 const playBtns = document.querySelectorAll(".play-btn");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
+const closeMediaBtn = document.querySelector("#closeMedia");
 const video = document.querySelector("#video");
 const videoWrap = document.querySelector(".video-wrap");
 const form = document.querySelector("#form");
@@ -79,7 +80,12 @@ const colors = {
   1: "#e7524c",
   2: "#fa7d3c",
   3: "#feca57",
+  apple: "#56bb7f",
+  tomato: "#f39070",
+  appleCitrus: "#f29768",
+  multiMix: "#f1bb23",
 };
+
 const sections = {
   0: document.querySelector(".apple"),
   1: document.querySelector(".tomato"),
@@ -97,21 +103,23 @@ let isMenuPageOpen = false;
 
 // ----------------< buttons onClick events handlers >--------------
 function playBtnHundler() {
-  media.style.display = "block";
+  let { activeIndex } = swiper;
+  let fruitName = classes[activeIndex];
+  let color = colors[fruitName];
+  turnOverPhone.style.background = color;
 
-  if (viewOrientation === "portrait") {
-    let { activeIndex, previousIndex } = swiper;
-    if (previousIndex !== undefined) {
-      turnOverPhone.classList.remove(
-        `turnover-phone--${classes[previousIndex]}`
-      );
-    }
-
-    turnOverPhone.classList.add(`turnover-phone--${classes[activeIndex]}`);
-    //activateTurnOverPhonePage();
-    openFullscreen(turnOverPhone);
+  if (viewOrientation === "landscape") {
+    turnOverPhone.style.zIndex = "-1";
+  } else {
+    turnOverPhone.style.zIndex = "1";
   }
-  console.log(viewOrientation);
+  media.style.display = "flex";
+  media.isActive = true;
+  openFullscreen(media);
+}
+function closeMediaBtnHandler() {
+  if (document.fullscreenElement) closeFullscreen(document);
+  this.parentElement.style.display = "none";
 }
 function menuAboutUsBtnHandler() {
   burgerBtn.classList.add("burger--rotate");
@@ -248,7 +256,7 @@ function changeClassOfBulletWhenSlideChanged() {
 
 // ---------< control other states >----------
 function preventSlideChanges() {
-  if (window.scrollY > 30) {
+  if (window.scrollY > 60) {
     swiper.allowTouchMove = false;
     swiper.autoplay.stop();
   } else {
@@ -257,12 +265,6 @@ function preventSlideChanges() {
       swiper.autoplay.start();
     }
   }
-}
-function activateTurnOverPhonePage() {
-  turnOverPhone.style.display = "flex";
-}
-function deactivateTurnOverPhonePage() {
-  turnOverPhone.style.display = "none";
 }
 
 function toggleReturnBtnActivity() {
@@ -281,7 +283,6 @@ navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuOpenFeedbackBtn.onclick = menuOpenFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
 formNextBtn.onclick = formNextBtnHandler;
-inputFake.onfocus = formNextBtn.onclick;
 formPrevBtn.onclick = formPrevBtnHandler;
 upToHomeBtns.forEach((btn) => {
   btn.onclick = returnBtnHandler;
@@ -289,6 +290,9 @@ upToHomeBtns.forEach((btn) => {
 playBtns.forEach((btn) => {
   btn.onclick = playBtnHundler;
 });
+closeMediaBtn.onclick = closeMediaBtnHandler;
+
+inputFake.onfocus = formNextBtn.onclick;
 //---------------</ initialize onClick events handlers >-----------------
 
 function addFormToSection() {
@@ -303,6 +307,7 @@ function addFormToMenuPage() {
 }
 
 function init() {
+  menuPage.style.display = "block";
   changeMarkupOfForm(viewWidth >= breakpoints.lg);
   sliderTrackFruitsTranslate();
   changeMenuPageColor();
@@ -355,13 +360,14 @@ window.addEventListener(
     viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
 
     if (currentViewWidth !== viewWidth) {
+      console.log("change width in RESIZE");
       viewWidth = currentViewWidth;
       changeMarkupOfForm(currentViewWidth >= breakpoints.lg);
     }
-
-    if (viewOrientation === "landscape") {
-      deactivateTurnOverPhonePage();
+    if (media.isActive) {
+      turnOverPhone.style.zIndex = -1;
     }
+
     sliderTrackFruitsTranslate();
 
     //test
@@ -393,6 +399,15 @@ function openFullscreen(elem) {
     elem.msRequestFullscreen();
   }
 }
+function closeFullscreen(elem) {
+  if (elem.exitFullscreen) {
+    elem.exitFullscreen();
+  } else if (elem.webkitExitFullscreen) {
+    elem.webkitExitFullscreen();
+  } else if (elem.msExitFullscreen) {
+    elem.msExitFullscreen();
+  }
+}
 
 //--------------/ helpers------------
 
@@ -421,16 +436,16 @@ window.onpopstate = function () {
 };
 window.addEventListener("fullscreenchange", () => console.log("change"));
 
-function toggleFullScreen() {
-  if (document.fullscreenElement) {
-    document
-      .exitFullscreen()
-      .then(() => console.log("Document Exited from Full screen mode"))
-      .catch((err) => console.error(err));
-  } else {
-    document.documentElement.requestFullscreen();
-  }
-}
+// function toggleFullScreen() {
+//   if (document.fullscreenElement) {
+//     document
+//       .exitFullscreen()
+//       .then(() => console.log("Document Exited from Full screen mode"))
+//       .catch((err) => console.error(err));
+//   } else {
+//     document.documentElement.requestFullscreen();
+//   }
+// }
 //document.ondblclick = toggleFullScreen;
 //videoWrap.ondblclick = stopProp;
 
@@ -438,7 +453,4 @@ document.addEventListener("keydown", () => {
   determineWidth();
 });
 
-inputPhone.onblur = () => {
-  console.log("blure");
-};
 //---------/test-----------
