@@ -434,19 +434,6 @@ window.onpopstate = function () {
 };
 window.addEventListener("fullscreenchange", () => console.log("change"));
 
-// function toggleFullScreen() {
-//   if (document.fullscreenElement) {
-//     document
-//       .exitFullscreen()
-//       .then(() => console.log("Document Exited from Full screen mode"))
-//       .catch((err) => console.error(err));
-//   } else {
-//     document.documentElement.requestFullscreen();
-//   }
-// }
-//document.ondblclick = toggleFullScreen;
-//videoWrap.ondblclick = stopProp;
-
 document.addEventListener("keydown", () => {
   determineWidth();
 });

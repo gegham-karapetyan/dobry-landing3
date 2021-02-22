@@ -411,10 +411,8 @@ h2 {
 
 .burger > img {
   display: block;
-  -webkit-transition: -webkit-transform 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99);
-  transition: -webkit-transform 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99);
-  transition: transform 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99);
-  transition: transform 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99), -webkit-transform 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99);
+  -webkit-transition: all 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99);
+  transition: all 1.1s cubic-bezier(0.57, 0.07, 0.04, 0.99);
 }
 
 .burger__vector2 {
@@ -1853,6 +1851,12 @@ form .slider-track--translate {
 
 #video {
   width: 100%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#video:focus {
+  outline: none;
 }
 
 .turnover-phone {
@@ -1879,8 +1883,8 @@ form .slider-track--translate {
   width: 40px;
   height: 40px;
   z-index: 2;
-  right: 10px;
-  top: 10px;
+  right: 30px;
+  top: 30px;
 }
 
 .close-page-icon > img:first-child {
@@ -1899,6 +1903,16 @@ form .slider-track--translate {
   transition: transform 0.5s, -webkit-transform 0.5s;
   -webkit-transform: translateY(-8px) rotate(-45deg);
           transform: translateY(-8px) rotate(-45deg);
+}
+
+.close-page-icon:hover > img:first-child {
+  -webkit-transform: translateY(6px) rotate(0deg);
+          transform: translateY(6px) rotate(0deg);
+}
+
+.close-page-icon:hover > img:last-child {
+  -webkit-transform: translateY(-8px) rotate(0deg);
+          transform: translateY(-8px) rotate(0deg);
 }
 
 @media only screen and (min-width: 450px) {
