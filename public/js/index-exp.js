@@ -232,6 +232,7 @@ formSliderTrack.ontransitionend = function () {
 
 function submitHandler(e) {
   e.preventDefault();
+  let formData = new FormData(form);
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
