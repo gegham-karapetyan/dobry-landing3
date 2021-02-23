@@ -32,19 +32,27 @@ swiper.autoplay.stop();
 
 const body = document.querySelector("body");
 const header = document.querySelector(".header");
+const logo = document.querySelector(".logo");
 const playBtns = document.querySelectorAll(".play-btn");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
 const closeMediaBtn = document.querySelector("#closeMedia");
 const video = document.querySelector("#video");
+
 const form = document.querySelector("#form");
-const formSliderTrack = document.querySelector("form .slider-track");
-const formNextBtn = document.querySelector(".form__next-btn");
-const formPrevBtn = document.querySelector(".form__prev-btn");
+const formSliderTrack = form.querySelector("form .slider-track");
+const formNextBtn = form.querySelector(".form__next-btn");
+const formPrevBtn = form.querySelector(".form__prev-btn");
+const formFirst = form.querySelector(".form--first");
+const formSecond = form.querySelector(".form--second");
+const formBtnsSecond = form.querySelector(".form__btns--second");
+const formPhone = form.querySelector(".form__phone");
+const submitBtn = form.querySelector(".feedback__submit");
 const inputUname = form.querySelector("#uname");
 const inputMail = form.querySelector("#mail");
 const inputFake = form.querySelector("#fakeInput");
 const inputPhone = form.querySelector("#phone");
+
 const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
 const menuOpenAboutUsBtn = document.querySelector("#menuAboutUs");
@@ -120,6 +128,7 @@ function closeMediaBtnHandler() {
   this.parentElement.style.display = "none";
 }
 function menuOpenAboutUsBtnHandler() {
+  logo.style.visibility = "hidden";
   burgerBtn.classList.add("burger--rotate");
   menuPagePartTop.classList.add("menu-page__part-top--active");
   menuPagePartBottom.classList.add("menu-page__part-bottom--active");
@@ -148,6 +157,7 @@ function menuOpenFeedbackBtnHandler() {
 
 function burgerBtnHandler() {
   if (isAboutUsMobilePageOpen || isFeedbackPageOpen) {
+    logo.style.visibility = "visible";
     burgerBtn.classList.remove("burger--rotate");
     menuPagePartTop.classList.remove("menu-page__part-top--active");
     menuPagePartBottom.classList.remove("menu-page__part-bottom--active");
@@ -175,15 +185,6 @@ function returnBtnHandler() {
 
 function formNextBtnHandler() {
   formSliderTrack.classList.add("slider-track--translate");
-  formSliderTrack.ontransitionend = function () {
-    if (!inputPhone.isFocused) {
-      inputPhone.focus();
-      inputPhone.isFocused = true;
-    } else {
-      inputPhone.isFocused = false;
-      inputMail.focus();
-    }
-  };
 }
 
 function formPrevBtnHandler() {
@@ -208,6 +209,41 @@ function swiperPaginatonBulletsHandlers() {
 }
 
 // ----------------</ buttons onClick events handlers >--------------
+
+//-----------------< focuse events handlers >-----------------
+function inputFakeFocusHandler() {
+  console.log("activ");
+  inputFake.isActive = true;
+  formNextBtnHandler();
+}
+
+//-----------------</ focuse events handlers >-----------------
+
+//-----------------< transition events handlers >-----------------
+formSliderTrack.ontransitionend = function () {
+  if (inputFake.isActive) {
+    inputPhone.focus();
+    inputFake.isActive = false;
+  }
+};
+//---------------------</ transition events handlers >-------------
+
+//--------------------< submit event handler >---------------
+
+function submitHandler(e) {
+  e.preventDefault();
+  fetch("/action", {
+    method: "POST",
+    body: new FormData(form),
+  })
+    .then((response) => {
+      if (response.ok) alert("thanks for message");
+      else alert("error");
+    })
+    .catch((err) => alert(err));
+}
+
+form.onsubmit = submitHandler;
 
 //-----< swiper slideChange event listeners >---------------
 
@@ -300,7 +336,7 @@ playBtns.forEach((btn) => {
 });
 closeMediaBtn.onclick = closeMediaBtnHandler;
 
-inputFake.onfocus = formNextBtn.onclick;
+inputFake.onfocus = inputFakeFocusHandler;
 //---------------</ initialize onClick events handlers >-----------------
 
 function addFormToSection() {
@@ -338,12 +374,6 @@ function init() {
 }
 //update 100vh
 //TODO
-
-const formFirst = form.querySelector(".form--first");
-const formSecond = form.querySelector(".form--second");
-const formBtnsSecond = form.querySelector(".form__btns--second");
-const formPhone = form.querySelector(".form__phone");
-const submitBtn = form.querySelector(".feedback__submit");
 
 function changeFormMarkupForDesktop() {
   formFirst.append(formPhone);
@@ -403,9 +433,16 @@ window.addEventListener(
 );
 //---------------helpers-------------
 
-// function defineOrientation(width, height) {
-//   return width >= height ? "landscape" : "portrait";
-// }
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email.trim()).toLowerCase());
+}
+function validateName(name) {
+  return name.length;
+}
+function validatePhone(phone) {
+  return phone.length;
+}
 function openFullscreen(elem) {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
