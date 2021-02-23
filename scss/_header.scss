@@ -2,11 +2,13 @@
 
 .header {
   width: 100%;
-  transition: all 0.3s;
+
   position: fixed;
+  padding-bottom: 15px;
   z-index: 15;
 
   &__inner {
+    transition: all 0.2s;
     padding-left: 26px;
     padding-right: 26px;
     margin-top: 34px;
@@ -21,7 +23,7 @@
   &__border {
     width: 100%;
     position: absolute;
-    bottom: -10px;
+    bottom: -3px;
     visibility: hidden;
   }
 }

@@ -453,13 +453,14 @@ h2 {
 
 .header {
   width: 100%;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
   position: fixed;
+  padding-bottom: 15px;
   z-index: 15;
 }
 
 .header__inner {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   padding-left: 26px;
   padding-right: 26px;
   margin-top: 34px;
@@ -485,7 +486,7 @@ h2 {
 .header__border {
   width: 100%;
   position: absolute;
-  bottom: -10px;
+  bottom: -3px;
   visibility: hidden;
 }
 

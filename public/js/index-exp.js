@@ -20,15 +20,20 @@ let swiper = new Swiper(".swiper-container", {
   autoplay: {
     delay: 5000,
   },
-
   on: {
     init() {
+      console.log("init");
       swiperSlides.forEach((slide) => slide.classList.add("overflow-visible"));
     },
   },
 });
+(() => {
+  swiper.autoplay.stop();
+  console.log("stoped");
+})();
 
 const body = document.querySelector("body");
+const header = document.querySelector(".header");
 const playBtns = document.querySelectorAll(".play-btn");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
@@ -98,6 +103,7 @@ let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
 let isMenuPageOpen = false;
 let isReturnBtnActive = false;
+let device = window.innerWidth >= 768 ? "desktop" : "mobile";
 
 // ----------------< buttons onClick events handlers >--------------
 function playBtnHundler() {
@@ -269,6 +275,11 @@ function changeClassOfBulletWhenSlideChanged() {
 //     }
 //   }
 // }
+function toggleHeaderBg() {
+  let index = swiper.activeIndex;
+  header.classList.toggle("header--sticky");
+  header.classList.toggle(`header--${classes[index]}`);
+}
 function preventSlideChange() {
   swiper.allowTouchMove = false;
   swiper.autoplay.stop();
@@ -318,7 +329,7 @@ function addFormToMenuPage() {
 
 function init() {
   menuPage.style.display = "block";
-
+  if (!swiper.autoplay.running) swiper.autoplay.start();
   changeFruitsSliderHeight();
   changeMenuPageBgColor();
   addFormToSection();
@@ -384,12 +395,16 @@ window.addEventListener(
 window.addEventListener(
   "scroll",
   () => {
-    if (!isReturnBtnActive && window.scrollY >= viewHeight) {
-      toggleReturnBtnActivity();
-    } else if (isReturnBtnActive && window.scrollY < viewHeight) {
-      toggleReturnBtnActivity();
+    if (device === "mobile") {
+      console.log(device);
+      if (!isReturnBtnActive && window.scrollY >= viewHeight) {
+        toggleReturnBtnActivity();
+        toggleHeaderBg();
+      } else if (isReturnBtnActive && window.scrollY < viewHeight) {
+        toggleReturnBtnActivity();
+        toggleHeaderBg();
+      }
     }
-
     if (swiper.allowTouchMove && window.scrollY > 100) {
       preventSlideChange();
     } else if (!swiper.allowTouchMove && window.scrollY < 100) {
@@ -451,8 +466,12 @@ document.addEventListener("keydown", () => {
 const mediaQuery = window.matchMedia("(min-width:768px)");
 function changeFormMarkup(e) {
   if (e.matches) {
+    device = "desktop";
+    console.log(device);
     changeFormMarkupForDesktop();
   } else {
+    device = "mobile";
+    console.log(device);
     changeFormMarkupForMobile();
   }
 }
