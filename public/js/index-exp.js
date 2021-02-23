@@ -91,12 +91,13 @@ const sections = {
 };
 
 let viewHeight = swiperContainer.offsetHeight; //100vh
-let viewWidth = window.innerWidth;
-let viewOrientation = defineOrientation(viewWidth, viewHeight);
+//let viewWidth = window.innerWidth;
+//let viewOrientation = defineOrientation(viewWidth, viewHeight);
 
 let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
 let isMenuPageOpen = false;
+let isReturnBtnActive = false;
 
 // ----------------< buttons onClick events handlers >--------------
 function playBtnHundler() {
@@ -150,16 +151,16 @@ function burgerBtnHandler() {
     isFeedbackPageOpen = false;
   } else {
     isMenuPageOpen = !isMenuPageOpen;
-
+    body.classList.toggle("prevent-scrolling");
     menuPage.classList.toggle("menu-page--active");
     burgerBtn.classList.toggle("burger--active");
 
     if (isMenuPageOpen) {
       addFormToMenuPage();
-      swiper.autoplay.pause();
+      preventSlideChange();
     } else {
       addFormToSection();
-      swiper.autoplay.start();
+      allowSlideChange();
     }
   }
 }
@@ -230,8 +231,13 @@ function sliderTrackFruitsTranslate() {
   let index = swiper.activeIndex;
 
   sliderTrackFruits.style.transform = `translate3d(${-index * 100 + "%"},0,0)`;
+  changeFruitsSliderHeight();
+}
+function changeFruitsSliderHeight() {
+  let index = swiper.activeIndex;
   sliderContainerFruits.style.height = sections[index].offsetHeight + "px";
 }
+
 function changeClassOfBulletWhenSlideChanged() {
   let activeIndex = swiper.activeIndex;
   let prevIndex = swiper.previousIndex;
@@ -252,24 +258,31 @@ function changeClassOfBulletWhenSlideChanged() {
 //-----</ swiper slideChange event listeners >---------------
 
 // ---------< control other states >----------
-function preventSlideChanges() {
-  if (window.scrollY > 100) {
-    swiper.allowTouchMove = false;
-    swiper.autoplay.pause();
-  } else {
-    if (!isMenuPageOpen) {
-      swiper.allowTouchMove = true;
-      swiper.autoplay.start();
-    }
-  }
+// function preventSlideChange() {
+//   if (window.scrollY > 100) {
+//     swiper.allowTouchMove = false;
+//     swiper.autoplay.stop();
+//   } else {
+//     if (!isMenuPageOpen) {
+//       swiper.allowTouchMove = true;
+//       swiper.autoplay.start();
+//     }
+//   }
+// }
+function preventSlideChange() {
+  swiper.allowTouchMove = false;
+  swiper.autoplay.stop();
+}
+function allowSlideChange() {
+  swiper.allowTouchMove = true;
+  swiper.autoplay.start();
 }
 
 function toggleReturnBtnActivity() {
   let index = swiper.activeIndex;
-
   let className = `return-btn--${classes[index]}`;
-  if (window.scrollY > viewHeight) returnBtn.classList.add(className);
-  else returnBtn.classList.remove(className);
+  returnBtn.classList.toggle(className);
+  isReturnBtnActive = !isReturnBtnActive;
 }
 // ---------</ control other states >----------
 
@@ -306,7 +319,7 @@ function addFormToMenuPage() {
 function init() {
   menuPage.style.display = "block";
 
-  sliderTrackFruitsTranslate();
+  changeFruitsSliderHeight();
   changeMenuPageBgColor();
   addFormToSection();
   changeSwiperContainerBgColor();
@@ -326,7 +339,6 @@ function init() {
 }
 //update 100vh
 //TODO
-function updateViewHeight() {}
 
 const formFirst = form.querySelector(".form--first");
 const formSecond = form.querySelector(".form--second");
@@ -352,15 +364,15 @@ window.addEventListener(
 
     window.rr = `resize ${++window.cc}`;
     //
-    let currentViewWidth = window.innerWidth;
-    let currentViewHeight = window.innerHeight;
-    viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
+    // let currentViewWidth = window.innerWidth;
+    // let currentViewHeight = window.innerHeight;
+    //viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
 
-    if (currentViewWidth !== viewWidth) {
-      viewWidth = currentViewWidth;
-    }
+    // if (currentViewWidth !== viewWidth) {
+    //   viewWidth = currentViewWidth;
+    // }
 
-    sliderTrackFruitsTranslate();
+    changeFruitsSliderHeight();
 
     //test
     determineWidth();
@@ -372,16 +384,25 @@ window.addEventListener(
 window.addEventListener(
   "scroll",
   () => {
-    preventSlideChanges();
-    toggleReturnBtnActivity();
+    if (!isReturnBtnActive && window.scrollY >= viewHeight) {
+      toggleReturnBtnActivity();
+    } else if (isReturnBtnActive && window.scrollY < viewHeight) {
+      toggleReturnBtnActivity();
+    }
+
+    if (swiper.allowTouchMove && window.scrollY > 100) {
+      preventSlideChange();
+    } else if (!swiper.allowTouchMove && window.scrollY < 100) {
+      allowSlideChange();
+    }
   },
   false
 );
 //---------------helpers-------------
 
-function defineOrientation(width, height) {
-  return width >= height ? "landscape" : "portrait";
-}
+// function defineOrientation(width, height) {
+//   return width >= height ? "landscape" : "portrait";
+// }
 function openFullscreen(elem) {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
