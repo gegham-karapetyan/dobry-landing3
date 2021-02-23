@@ -232,9 +232,10 @@ formSliderTrack.ontransitionend = function () {
 
 function submitHandler(e) {
   e.preventDefault();
-  fetch("css/style.css", {
+  fetch("/", {
     method: "POST",
-    body: new FormData(form),
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
   })
     .then((response) => {
       if (response.ok) alert("thanks for message");
