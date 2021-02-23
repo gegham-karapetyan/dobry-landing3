@@ -16,9 +16,7 @@ let swiper = new Swiper(".swiper-container", {
   threshold: 5,
   longSwipesMs: 200,
   shortSwipes: false,
-
   touchRatio: 0.6,
-
   autoplay: {
     delay: 5000,
   },
@@ -46,7 +44,7 @@ const inputFake = form.querySelector("#fakeInput");
 const inputPhone = form.querySelector("#phone");
 const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
-const menuAboutUsBtn = document.querySelector("#menuAboutUs");
+const menuOpenAboutUsBtn = document.querySelector("#menuAboutUs");
 const navFeedbackBtn = document.querySelector("#navFeedback");
 const aboutUsMobilePage = document.querySelector(".about-us-mobile");
 const menuFeedbackPage = document.querySelector(".menu-page .feedback-page");
@@ -107,11 +105,6 @@ function playBtnHundler() {
   let color = colors[fruitName];
   turnOverPhone.style.background = color;
 
-  if (viewOrientation === "landscape") {
-    turnOverPhone.style.zIndex = "-1";
-  } else {
-    turnOverPhone.style.zIndex = "1";
-  }
   media.style.display = "flex";
   media.isActive = true;
   openFullscreen(media);
@@ -121,7 +114,7 @@ function closeMediaBtnHandler() {
   video.pause();
   this.parentElement.style.display = "none";
 }
-function menuAboutUsBtnHandler() {
+function menuOpenAboutUsBtnHandler() {
   burgerBtn.classList.add("burger--rotate");
   menuPagePartTop.classList.add("menu-page__part-top--active");
   menuPagePartBottom.classList.add("menu-page__part-bottom--active");
@@ -144,7 +137,6 @@ function menuOpenFeedbackBtnHandler() {
   burgerBtn.classList.add("burger--rotate");
   menuPagePartTop.classList.add("menu-page__part-top--active");
   menuPagePartBottom.classList.add("menu-page__part-bottom--active");
-  menuOpenFeedbackBtn.classList.add("feedback--active");
   aboutUsMobilePage.classList.remove("about-us-mobile--active");
   isFeedbackPageOpen = true;
 }
@@ -158,13 +150,13 @@ function burgerBtnHandler() {
     isFeedbackPageOpen = false;
   } else {
     isMenuPageOpen = !isMenuPageOpen;
-    body.classList.toggle("prevent-scrolling");
+
     menuPage.classList.toggle("menu-page--active");
     burgerBtn.classList.toggle("burger--active");
 
     if (isMenuPageOpen) {
       addFormToMenuPage();
-      swiper.autoplay.stop();
+      swiper.autoplay.pause();
     } else {
       addFormToSection();
       swiper.autoplay.start();
@@ -214,17 +206,22 @@ function swiperPaginatonBulletsHandlers() {
 
 //-----< swiper slideChange event listeners >---------------
 
-function changeMenuPageColor() {
+function changeMenuPageBgColor() {
   let { activeIndex, previousIndex } = swiper;
-  if (previousIndex !== undefined) {
-    menuPage.classList.remove(`menu-page--${classes[previousIndex]}`);
+  let fruitName = classes[activeIndex];
+  let color = colors[fruitName];
+  menuPagePartTop.style.backgroundColor = color;
+  menuPagePartBottom.style.backgroundColor = color;
+  _changeFeedbackPageBgColor(activeIndex, previousIndex);
+}
+
+function _changeFeedbackPageBgColor(activeIndex, previousIndex) {
+  if (previousIndex !== undefined)
     menuFeedbackPage.classList.remove(`feedback--${classes[previousIndex]}`);
-  }
-  menuPage.classList.add(`menu-page--${classes[activeIndex]}`);
   menuFeedbackPage.classList.add(`feedback--${classes[activeIndex]}`);
 }
 
-function changeSwiperContainerBg() {
+function changeSwiperContainerBgColor() {
   let index = swiper.activeIndex;
   swiperContainer.style.backgroundColor = colors[index];
 }
@@ -256,9 +253,9 @@ function changeClassOfBulletWhenSlideChanged() {
 
 // ---------< control other states >----------
 function preventSlideChanges() {
-  if (window.scrollY > 60) {
+  if (window.scrollY > 100) {
     swiper.allowTouchMove = false;
-    swiper.autoplay.stop();
+    swiper.autoplay.pause();
   } else {
     if (!isMenuPageOpen) {
       swiper.allowTouchMove = true;
@@ -278,7 +275,7 @@ function toggleReturnBtnActivity() {
 
 //---------------< initialize onClick events handlers >-----------------
 burgerBtn.onclick = burgerBtnHandler;
-menuAboutUsBtn.onclick = menuAboutUsBtnHandler;
+menuOpenAboutUsBtn.onclick = menuOpenAboutUsBtnHandler;
 navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuOpenFeedbackBtn.onclick = menuOpenFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
@@ -308,11 +305,11 @@ function addFormToMenuPage() {
 
 function init() {
   menuPage.style.display = "block";
-  changeMarkupOfForm(viewWidth >= breakpoints.lg);
+
   sliderTrackFruitsTranslate();
-  changeMenuPageColor();
+  changeMenuPageBgColor();
   addFormToSection();
-  changeSwiperContainerBg();
+  changeSwiperContainerBgColor();
   swiperPaginatonBulletsHandlers();
   //test-----------
   determineWidth();
@@ -321,9 +318,9 @@ function init() {
     Promise.resolve(
       changeClassOfBulletWhenSlideChanged(),
       sliderTrackFruitsTranslate(),
-      changeMenuPageColor(),
+      changeMenuPageBgColor(),
       addFormToSection(),
-      changeSwiperContainerBg()
+      changeSwiperContainerBgColor()
     );
   });
 }
@@ -331,19 +328,19 @@ function init() {
 //TODO
 function updateViewHeight() {}
 
-function changeMarkupOfForm(threshold) {
-  const formFirst = document.querySelector(".form--first");
-  const formSecond = document.querySelector(".form--second");
-  const formBtnsSecond = document.querySelector(".form__btns--second");
-  const formPhone = document.querySelector(".form__phone");
-  const submitBtn = document.querySelector(".feedback__submit");
-  if (threshold) {
-    formFirst.append(formPhone);
-    form.append(submitBtn);
-  } else {
-    formSecond.prepend(formPhone);
-    formBtnsSecond.append(submitBtn);
-  }
+const formFirst = form.querySelector(".form--first");
+const formSecond = form.querySelector(".form--second");
+const formBtnsSecond = form.querySelector(".form__btns--second");
+const formPhone = form.querySelector(".form__phone");
+const submitBtn = form.querySelector(".feedback__submit");
+
+function changeFormMarkupForDesktop() {
+  formFirst.append(formPhone);
+  form.append(submitBtn);
+}
+function changeFormMarkupForMobile() {
+  formSecond.prepend(formPhone);
+  formBtnsSecond.append(submitBtn);
 }
 
 window.addEventListener("load", init, false);
@@ -360,10 +357,7 @@ window.addEventListener(
     viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
 
     if (currentViewWidth !== viewWidth) {
-      if (media.isActive) turnOverPhone.style.zIndex = -1;
-
       viewWidth = currentViewWidth;
-      changeMarkupOfForm(currentViewWidth >= breakpoints.lg);
     }
 
     sliderTrackFruitsTranslate();
@@ -429,14 +423,19 @@ function determineWidth() {
   document.body.append(infoDiv);
 }
 
-window.onpopstate = function () {
-  media.style.display = "none";
-  console.log("popstate");
-};
-window.addEventListener("fullscreenchange", () => console.log("change"));
-
 document.addEventListener("keydown", () => {
   determineWidth();
 });
+
+const mediaQuery = window.matchMedia("(min-width:768px)");
+function changeFormMarkup(e) {
+  if (e.matches) {
+    changeFormMarkupForDesktop();
+  } else {
+    changeFormMarkupForMobile();
+  }
+}
+
+mediaQuery.addEventListener("change", changeFormMarkup);
 
 //---------/test-----------
