@@ -232,7 +232,7 @@ formSliderTrack.ontransitionend = function () {
 
 function submitHandler(e) {
   e.preventDefault();
-  fetch("/index.html", {
+  fetch("index.html", {
     method: "POST",
     body: new FormData(form),
   })
