@@ -486,7 +486,7 @@ h2 {
 .header__border {
   width: 100%;
   position: absolute;
-  bottom: -3px;
+  bottom: -1px;
   visibility: hidden;
 }
 

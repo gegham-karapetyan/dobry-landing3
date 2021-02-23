@@ -27,10 +27,8 @@ let swiper = new Swiper(".swiper-container", {
     },
   },
 });
-(() => {
-  swiper.autoplay.stop();
-  console.log("stoped");
-})();
+
+swiper.autoplay.stop();
 
 const body = document.querySelector("body");
 const header = document.querySelector(".header");
@@ -264,29 +262,18 @@ function changeClassOfBulletWhenSlideChanged() {
 //-----</ swiper slideChange event listeners >---------------
 
 // ---------< control other states >----------
-// function preventSlideChange() {
-//   if (window.scrollY > 100) {
-//     swiper.allowTouchMove = false;
-//     swiper.autoplay.stop();
-//   } else {
-//     if (!isMenuPageOpen) {
-//       swiper.allowTouchMove = true;
-//       swiper.autoplay.start();
-//     }
-//   }
-// }
+
 function toggleHeaderBg() {
   let index = swiper.activeIndex;
   header.classList.toggle("header--sticky");
   header.classList.toggle(`header--${classes[index]}`);
 }
 function preventSlideChange() {
-  swiper.allowTouchMove = false;
   swiper.autoplay.stop();
+  swiper.allowTouchMove = false;
 }
 function allowSlideChange() {
   swiper.allowTouchMove = true;
-  swiper.autoplay.start();
 }
 
 function toggleReturnBtnActivity() {
@@ -329,7 +316,8 @@ function addFormToMenuPage() {
 
 function init() {
   menuPage.style.display = "block";
-  if (!swiper.autoplay.running) swiper.autoplay.start();
+
+  swiper.autoplay.start();
   changeFruitsSliderHeight();
   changeMenuPageBgColor();
   addFormToSection();
@@ -467,11 +455,9 @@ const mediaQuery = window.matchMedia("(min-width:768px)");
 function changeFormMarkup(e) {
   if (e.matches) {
     device = "desktop";
-    console.log(device);
     changeFormMarkupForDesktop();
   } else {
     device = "mobile";
-    console.log(device);
     changeFormMarkupForMobile();
   }
 }
