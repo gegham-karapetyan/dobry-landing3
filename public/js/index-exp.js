@@ -232,13 +232,13 @@ formSliderTrack.ontransitionend = function () {
 
 function submitHandler(e) {
   e.preventDefault();
-  fetch("index.html", {
+  fetch("css/style.css", {
     method: "POST",
     body: new FormData(form),
   })
     .then((response) => {
       if (response.ok) alert("thanks for message");
-      else alert("error");
+      else alert(response.ok, " error");
     })
     .catch((err) => alert(err));
 }
