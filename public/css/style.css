@@ -345,6 +345,80 @@ h2 {
   overflow: visible;
 }
 
+.swiper-button-prev {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+.swiper-button-prev::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 48%;
+  left: 8px;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+  width: 10px;
+  height: 2px;
+  background: white;
+}
+
+.swiper-button-prev::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 8px;
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+  width: 10px;
+  height: 2px;
+  background: white;
+}
+
+.swiper-button-next {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+.swiper-button-next::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 51%;
+  right: 8px;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+  width: 10px;
+  height: 2px;
+  background: white;
+}
+
+.swiper-button-next::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 54%;
+  right: 8px;
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+  width: 10px;
+  height: 2px;
+  background: white;
+}
+
 .swiper-pagination {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2034,6 +2108,10 @@ form .slider-track--translate {
   }
   .swiper-pagination-bullets {
     display: none;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: block;
   }
   .hero {
     top: 25%;

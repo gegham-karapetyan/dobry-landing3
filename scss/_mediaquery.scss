@@ -136,6 +136,10 @@
   .swiper-pagination-bullets {
     display: none;
   }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: block;
+  }
   .hero {
     top: 25%;
   }

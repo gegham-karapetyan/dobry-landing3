@@ -6,6 +6,8 @@ const swiperPaginatonBullets = document.querySelectorAll(
 const swiperPaginatonLines = document.querySelectorAll(
   ".swiper-pagination-line"
 );
+const swiperButtonPrev = document.querySelector(".swiper-button-prev");
+const swiperButtonNext = document.querySelector(".swiper-button-next");
 
 let swiper = new Swiper(".swiper-container", {
   speed: 2000,
@@ -19,6 +21,10 @@ let swiper = new Swiper(".swiper-container", {
   touchRatio: 0.6,
   autoplay: {
     delay: 5000,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
   on: {
     init() {
@@ -102,8 +108,6 @@ const sections = {
 };
 
 let viewHeight = swiperContainer.offsetHeight; //100vh
-//let viewWidth = window.innerWidth;
-//let viewOrientation = defineOrientation(viewWidth, viewHeight);
 
 let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
@@ -211,12 +215,66 @@ function swiperPaginatonBulletsHandlers() {
 // ----------------</ buttons onClick events handlers >--------------
 
 //-----------------< focuse events handlers >-----------------
+function inputUnameBlurHandler() {
+  let svg = this.nextElementSibling;
+  if (!validateName(this.value)) {
+    this.isValid = false;
+    svg.style.stroke = "red";
+  } else {
+    svg.style.stroke = "";
+    this.isValid = true;
+  }
+}
+function inputEmailBlurHandler() {
+  let svg = this.nextElementSibling;
+  if (!validateEmail(this.value)) {
+    this.isValid = false;
+    svg.style.stroke = "red";
+  } else {
+    svg.style.stroke = "";
+    this.isValid = true;
+  }
+}
+
+function inputPhoneBlurHandler() {
+  let svg = this.nextElementSibling;
+  if (!validatePhone(this.value)) {
+    this.isValid = false;
+    svg.style.stroke = "red";
+  } else {
+    this.isValid = true;
+    svg.style.stroke = "";
+  }
+}
+
+function hasInvalidRequiredInput() {
+  let formElems = form.elements;
+  for (let elem of formElems) {
+    if (elem.dataset.required) {
+      if (!elem.isValid) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function successMessage() {
+  const formContainers = document.querySelectorAll(".form-container");
+  formContainers.forEach((container) => {
+    container.innerHTML = `<p> Ձեր նամակը <br />հաջողությամբ ուղարկվել է,<br />
+    շնորհակալություն:</p>`;
+  });
+}
+
 function inputFakeFocusHandler() {
-  console.log("activ");
   inputFake.isActive = true;
   formNextBtnHandler();
 }
-
+inputUname.onblur = inputUnameBlurHandler;
+inputMail.onblur = inputEmailBlurHandler;
+inputPhone.onblur = inputPhoneBlurHandler;
+inputFake.onfocus = inputFakeFocusHandler;
 //-----------------</ focuse events handlers >-----------------
 
 //-----------------< transition events handlers >-----------------
@@ -232,6 +290,7 @@ formSliderTrack.ontransitionend = function () {
 
 function submitHandler(e) {
   e.preventDefault();
+  if (hasInvalidRequiredInput()) return;
   let formData = new FormData(form);
   fetch("/", {
     method: "POST",
@@ -239,10 +298,10 @@ function submitHandler(e) {
     body: new URLSearchParams(formData).toString(),
   })
     .then((response) => {
-      if (response.ok) alert("thanks for message");
-      else alert(response.ok, " error");
+      if (response.ok) successMessage();
+      else alert(response, " error");
     })
-    .catch((err) => alert(err));
+    .catch((err) => alert("catch", err));
 }
 
 form.onsubmit = submitHandler;
@@ -267,6 +326,14 @@ function _changeFeedbackPageBgColor(activeIndex, previousIndex) {
 function changeSwiperContainerBgColor() {
   let index = swiper.activeIndex;
   swiperContainer.style.backgroundColor = colors[index];
+}
+function changeSwiperButtonsBgColor() {
+  let { activeIndex, previousIndex } = swiper;
+  let nextIndex = (activeIndex + 1) % 4;
+  let prevIndex = activeIndex === 0 ? 3 : previousIndex;
+
+  swiperButtonPrev.firstElementChild.style.fill = colors[prevIndex];
+  swiperButtonNext.firstElementChild.style.fill = colors[nextIndex];
 }
 
 function sliderTrackFruitsTranslate() {
@@ -338,7 +405,6 @@ playBtns.forEach((btn) => {
 });
 closeMediaBtn.onclick = closeMediaBtnHandler;
 
-inputFake.onfocus = inputFakeFocusHandler;
 //---------------</ initialize onClick events handlers >-----------------
 
 function addFormToSection() {
@@ -354,12 +420,14 @@ function addFormToMenuPage() {
 
 function init() {
   menuPage.style.display = "block";
-
+  if (window.innerWidth >= 768) changeFormMarkupForDesktop();
   swiper.autoplay.start();
+
   changeFruitsSliderHeight();
   changeMenuPageBgColor();
   addFormToSection();
   changeSwiperContainerBgColor();
+  changeSwiperButtonsBgColor();
   swiperPaginatonBulletsHandlers();
   //test-----------
   determineWidth();
@@ -369,6 +437,7 @@ function init() {
       changeClassOfBulletWhenSlideChanged(),
       sliderTrackFruitsTranslate(),
       changeMenuPageBgColor(),
+      changeSwiperButtonsBgColor(),
       addFormToSection(),
       changeSwiperContainerBgColor()
     );
@@ -394,14 +463,6 @@ window.addEventListener(
     //
 
     window.rr = `resize ${++window.cc}`;
-    //
-    // let currentViewWidth = window.innerWidth;
-    // let currentViewHeight = window.innerHeight;
-    //viewOrientation = defineOrientation(currentViewWidth, currentViewHeight);
-
-    // if (currentViewWidth !== viewWidth) {
-    //   viewWidth = currentViewWidth;
-    // }
 
     changeFruitsSliderHeight();
 
@@ -440,10 +501,11 @@ function validateEmail(email) {
   return re.test(String(email.trim()).toLowerCase());
 }
 function validateName(name) {
-  return name.length;
+  console.log(name);
+  return name.length > 1;
 }
 function validatePhone(phone) {
-  return phone.length;
+  return phone.length > 1;
 }
 function openFullscreen(elem) {
   if (elem.requestFullscreen) {

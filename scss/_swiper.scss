@@ -32,6 +32,68 @@
 .overflow-visible {
   overflow: visible;
 }
+.swiper-button-prev {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 0);
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 48%;
+    left: 8px;
+    transform: rotateZ(45deg);
+    width: 10px;
+    height: 2px;
+    background: white;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    left: 8px;
+    transform: rotateZ(-45deg);
+    width: 10px;
+    height: 2px;
+    background: white;
+  }
+}
+.swiper-button-next {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  top: 50%;
+  right: 0;
+  transform: translate3d(0, -50%, 0);
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 51%;
+    right: 8px;
+    transform: rotateZ(45deg);
+    width: 10px;
+    height: 2px;
+    background: white;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 54%;
+    right: 8px;
+    transform: rotateZ(-45deg);
+    width: 10px;
+    height: 2px;
+    background: white;
+  }
+}
 
 .swiper-pagination {
   display: flex;
