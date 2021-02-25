@@ -1844,6 +1844,20 @@ form .slider-track--translate {
           transform: translate3d(-100%, 0, 0);
 }
 
+.form-gratitude {
+  -webkit-box-flex: 5%;
+      -ms-flex: 5%;
+          flex: 5%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.form-gratitude .gratitude {
+  margin-top: 40px;
+  text-align: center;
+}
+
 .return-btn {
   display: none;
   position: fixed;
@@ -2298,6 +2312,18 @@ form .slider-track--translate {
     -webkit-box-flex: 60%;
         -ms-flex: 60%;
             flex: 60%;
+  }
+  .form-gratitude {
+    -webkit-box-flex: 10%;
+        -ms-flex: 10%;
+            flex: 10%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .form-gratitude .gratitude {
+    margin-top: 40px;
+    text-align: center;
   }
   form {
     overflow: visible;

@@ -260,10 +260,13 @@ function hasInvalidRequiredInput() {
 }
 
 function successMessage() {
+  form.style.display = "none";
   const formContainers = document.querySelectorAll(".form-container");
+  const gratitude = document.querySelector(".gratitude");
   formContainers.forEach((container) => {
-    container.innerHTML = `<p> Ձեր նամակը <br />հաջողությամբ ուղարկվել է,<br />
-    շնորհակալություն:</p>`;
+    container.classList.add("form-gratitude");
+    console.log(container);
+    container.append(gratitude.cloneNode(true));
   });
 }
 

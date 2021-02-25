@@ -1,0 +1,14 @@
+.form-gratitude {
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.form-gratitude .gratitude {
+  margin-top: 40px;
+  text-align: center;
+}
+/*# sourceMappingURL=form-gratitude.css.map */

@@ -322,6 +322,14 @@
   .form-container {
     flex: 60%;
   }
+  .form-gratitude {
+    flex: 10%;
+    align-items: flex-start;
+    & .gratitude {
+      margin-top: 40px;
+      text-align: center;
+    }
+  }
   form {
     overflow: visible;
 
