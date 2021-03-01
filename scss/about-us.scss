@@ -1,0 +1,91 @@
+@import "./_global";
+@import "./normalize";
+
+.about-us-desktop {
+  display: flex;
+  position: fixed;
+  flex-flow: row nowrap;
+  font-family: "Monsterrat_arm", sans-serif;
+  line-height: 1.7rem;
+  color: white;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .bottles {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+  }
+  .part-one {
+    background: #8bd2b8;
+    flex: 28%;
+  }
+  .part-two {
+    background: #e7524c;
+    width: 337px;
+  }
+  .part-three {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fa7d3c;
+    padding: 20px;
+    & .container {
+      width: 400px;
+      & .about-us-text {
+        width: 202px;
+        margin-bottom: 35px;
+      }
+    }
+  }
+  .part-four {
+    background: #f1bb23;
+    flex: 15%;
+  }
+}
+.close-page-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  right: 30px;
+  top: 30px;
+  & > img {
+    &:first-child {
+      transition: transform 0.5s;
+      transform: translateY(6px) rotate(45deg);
+    }
+    &:last-child {
+      transition: transform 0.5s;
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+  &:hover {
+    & > img {
+      &:first-child {
+        transform: translateY(6px) rotate(0deg);
+      }
+      &:last-child {
+        transform: translateY(-8px) rotate(0deg);
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .about-us-desktop {
+    .part-three {
+      & .container {
+        font-size: 14px;
+        line-height: 2rem;
+        width: 550px;
+        & .about-us-text {
+          width: 284px;
+          margin-bottom: 52px;
+        }
+      }
+    }
+  }
+}

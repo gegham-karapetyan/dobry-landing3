@@ -768,11 +768,6 @@ form .slider-track {
           transform: translate3d(0, 100%, 0);
 }
 
-@font-face {
-  font-family: "Monsterrat_arm";
-  src: url("../fonts/Montserrat_am3-Regular.woff");
-}
-
 .about-us-mobile {
   position: absolute;
   top: 0;
@@ -1863,6 +1858,15 @@ form .slider-track--translate {
   text-align: center;
 }
 
+.about-us-desktop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .return-btn {
   display: none;
   position: fixed;
@@ -1986,6 +1990,29 @@ form .slider-track--translate {
 .close-page-icon:hover > img:last-child {
   -webkit-transform: translateY(-8px) rotate(0deg);
           transform: translateY(-8px) rotate(0deg);
+}
+
+@media only screen and (min-width: 450px) {
+  .hero__wrap {
+    max-width: 872px;
+    width: 80%;
+    margin: auto;
+  }
+  .fruit-chunks {
+    width: 90%;
+  }
+  .juice-glass--apple {
+    right: -40px;
+  }
+  .juice-glass--tomato {
+    right: 0;
+  }
+  .juice-glass--appleCitrus {
+    right: -40px;
+  }
+  .juice-glass--multiMix {
+    right: 0;
+  }
 }
 
 @media only screen and (min-width: 540px) {
@@ -2357,4 +2384,4 @@ form .slider-track--translate {
     margin-top: 60px;
   }
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.min.css.map */

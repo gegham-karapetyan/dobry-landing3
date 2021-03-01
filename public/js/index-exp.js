@@ -433,7 +433,7 @@ function init() {
   changeSwiperButtonsBgColor();
   swiperPaginatonBulletsHandlers();
   //test-----------
-  determineWidth();
+  //determineWidth();
   //test
   swiper.on("slideChange", () => {
     Promise.resolve(
@@ -470,7 +470,7 @@ window.addEventListener(
     changeFruitsSliderHeight();
 
     //test
-    determineWidth();
+    //determineWidth();
     //
   },
   false
@@ -532,28 +532,28 @@ function closeFullscreen(elem) {
 //--------------/ helpers------------
 
 //---------------test-----------------//
-function determineWidth() {
-  let infoDiv = document.getElementById("infoDiv");
-  if (!infoDiv) infoDiv = document.createElement("div");
+// function determineWidth() {
+//   let infoDiv = document.getElementById("infoDiv");
+//   if (!infoDiv) infoDiv = document.createElement("div");
 
-  infoDiv.id = "infoDiv";
-  infoDiv.style.position = "fixed";
-  infoDiv.style.zIndex = "999999";
-  infoDiv.style.top = "20%";
-  infoDiv.style.left = "20%";
-  infoDiv.style.background = "gray";
-  infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3>
-  <h3>innerHeight : ${window.innerHeight}</h3>
-  <h3>resize : ${window.rr}</h3>
-  <h3>homePage height : ${swiperContainer.offsetHeight}</h3>
-  <h3>event : ${window.event.key}</h3>
-  <h3>100vh : ${gage.offsetHeight}</h3>`;
-  document.body.append(infoDiv);
-}
+//   infoDiv.id = "infoDiv";
+//   infoDiv.style.position = "fixed";
+//   infoDiv.style.zIndex = "999999";
+//   infoDiv.style.top = "20%";
+//   infoDiv.style.left = "20%";
+//   infoDiv.style.background = "gray";
+//   infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3>
+//   <h3>innerHeight : ${window.innerHeight}</h3>
+//   <h3>resize : ${window.rr}</h3>
+//   <h3>homePage height : ${swiperContainer.offsetHeight}</h3>
+//   <h3>event : ${window.event.key}</h3>
+//   <h3>100vh : ${gage.offsetHeight}</h3>`;
+//   document.body.append(infoDiv);
+// }
 
-document.addEventListener("keydown", () => {
-  determineWidth();
-});
+// document.addEventListener("keydown", () => {
+//   determineWidth();
+// });
 
 const mediaQuery = window.matchMedia("(min-width:768px)");
 function changeFormMarkup(e) {
