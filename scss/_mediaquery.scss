@@ -1,25 +1,25 @@
-// @media only screen and (min-width: 450px) {
-//   .hero__wrap {
-//     max-width: 872px;
-//     width: 80%;
-//     margin: auto;
-//   }
-//   .fruit-chunks {
-//     width: 90%;
-//   }
-//   .juice-glass--apple {
-//     right: -40px;
-//   }
-//   .juice-glass--tomato {
-//     right: 0;
-//   }
-//   .juice-glass--appleCitrus {
-//     right: -40px;
-//   }
-//   .juice-glass--multiMix {
-//     right: 0;
-//   }
-// }
+@media only screen and (min-width: 450px) {
+  .hero__wrap {
+    max-width: 872px;
+    width: 80%;
+    margin: auto;
+  }
+  .fruit-chunks {
+    width: 90%;
+  }
+  .juice-glass--apple {
+    right: -40px;
+  }
+  .juice-glass--tomato {
+    right: 0;
+  }
+  .juice-glass--appleCitrus {
+    right: -40px;
+  }
+  .juice-glass--multiMix {
+    right: 0;
+  }
+}
 @media only screen and (min-width: 540px) {
   .fruit-chunks {
     width: 540px;
@@ -384,9 +384,4 @@
       margin-top: 60px;
     }
   }
-}
-@media only screen and (min-width: 768px) {
-  // .hero {
-  //   top: 60%;
-  // }
 }
