@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: center;
     background: #fa7d3c;
-    padding: 20px;
+    padding: 56px;
     & .container {
       width: 400px;
       & .about-us-text {
@@ -61,16 +61,6 @@
     &:last-child {
       transition: transform 0.5s;
       transform: translateY(-8px) rotate(-45deg);
-    }
-  }
-  &:hover {
-    & > img {
-      &:first-child {
-        transform: translateY(6px) rotate(0deg);
-      }
-      &:last-child {
-        transform: translateY(-8px) rotate(0deg);
-      }
     }
   }
 }

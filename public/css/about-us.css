@@ -341,7 +341,7 @@ template {
       -ms-flex-align: center;
           align-items: center;
   background: #fa7d3c;
-  padding: 20px;
+  padding: 56px;
 }
 
 .about-us-desktop .part-three .container {
@@ -385,16 +385,6 @@ template {
   transition: transform 0.5s, -webkit-transform 0.5s;
   -webkit-transform: translateY(-8px) rotate(-45deg);
           transform: translateY(-8px) rotate(-45deg);
-}
-
-.close-page-icon:hover > img:first-child {
-  -webkit-transform: translateY(6px) rotate(0deg);
-          transform: translateY(6px) rotate(0deg);
-}
-
-.close-page-icon:hover > img:last-child {
-  -webkit-transform: translateY(-8px) rotate(0deg);
-          transform: translateY(-8px) rotate(0deg);
 }
 
 @media only screen and (min-width: 1920px) {

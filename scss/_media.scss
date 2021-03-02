@@ -57,14 +57,4 @@
       transform: translateY(-8px) rotate(-45deg);
     }
   }
-  &:hover {
-    & > img {
-      &:first-child {
-        transform: translateY(6px) rotate(0deg);
-      }
-      &:last-child {
-        transform: translateY(-8px) rotate(0deg);
-      }
-    }
-  }
 }

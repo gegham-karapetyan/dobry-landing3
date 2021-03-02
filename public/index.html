@@ -14,6 +14,11 @@
     />
 
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 1920px)"
+      href="css/widescreen.css"
+    />
     <title>Dobry</title>
   </head>
 
@@ -374,11 +379,18 @@
         data-swiper-parallax="-200"
         data-swiper-parallax-duration="700"
       >
-        <img
-          src="images/tomato-cardboard-bottle.png"
-          alt="tomato-cardboard-bottle"
-          width="100%"
-        />
+        <picture>
+          <source
+            media="(min-width:1920px)"
+            srcset="images/tomato-cardboard-bottle-big.png"
+          />
+
+          <img
+            src="images/tomato-cardboard-bottle.png"
+            alt="tomato-cardboard-bottle"
+            width="100%"
+          />
+        </picture>
       </div>
     </div>
   </div>
@@ -1514,40 +1526,42 @@
         /></a>
       </div>
       <div class="menu-page">
-  <div class="menu-page-wrapper">
-    <div class="menu-page__part-top">
-      <div>
-        <button id="menuAboutUs">
-          <img src="./images/about-us.svg" alt="about-us" />
-        </button>
+  <div class="menu-page__wrapper">
+    <div class="opening-parts">
+      <div class="menu-page__part-top">
+        <div>
+          <button id="menuAboutUs">
+            <img src="./images/about-us.svg" alt="about-us" />
+          </button>
+        </div>
+      </div>
+      <div class="menu-page__part-bottom">
+        <div>
+          <button id="feedback">
+            <img src="./images/feedback.svg" alt="feedback" />
+          </button>
+        </div>
+
+        <div class="menu-page__social-contacts">
+          <a href="https://youtube.com"
+            ><img src="images/youtube-icon.svg" alt="youtube-icon"
+          /></a>
+          <a href="https://facebook.com"
+            ><img src="images/facebook-icon.svg" alt="facebook-icon"
+          /></a>
+          <a href="https://instagram.com"
+            ><img src="images/instagram-icon.svg" alt="instagram-icon"
+          /></a>
+        </div>
+        <div class="menu-page__ordinary-contacts">
+          <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
+          <br />
+          <a href="mailto:https://mail@dobry.am">mail@dobry.am</a>
+        </div>
       </div>
     </div>
-    <div class="menu-page__part-bottom">
-      <div>
-        <button id="feedback">
-          <img src="./images/feedback.svg" alt="feedback" />
-        </button>
-      </div>
-
-      <div class="menu-page__social-contacts">
-        <a href="https://youtube.com"
-          ><img src="images/youtube-icon.svg" alt="youtube-icon"
-        /></a>
-        <a href="https://facebook.com"
-          ><img src="images/facebook-icon.svg" alt="facebook-icon"
-        /></a>
-        <a href="https://instagram.com"
-          ><img src="images/instagram-icon.svg" alt="instagram-icon"
-        /></a>
-      </div>
-      <div class="menu-page__ordinary-contacts">
-        <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
-        <br />
-        <a href="mailto:https://mail@dobry.am">mail@dobry.am</a>
-      </div>
-    </div>
-
-    <div class="about-us-mobile">
+  </div>
+  <div class="about-us-mobile">
   <div class="first-part">
     <div class="bottles">
       <img src="./images/bottles.png" alt="bottles" />
@@ -1573,63 +1587,10 @@
   </div>
 </div>
 
-    <div class="feedback-page">
-      <div class="damper"></div>
-<div class="feedback__text">
-  <img src="images/feedback2.svg" alt="feddback-text" />
-</div>
-<!-- will be dinamicly added -->
-<div class="form-container"></div>
-
-<div class="contacts-feedback">
-  <div class="contacts-feedback__mobile container">
-    <div class="social">
-      <a href="https://facebook.com" tabindex="-1"
-        ><img src="images/facebook-icon.svg" alt="facebook-icon"
-      /></a>
-      <a href="https://youtube.com" tabindex="-1"
-        ><img src="images/youtube-icon.svg" alt="youtube-icon"
-      /></a>
-      <a href="https://instagram.com" tabindex="-1"
-        ><img src="images/instagram-icon.svg" alt="instagram-icon"
-      /></a>
-    </div>
-    <div>
-      <a href="mailto:https://mail@dobry.am" tabindex="-1">mail@dobry.am</a
-      ><br />
-      <a href="tel:+374 00 00 00 00" tabindex="-1">+374 00 00 00 00</a>
-    </div>
-  </div>
-  <div class="contacts-feedback__desktop">
-    <button class="upToHome">
-      <img src="images/bottom-sign.svg" alt="up-sign" />
-    </button>
-
-    <div class="ordinary-contacts">
-      <a href="mailto:https://mail@dobry.am">mail@dobry.am</a><br />
-      <a href="tel:+374 00 00 00 00">+374 00 00 00 00</a>
-    </div>
-    <div class="copyright-desktop">
-      Copyright © 2020 dobry.am<br />All Rights Reserved.
-    </div>
-  </div>
-</div>
-
-<div class="copyright-mobile">
-  <div class="feedback__border">
-    <img src="images/header-border.svg" alt="border" width="100%" />
-  </div>
-  <div class="container">
-    <span>Copyright © 2020 dobry.am<br />All Rights Reserved.</span>
-  </div>
-</div>
-
-    </div>
-  </div>
 </div>
 
       <div class="media">
-  <button id="closeMedia" type="button" class="close-page-icon"></button>
+  <button id="closeMedia" type="button" class="close-page-icon">
     <img src="images/menu-vector1.svg" alt="burger-vector1" />
     <img src="images/menu-vector2.svg" alt="burger-vector2" />
   </button>
@@ -1653,6 +1614,6 @@
     </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/index-exp.js"></script>
+    <script src="js/index-new.js"></script>
   </body>
 </html>

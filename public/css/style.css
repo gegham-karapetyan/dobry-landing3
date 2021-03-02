@@ -479,8 +479,6 @@ h2 {
 .burger {
   outline: none;
   cursor: pointer;
-  -webkit-transition-delay: 1.1s;
-          transition-delay: 1.1s;
   -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.57, 0.07, 0.04, 0.99);
   transition: -webkit-transform 0.7s cubic-bezier(0.57, 0.07, 0.04, 0.99);
   transition: transform 0.7s cubic-bezier(0.57, 0.07, 0.04, 0.99);
@@ -665,7 +663,7 @@ form .slider-track {
   transition: transform 0.4s, -webkit-transform 0.4s;
 }
 
-.menu-page-wrapper {
+.menu-page-navigation {
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -673,15 +671,16 @@ form .slider-track {
   min-height: 568px;
 }
 
+.menu-page .feedback-page {
+  width: 100%;
+  height: 100%;
+}
+
 .menu-page__part-top,
 .menu-page__part-bottom {
   position: absolute;
   z-index: 20;
   width: 100%;
-  -webkit-transition: -webkit-transform 0.6s ease-in;
-  transition: -webkit-transform 0.6s ease-in;
-  transition: transform 0.6s ease-in;
-  transition: transform 0.6s ease-in, -webkit-transform 0.6s ease-in;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -723,16 +722,6 @@ form .slider-track {
   margin-top: 12px;
 }
 
-.menu-page__part-top--open {
-  -webkit-transform: translate3d(0, -45%, 0);
-          transform: translate3d(0, -45%, 0);
-}
-
-.menu-page__part-top--open {
-  -webkit-transform: translate3d(0, 55%, 0);
-          transform: translate3d(0, 55%, 0);
-}
-
 .menu-page__social-contacts {
   width: 200px;
   margin-left: auto;
@@ -758,16 +747,6 @@ form .slider-track {
           transform: translate3d(0, 0, 0);
 }
 
-.menu-page__part-top--active {
-  -webkit-transform: translate3d(0, -100%, 0);
-          transform: translate3d(0, -100%, 0);
-}
-
-.menu-page__part-bottom--active {
-  -webkit-transform: translate3d(0, 100%, 0);
-          transform: translate3d(0, 100%, 0);
-}
-
 @font-face {
   font-family: "Monsterrat_arm";
   src: url("../fonts/Montserrat_am3-Regular.woff");
@@ -775,11 +754,15 @@ form .slider-track {
 
 .about-us-mobile {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 20;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .first-part {
@@ -857,7 +840,8 @@ form .slider-track {
 }
 
 .about-us-mobile--active {
-  z-index: 15;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 .home-page {
@@ -1277,6 +1261,7 @@ form .slider-track {
 }
 
 .specific-description--appleCitrus {
+  padding-top: 30px;
   width: 87%;
 }
 
@@ -1611,14 +1596,6 @@ form .slider-track {
   width: 100%;
   height: 100vh;
   min-height: 568px;
-}
-
-.menu-page .feedback-page {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
 }
 
 .feedback__text {
@@ -1978,16 +1955,6 @@ form .slider-track--translate {
           transform: translateY(-8px) rotate(-45deg);
 }
 
-.close-page-icon:hover > img:first-child {
-  -webkit-transform: translateY(6px) rotate(0deg);
-          transform: translateY(6px) rotate(0deg);
-}
-
-.close-page-icon:hover > img:last-child {
-  -webkit-transform: translateY(-8px) rotate(0deg);
-          transform: translateY(-8px) rotate(0deg);
-}
-
 @media only screen and (min-width: 450px) {
   .hero__wrap {
     max-width: 872px;
@@ -2086,9 +2053,7 @@ form .slider-track--translate {
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 1px 1px 5px gray;
-            box-shadow: inset 1px 1px 5px gray;
-    background: #f1f1f1;
+    background: #f1f1f193;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
@@ -2356,13 +2321,13 @@ form .slider-track--translate {
     overflow-y: auto;
   }
   form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
   }
   form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.76);
+    background-color: rgba(255, 255, 255, 0.3);
   }
   form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar-thumb {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.658);
   }
   form .slider-track .slider-slide:last-child .textarea__bg {
     height: 225px;
