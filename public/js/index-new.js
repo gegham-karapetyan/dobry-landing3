@@ -165,12 +165,14 @@ function burgerBtnHandler() {
   if (isAboutUsMobilePageOpen) {
     aboutUsMobilePage.classList.remove("about-us-mobile--active");
     isAboutUsMobilePageOpen = false;
+    logo.style.visibility = "visible";
   } else {
     closeMenu();
   }
 
   if (isMenuPageOpen) {
     preventSlideChange();
+    removeHeaderBg();
   } else {
     allowSlideChange();
   }
@@ -357,10 +359,15 @@ function changeClassOfBulletWhenSlideChanged() {
 
 // ---------< control other states >----------
 
-function toggleHeaderBg() {
+function addHeaderBg() {
   let index = swiper.activeIndex;
-  header.classList.toggle("header--sticky");
-  header.classList.toggle(`header--${classes[index]}`);
+  header.classList.add("header--sticky");
+  header.classList.add(`header--${classes[index]}`);
+}
+function removeHeaderBg() {
+  let index = swiper.activeIndex;
+  header.classList.remove("header--sticky");
+  header.classList.remove(`header--${classes[index]}`);
 }
 function preventSlideChange() {
   swiper.autoplay.stop();
@@ -466,13 +473,12 @@ window.addEventListener(
   "scroll",
   () => {
     if (device === "mobile") {
-      console.log(device);
       if (!isReturnBtnActive && window.scrollY >= viewHeight) {
         toggleReturnBtnActivity();
-        toggleHeaderBg();
+        addHeaderBg();
       } else if (isReturnBtnActive && window.scrollY < viewHeight) {
         toggleReturnBtnActivity();
-        toggleHeaderBg();
+        removeHeaderBg();
       }
     }
     if (swiper.allowTouchMove && window.scrollY > 100) {

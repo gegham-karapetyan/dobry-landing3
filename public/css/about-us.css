@@ -12,6 +12,7 @@ html {
 *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -387,7 +388,7 @@ template {
           transform: translateY(-8px) rotate(-45deg);
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1650px) {
   .about-us-desktop .part-three .container {
     font-size: 14px;
     line-height: 2rem;
