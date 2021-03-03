@@ -17,7 +17,6 @@ let swiper = new Swiper(".swiper-container", {
   longSwipesRatio: 0.1,
   threshold: 5,
   longSwipesMs: 200,
-
   touchRatio: 0.6,
   autoplay: {
     delay: 5000,
@@ -107,7 +106,7 @@ const sections = {
   3: document.querySelector(".multiMix"),
 };
 
-let viewHeight = swiperContainer.offsetHeight; //100vh
+let viewHeight = swiperContainer.offsetHeight;
 
 let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
@@ -188,6 +187,19 @@ function formNextBtnHandler() {
 
 function formPrevBtnHandler() {
   formSliderTrack.classList.remove("slider-track--translate");
+}
+
+function _active() {
+  swiper.slideTo(0);
+}
+
+function changeButtonNextDefaultAction() {
+  let { activeIndex, slides } = swiper;
+  if (activeIndex + 1 === slides.length) {
+    swiperButtonNext.addEventListener("click", _active);
+  } else {
+    swiperButtonNext.removeEventListener("click", _active);
+  }
 }
 
 function swiperPaginatonBulletsHandlers() {
@@ -319,9 +331,10 @@ function changeSwiperContainerBgColor() {
   swiperContainer.style.backgroundColor = colors[index];
 }
 function changeSwiperButtonsBgColor() {
-  let { activeIndex, previousIndex } = swiper;
-  let nextIndex = (activeIndex + 1) % 4;
-  let prevIndex = activeIndex === 0 ? 3 : previousIndex;
+  let { activeIndex, slides } = swiper;
+  let nextIndex = activeIndex + 1 === slides.length ? 0 : activeIndex + 1;
+  let lastElemIndex = slides.length - 1;
+  let prevIndex = activeIndex === 0 ? lastElemIndex : activeIndex - 1;
 
   swiperButtonPrev.firstElementChild.style.fill = colors[prevIndex];
   swiperButtonNext.firstElementChild.style.fill = colors[nextIndex];
@@ -425,17 +438,21 @@ function init() {
   changeSwiperContainerBgColor();
   changeSwiperButtonsBgColor();
   swiperPaginatonBulletsHandlers();
+  swiperButtonPrevVisibility();
+  changeButtonNextDefaultAction();
   //test-----------
   //determineWidth();
   //test
   swiper.on("slideChange", () => {
     Promise.resolve(
+      swiperButtonPrevVisibility(),
       changeClassOfBulletWhenSlideChanged(),
       sliderTrackFruitsTranslate(),
       changeMenuPageBgColor(),
       changeSwiperButtonsBgColor(),
       addFormToSection(),
-      changeSwiperContainerBgColor()
+      changeSwiperContainerBgColor(),
+      changeButtonNextDefaultAction()
     );
   });
 }
@@ -519,6 +536,12 @@ function closeFullscreen(elem) {
   } else if (elem.msExitFullscreen) {
     elem.msExitFullscreen();
   }
+}
+
+function swiperButtonPrevVisibility() {
+  if (!swiper.activeIndex) {
+    swiperButtonPrev.style.visibility = "hidden";
+  } else swiperButtonPrev.style.visibility = "visible";
 }
 
 //--------------/ helpers------------

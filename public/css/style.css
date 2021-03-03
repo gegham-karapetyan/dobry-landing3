@@ -439,8 +439,9 @@ h2 {
 
 .swiper-pagination-line {
   fill: rgba(255, 255, 255, 0.5);
-  width: 50px;
-  height: 15px;
+  width: 32px;
+  height: 5px;
+  margin: 10px;
 }
 
 .swiper-pagination-bullet {
@@ -1040,6 +1041,7 @@ form .slider-track {
   width: 250px;
   top: -25px;
   right: -100px;
+  z-index: 2;
 }
 
 .fruit__chunk3-multiMix {
@@ -2083,7 +2085,10 @@ form .slider-track--translate {
   }
   .bottom-sign {
     text-align: left;
-    bottom: 30px;
+    bottom: 40px;
+  }
+  .bottom-sign > img {
+    width: 25px;
   }
   .swiper-pagination-lines {
     bottom: 36px;
@@ -2097,6 +2102,8 @@ form .slider-track--translate {
   .swiper-button-prev,
   .swiper-button-next {
     display: block;
+    width: 30px;
+    height: 182px;
   }
   .hero {
     top: 25%;

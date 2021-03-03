@@ -1,3 +1,282 @@
 html {
   font-size: 13px;
 }
+
+.wrapper > .social {
+  width: 38px;
+}
+.header__inner {
+  padding-left: 60px;
+  padding-right: 70px;
+  margin-top: 70px;
+}
+.logo {
+  width: 110px;
+}
+.nav-about-us {
+  width: 118px;
+}
+.nav-feedback {
+  width: 150px;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: 42px;
+  height: 261px;
+}
+.swiper-pagination-line {
+  width: 42px;
+  height: 6px;
+  margin: 12px;
+}
+
+.bottom-sign {
+  & > img {
+    width: 35px;
+  }
+}
+.swiper-pagination-lines {
+  bottom: 36px;
+  display: flex;
+}
+
+.hero__bottle {
+  width: 600px;
+  left: 300px;
+  top: -100px;
+}
+.hero__name-apple {
+  left: 11%;
+}
+.hero__name-tomato {
+  left: 17%;
+}
+.hero__name-appleCitrus {
+  top: 10px;
+  left: 17%;
+}
+.hero__name-multiMix {
+  top: 10px;
+  left: 21%;
+}
+.play-btn {
+  left: 12%;
+  top: 45%;
+  width: 90px;
+}
+.fruit-chunks {
+  width: 568px;
+}
+.fruit__chunk1-apple {
+  right: -35px;
+}
+
+.fruit__chunk2-apple {
+  width: 150px;
+  top: 77px;
+  left: -145px;
+}
+.fruit__chunk3-apple {
+  width: 110px;
+  right: 70px;
+  bottom: 100px;
+}
+.fruit__chunk4-apple {
+  width: 178px;
+  left: -54px;
+  top: 300px;
+}
+.fruit__chunk1-tomato {
+  width: 214px;
+  left: 385px;
+  top: 55px;
+}
+
+.fruit__chunk2-tomato {
+  width: 106px;
+  top: 240px;
+  left: 362px;
+}
+.fruit__chunk3-tomato {
+  width: 215px;
+  left: -58px;
+  top: 85px;
+}
+.fruit__chunk4-tomato {
+  width: 230px;
+  left: 0px;
+  top: 273px;
+}
+.fruit__chunk1-appleCitrus {
+  width: 160px;
+  top: -30px;
+  left: -110px;
+}
+
+.fruit__chunk2-appleCitrus {
+  width: 90px;
+  top: 260px;
+  right: 60px;
+}
+.fruit__chunk3-appleCitrus {
+  width: 270px;
+  right: -57px;
+  top: -33px;
+}
+.fruit__chunk4-appleCitrus {
+  transform: rotate(5deg);
+  width: 130px;
+  left: -80px;
+  top: 200px;
+}
+.fruit__chunk5-appleCitrus {
+  width: 110px;
+  left: 30px;
+  top: 362px;
+}
+.fruit__chunk1-multiMix {
+  width: 150px;
+  left: -68px;
+  top: 120px;
+}
+
+.fruit__chunk2-multiMix {
+  width: 263px;
+  top: -68px;
+  right: 2px;
+}
+.fruit__chunk3-multiMix {
+  width: 210px;
+  right: 1px;
+  top: 163px;
+  transform: rotate(0deg);
+}
+.fruit__chunk4-multiMix {
+  width: 170px;
+  left: 20px;
+  top: 300px;
+}
+.juice-text2 {
+  width: 136px;
+}
+.return-btn {
+  display: none;
+}
+.content {
+  padding-top: 124px;
+}
+.content__fruitChunk {
+  display: none;
+}
+.content__header > .container {
+  width: 100%;
+}
+.descriptions > .container {
+  width: 100%;
+}
+
+.common-description {
+  flex-flow: row nowrap;
+}
+
+.specific-description {
+  margin-top: 40px;
+  width: 50%;
+}
+
+.sugar-img,
+.leaflet-img,
+.antioxidant-img {
+  width: 30px;
+  margin-right: 40px;
+}
+.basic-composition-inner {
+  display: flex;
+  width: 50%;
+}
+.basic-composition-outer {
+  display: none;
+}
+.sub-composition {
+  margin-top: 160px;
+}
+.sub-composition__inner {
+  top: 50px;
+}
+.composition-text {
+  max-width: 165px;
+}
+.elements {
+  width: 325px;
+}
+.contacts-feedback__mobile,
+.copyright-mobile {
+  display: none;
+}
+.contacts-feedback__desktop {
+  display: flex;
+}
+.form-container {
+  flex: 60%;
+}
+.form-gratitude {
+  flex: 10%;
+  align-items: flex-start;
+  & .gratitude {
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+form {
+  overflow: visible;
+
+  max-width: 640px;
+
+  & .slider-track {
+    width: 100%;
+    & .slider-slide {
+      width: 45%;
+      &:first-child {
+        margin-right: 10%;
+        & .form__uname {
+          margin-top: 0;
+        }
+        & #fakeInput {
+          display: none;
+        }
+      }
+      &:last-child {
+        & textarea {
+          height: 200px;
+          width: 105%;
+          padding-right: 15%;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            width: 3px;
+          }
+          &::-webkit-scrollbar-track {
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.658);
+          }
+        }
+        & .textarea__bg {
+          height: 225px;
+        }
+        & .form__note {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  & .form__btns {
+    display: none;
+  }
+  & .feedback__submit {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+  }
+}

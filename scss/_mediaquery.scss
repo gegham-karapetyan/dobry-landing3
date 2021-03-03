@@ -126,18 +126,24 @@
   }
   .bottom-sign {
     text-align: left;
-    bottom: 30px;
+    bottom: 40px;
+    & > img {
+      width: 25px;
+    }
   }
   .swiper-pagination-lines {
     bottom: 36px;
     display: flex;
   }
+
   .swiper-pagination-bullets {
     display: none;
   }
   .swiper-button-prev,
   .swiper-button-next {
     display: block;
+    width: 30px;
+    height: 182px;
   }
   .hero {
     top: 25%;
