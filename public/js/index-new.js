@@ -123,10 +123,10 @@ function playBtnHundler() {
 
   media.style.display = "flex";
   media.isActive = true;
-  openFullscreen(media);
+  //openFullscreen(media);
 }
 function closeMediaBtnHandler() {
-  if (document.fullscreenElement) closeFullscreen(document);
+  // if (document.fullscreenElement) closeFullscreen(document);
   video.pause();
   this.parentElement.style.display = "none";
 }
@@ -469,7 +469,7 @@ function changeFormMarkupForMobile() {
 }
 
 window.addEventListener("load", init, false);
-window.cc = 0;
+
 window.addEventListener(
   "resize",
   function () {
