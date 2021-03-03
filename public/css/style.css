@@ -2109,6 +2109,7 @@ form .slider-track--translate {
     top: 25%;
   }
   .hero__bottle {
+    max-width: unset;
     width: 600px;
     left: 300px;
     top: -100px;
