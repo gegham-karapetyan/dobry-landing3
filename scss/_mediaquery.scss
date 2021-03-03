@@ -188,7 +188,7 @@
   .fruit__chunk3-apple {
     width: 110px;
     right: 70px;
-    bottom: 100px;
+    top: 258px;
   }
   .fruit__chunk4-apple {
     width: 178px;
@@ -317,6 +317,11 @@
   }
   .elements {
     width: 325px;
+    &__elem {
+      display: inline-block;
+      padding-right: 26px;
+      width: auto;
+    }
   }
   .contacts-feedback__mobile,
   .copyright-mobile {
@@ -360,15 +365,6 @@
             width: 105%;
             padding-right: 15%;
             overflow-y: auto;
-            &::-webkit-scrollbar {
-              width: 3px;
-            }
-            &::-webkit-scrollbar-track {
-              background-color: rgba(255, 255, 255, 0.3);
-            }
-            &::-webkit-scrollbar-thumb {
-              background-color: rgba(255, 255, 255, 0.658);
-            }
           }
           & .textarea__bg {
             height: 225px;

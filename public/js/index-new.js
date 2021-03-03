@@ -131,11 +131,11 @@ function closeMediaBtnHandler() {
   this.parentElement.style.display = "none";
 }
 
-function menuAboutUsBtnHandler() {
-  logo.style.visibility = "hidden";
-  aboutUsMobilePage.classList.add("about-us-mobile--active");
-  isAboutUsMobilePageOpen = true;
-}
+// function menuAboutUsBtnHandler() {
+//   logo.style.visibility = "hidden";
+//   aboutUsMobilePage.classList.add("about-us-mobile--active");
+//   isAboutUsMobilePageOpen = true;
+// }
 
 function navFeedbackBtnHandler() {
   let documentHeight =
@@ -153,27 +153,54 @@ function menuFeedbackBtnHandler() {
   navFeedbackBtnHandler();
 }
 
+function openMenu() {
+  burgerBtn.classList.add("burger--active");
+  menuPage.classList.add("menu-page--active");
+  preventScrolling(body);
+  preventSlideChange();
+  removeHeaderBg();
+  isMenuPageOpen = true;
+}
 function closeMenu() {
+  burgerBtn.classList.remove("burger--active");
+  menuPage.classList.remove("menu-page--active");
+  allowSlideChange();
+  allowScrolling(body);
+  if (window.scrollY > viewHeight) {
+    addHeaderBg();
+  }
+  isMenuPageOpen = false;
+}
+
+function openAboutUsPage() {
+  aboutUsMobilePage.classList.add("about-us-mobile--active");
+  isAboutUsMobilePageOpen = true;
+  logo.style.visibility = "hidden";
+}
+function closeAboutUsPage() {
+  aboutUsMobilePage.classList.remove("about-us-mobile--active");
+  isAboutUsMobilePageOpen = false;
   logo.style.visibility = "visible";
-  burgerBtn.classList.toggle("burger--active");
-  menuPage.classList.toggle("menu-page--active");
-  isMenuPageOpen = !isMenuPageOpen;
 }
 
 function burgerBtnHandler() {
   if (isAboutUsMobilePageOpen) {
-    aboutUsMobilePage.classList.remove("about-us-mobile--active");
-    isAboutUsMobilePageOpen = false;
-    logo.style.visibility = "visible";
-  } else {
-    closeMenu();
+    closeAboutUsPage();
+    return;
   }
 
-  if (isMenuPageOpen) {
-    preventSlideChange();
-    removeHeaderBg();
+  // else {
+  //   console.log("else menu");
+  //   closeMenu();
+  //   if (window.scrollY > viewHeight) {
+  //     addHeaderBg();
+  //   }
+  // }
+
+  if (!isMenuPageOpen) {
+    openMenu();
   } else {
-    allowSlideChange();
+    closeMenu();
   }
 }
 
@@ -400,7 +427,7 @@ function toggleReturnBtnActivity() {
 
 //---------------< initialize onClick events handlers >-----------------
 burgerBtn.onclick = burgerBtnHandler;
-menuAboutUsBtn.onclick = menuAboutUsBtnHandler;
+menuAboutUsBtn.onclick = openAboutUsPage;
 navFeedbackBtn.onclick = navFeedbackBtnHandler;
 menuFeedbackBtn.onclick = menuFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
@@ -489,6 +516,7 @@ window.addEventListener(
 window.addEventListener(
   "scroll",
   () => {
+    console.log("scroll");
     if (device === "mobile") {
       if (!isReturnBtnActive && window.scrollY >= viewHeight) {
         toggleReturnBtnActivity();
@@ -519,23 +547,12 @@ function validateName(name) {
 function validatePhone(phone) {
   return phone.length > 1;
 }
-function openFullscreen(elem) {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) {
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) {
-    elem.msRequestFullscreen();
-  }
+
+function preventScrolling(elem) {
+  elem.classList.add("prevent-scrolling");
 }
-function closeFullscreen(elem) {
-  if (elem.exitFullscreen) {
-    elem.exitFullscreen();
-  } else if (elem.webkitExitFullscreen) {
-    elem.webkitExitFullscreen();
-  } else if (elem.msExitFullscreen) {
-    elem.msExitFullscreen();
-  }
+function allowScrolling(elem) {
+  elem.classList.remove("prevent-scrolling");
 }
 
 function swiperButtonPrevVisibility() {
@@ -543,6 +560,24 @@ function swiperButtonPrevVisibility() {
     swiperButtonPrev.style.visibility = "hidden";
   } else swiperButtonPrev.style.visibility = "visible";
 }
+// function openFullscreen(elem) {
+//   if (elem.requestFullscreen) {
+//     elem.requestFullscreen();
+//   } else if (elem.webkitRequestFullscreen) {
+//     elem.webkitRequestFullscreen();
+//   } else if (elem.msRequestFullscreen) {
+//     elem.msRequestFullscreen();
+//   }
+// }
+// function closeFullscreen(elem) {
+//   if (elem.exitFullscreen) {
+//     elem.exitFullscreen();
+//   } else if (elem.webkitExitFullscreen) {
+//     elem.webkitExitFullscreen();
+//   } else if (elem.msExitFullscreen) {
+//     elem.msExitFullscreen();
+//   }
+// }
 
 //--------------/ helpers------------
 

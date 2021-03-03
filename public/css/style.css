@@ -648,7 +648,8 @@ form .slider-track {
   display: none;
   height: 100vh;
   width: 100%;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -1465,12 +1466,12 @@ form .slider-track {
 }
 
 .elements__elem {
-  display: inline-block;
+  display: block;
+  width: 100%;
   margin-top: 7px;
   font-size: 12px;
   padding-left: 15px;
   padding-top: 10px;
-  padding-right: 26px;
   min-height: 38px;
   background-repeat: no-repeat;
 }
@@ -1703,17 +1704,33 @@ form {
 form input,
 form textarea {
   position: absolute;
-  width: 90%;
-  bottom: 13px;
-  left: 5%;
+  padding: 0px 50px 15px 15px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
   z-index: 10;
   font-weight: 500;
   border: none;
   background-color: transparent;
+  border: none;
 }
 
 form textarea {
   height: 75px;
+  bottom: 13px;
+  padding: 0px 10px 0px 10px;
+}
+
+form textarea::-webkit-scrollbar {
+  width: 3px;
+}
+
+form textarea::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+form textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.658);
 }
 
 form input:focus,
@@ -2147,7 +2164,7 @@ form .slider-track--translate {
   .fruit__chunk3-apple {
     width: 110px;
     right: 70px;
-    bottom: 100px;
+    top: 258px;
   }
   .fruit__chunk4-apple {
     width: 178px;
@@ -2278,6 +2295,11 @@ form .slider-track--translate {
   .elements {
     width: 325px;
   }
+  .elements__elem {
+    display: inline-block;
+    padding-right: 26px;
+    width: auto;
+  }
   .contacts-feedback__mobile,
   .copyright-mobile {
     display: none;
@@ -2328,15 +2350,6 @@ form .slider-track--translate {
     width: 105%;
     padding-right: 15%;
     overflow-y: auto;
-  }
-  form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar {
-    width: 3px;
-  }
-  form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.658);
   }
   form .slider-track .slider-slide:last-child .textarea__bg {
     height: 225px;

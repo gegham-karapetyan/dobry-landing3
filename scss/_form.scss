@@ -6,16 +6,29 @@ form {
   & input,
   & textarea {
     position: absolute;
-    width: 90%;
-    bottom: 13px;
-    left: 5%;
+    padding: 0px 50px 15px 15px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
     z-index: 10;
     font-weight: 500;
     border: none;
     background-color: transparent;
+    border: none;
   }
   & textarea {
     height: 75px;
+    bottom: 13px;
+    padding: 0px 10px 0px 10px;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.658);
+    }
   }
   & input:focus,
   & textarea:focus {
