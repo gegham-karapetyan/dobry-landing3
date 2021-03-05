@@ -123,19 +123,11 @@ function playBtnHundler() {
 
   media.style.display = "flex";
   media.isActive = true;
-  //openFullscreen(media);
 }
 function closeMediaBtnHandler() {
-  // if (document.fullscreenElement) closeFullscreen(document);
   video.pause();
   this.parentElement.style.display = "none";
 }
-
-// function menuAboutUsBtnHandler() {
-//   logo.style.visibility = "hidden";
-//   aboutUsMobilePage.classList.add("about-us-mobile--active");
-//   isAboutUsMobilePageOpen = true;
-// }
 
 function navFeedbackBtnHandler() {
   let documentHeight =
@@ -156,7 +148,7 @@ function menuFeedbackBtnHandler() {
 function openMenu() {
   burgerBtn.classList.add("burger--active");
   menuPage.classList.add("menu-page--active");
-  preventScrolling(body);
+
   preventSlideChange();
   removeHeaderBg();
   isMenuPageOpen = true;
@@ -165,7 +157,7 @@ function closeMenu() {
   burgerBtn.classList.remove("burger--active");
   menuPage.classList.remove("menu-page--active");
   allowSlideChange();
-  allowScrolling(body);
+
   if (window.scrollY > viewHeight) {
     addHeaderBg();
   }
@@ -188,14 +180,6 @@ function burgerBtnHandler() {
     closeAboutUsPage();
     return;
   }
-
-  // else {
-  //   console.log("else menu");
-  //   closeMenu();
-  //   if (window.scrollY > viewHeight) {
-  //     addHeaderBg();
-  //   }
-  // }
 
   if (!isMenuPageOpen) {
     openMenu();
@@ -520,7 +504,7 @@ window.addEventListener(
     if (device === "mobile") {
       if (!isReturnBtnActive && window.scrollY >= viewHeight) {
         toggleReturnBtnActivity();
-        addHeaderBg();
+        if (!isMenuPageOpen) addHeaderBg();
       } else if (isReturnBtnActive && window.scrollY < viewHeight) {
         toggleReturnBtnActivity();
         removeHeaderBg();
