@@ -18,9 +18,9 @@ let swiper = new Swiper(".swiper-container", {
   threshold: 5,
   longSwipesMs: 200,
   touchRatio: 0.6,
-  autoplay: {
-    delay: 5000,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  // },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",

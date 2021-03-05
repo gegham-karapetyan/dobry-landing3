@@ -30,16 +30,6 @@ html {
   height: 261px;
 }
 
-.swiper-button-prev::after,
-.swiper-button-prev::before {
-  left: 15px;
-}
-
-.swiper-button-next::after,
-.swiper-button-next::before {
-  right: 15px;
-}
-
 .swiper-pagination-line {
   width: 42px;
   height: 6px;
@@ -307,7 +297,7 @@ html {
 
 .specific-description > .container {
   font-size: 14px;
-  width: 80%;
+  width: 70%;
 }
 
 .sugar-img,
@@ -322,7 +312,7 @@ html {
 }
 
 .basic-composition-inner--apple .bottle-sketch > img:nth-child(1) {
-  height: 130%;
+  height: 120%;
   top: -20px;
 }
 
@@ -345,7 +335,7 @@ html {
 }
 
 .basic-composition-inner--tomato .bottle-sketch > img:nth-child(1) {
-  height: 130%;
+  height: 120%;
   top: -20px;
 }
 
@@ -368,7 +358,7 @@ html {
 }
 
 .basic-composition-inner--appleCitrus .bottle-sketch > img:nth-child(1) {
-  height: 130%;
+  height: 120%;
   top: -20px;
 }
 
@@ -391,7 +381,7 @@ html {
 }
 
 .basic-composition-inner--multiMix .bottle-sketch > img:nth-child(1) {
-  height: 130%;
+  height: 120%;
   top: -20px;
 }
 
@@ -418,8 +408,7 @@ html {
 }
 
 .sub-composition {
-  margin-top: 200px;
-  margin-bottom: 130px;
+  margin-top: 230px;
   height: 410px;
 }
 
@@ -440,77 +429,19 @@ html {
 }
 
 .sub-composition__inner {
-  top: 90px;
+  top: 50px;
+}
+
+.composition-text {
+  max-width: 165px;
 }
 
 .elements {
-  margin-top: 30px;
-  width: 400px;
+  width: 325px;
 }
 
 .elements__elem {
   font-size: 16px;
-  padding: 17px 45px 25px 17px;
-}
-
-.elements__elem--ferrum {
-  color: #8bd2b8;
-  background-image: url("../images/ferrum-bg-big.png");
-}
-
-.elements__elem--kalium {
-  color: #8bd2b8;
-  background-image: url("../images/kalium-bg-big.png");
-}
-
-.elements__elem--magnesium {
-  color: #8bd2b8;
-  background-image: url("../images/magnesium-bg-big.png");
-}
-
-.elements__elem--fiber {
-  color: #e7524c;
-  background-image: url("../images/fiber-bg-big.png");
-}
-
-.elements__elem--kalium2 {
-  color: #e7524c;
-  background-image: url("../images/kalium2-bg-big.png");
-}
-
-.elements__elem--vitamine {
-  color: #e7524c;
-  background-image: url("../images/vitamine-bg-big.png");
-}
-
-.elements__elem--vitaminc {
-  color: #fa7d3c;
-  background-image: url("../images/vitaminc-bg-big.png");
-}
-
-.elements__elem--antioxidant {
-  color: #fa7d3c;
-  background-image: url("../images/antioxidant-bg-big.png");
-}
-
-.elements__elem--pektin {
-  color: #fa7d3c;
-  background-image: url("../images/pektin-bg-big.png");
-}
-
-.elements__elem--pektin-fiber {
-  color: #f6cd5b;
-  background-image: url("../images/pektin-fiber-bg-big.png");
-}
-
-.elements__elem--kalium3 {
-  color: #f6cd5b;
-  background-image: url("../images/kalium3-bg-big.png");
-}
-
-.elements__elem--fruit-acid {
-  color: #f6cd5b;
-  background-image: url("../images/fruit-acid-bg-big.png");
 }
 
 .contacts-feedback__mobile,
@@ -544,32 +475,9 @@ html {
   text-align: center;
 }
 
-.feedback__text img {
-  width: 350px;
-}
-
 form {
   overflow: visible;
-  font-size: 14px;
-  max-width: 900px;
-  overflow: visible;
-  font-size: 14px;
-  max-width: 900px;
-}
-
-form label {
-  margin-bottom: 15px;
-}
-
-form input {
-  padding: 22px 10px 20px 10px;
-}
-
-form .mail-input__bg,
-form .name-input__bg,
-form .phone-input__bg {
-  width: 100%;
-  height: 58px;
+  max-width: 640px;
 }
 
 form .slider-track {
@@ -588,35 +496,45 @@ form .slider-track .slider-slide:first-child .form__uname {
   margin-top: 0;
 }
 
-form .slider-track .slider-slide:first-child .form__mail {
-  margin-top: 35px;
-}
-
-form .slider-track .slider-slide:first-child .form__phone {
-  margin-top: 35px;
-}
-
 form .slider-track .slider-slide:first-child #fakeInput {
   display: none;
 }
 
 form .slider-track .slider-slide:last-child textarea {
-  height: 295px;
+  height: 200px;
+  width: 105%;
+  padding-right: 15%;
+  overflow-y: auto;
+}
+
+form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar {
+  width: 3px;
+}
+
+form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+form .slider-track .slider-slide:last-child textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.658);
 }
 
 form .slider-track .slider-slide:last-child .textarea__bg {
-  height: 321px;
+  height: 225px;
+}
+
+form .slider-track .slider-slide:last-child .form__note {
+  margin-top: 0;
+}
+
+form .form__btns {
+  display: none;
 }
 
 form .feedback__submit {
-  margin-top: 90px;
-}
-
-form .feedback__submit > img {
-  width: 213px;
-}
-
-.upToMome img {
-  width: 35px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
 }
 /*# sourceMappingURL=widescreen.css.map */

@@ -1,32 +1,7 @@
-@media only screen and (min-width: 450px) {
-  .hero__wrap {
-    max-width: 872px;
+@media only screen and (min-width: 540px) {
+  .home__wrap {
     width: 80%;
     margin: auto;
-  }
-  .fruit-chunks {
-    width: 90%;
-  }
-  .juice-glass--apple {
-    right: -40px;
-  }
-  .juice-glass--tomato {
-    right: 0;
-  }
-  .juice-glass--appleCitrus {
-    right: -40px;
-  }
-  .juice-glass--multiMix {
-    right: 0;
-  }
-}
-@media only screen and (min-width: 540px) {
-  .fruit-chunks {
-    width: 540px;
-  }
-
-  .juice-text2 {
-    width: 180px;
   }
 
   .descriptions > .descriptions-bg {
@@ -145,128 +120,142 @@
     width: 30px;
     height: 182px;
   }
-  .hero {
+  .home__wrap {
     top: 25%;
+    width: 100%;
+    max-width: 880px;
   }
-  .hero__bottle {
-    max-width: unset;
-    width: 600px;
-    left: 300px;
-    top: -100px;
+  .home__bottle {
+    min-width: 600px;
+    left: 280px;
+    top: -95px;
   }
-  .hero__name-apple {
-    left: 11%;
+  .home__name-apple {
+    left: 100px;
   }
-  .hero__name-tomato {
-    left: 17%;
+  .home__name-tomato {
+    left: 130px;
   }
-  .hero__name-appleCitrus {
+  .home__name-appleCitrus {
     top: 10px;
-    left: 17%;
+    left: 130px;
   }
-  .hero__name-multiMix {
+  .home__name-multiMix {
     top: 10px;
-    left: 21%;
+    left: 160px;
   }
   .play-btn {
-    left: 12%;
-    top: 45%;
-    width: 90px;
+    left: 225px;
+    top: 140px;
+    width: 95px;
   }
-  .fruit-chunks {
-    width: 568px;
-  }
+
   .fruit__chunk1-apple {
-    right: -35px;
+    width: 220px;
+    left: 530px;
+    top: -60px;
   }
 
   .fruit__chunk2-apple {
-    width: 150px;
-    top: 77px;
-    left: -145px;
+    width: 165px;
+    left: 0px;
+    top: 15px;
   }
   .fruit__chunk3-apple {
-    width: 110px;
-    right: 70px;
-    top: 258px;
+    width: 130px;
+    left: 540px;
+    top: 180px;
   }
   .fruit__chunk4-apple {
-    width: 178px;
-    left: -54px;
-    top: 300px;
+    width: 180px;
+    left: 125px;
+    top: 239px;
   }
   .fruit__chunk1-tomato {
     width: 214px;
-    left: 385px;
-    top: 55px;
+    left: 540px;
+    top: -10px;
   }
 
   .fruit__chunk2-tomato {
-    width: 106px;
-    top: 240px;
-    left: 362px;
+    width: 100px;
+    top: 180px;
+    left: 525px;
   }
   .fruit__chunk3-tomato {
     width: 215px;
-    left: -58px;
-    top: 85px;
+    left: 70px;
+    top: 20px;
   }
   .fruit__chunk4-tomato {
     width: 230px;
-    left: 0px;
-    top: 273px;
+    left: 160px;
+    top: 220px;
   }
   .fruit__chunk1-appleCitrus {
     width: 160px;
-    top: -30px;
-    left: -110px;
+    top: -107px;
+    left: 40px;
   }
 
   .fruit__chunk2-appleCitrus {
+    left: 570px;
+    top: 205px;
     width: 90px;
-    top: 260px;
-    right: 60px;
   }
   .fruit__chunk3-appleCitrus {
     width: 270px;
-    right: -57px;
-    top: -33px;
+    left: 501px;
+    top: -55px;
   }
   .fruit__chunk4-appleCitrus {
-    transform: rotate(5deg);
-    width: 130px;
-    left: -80px;
-    top: 200px;
+    width: 120px;
+    top: 130px;
+    left: 60px;
   }
   .fruit__chunk5-appleCitrus {
-    width: 110px;
-    left: 30px;
-    top: 362px;
+    top: 310px;
+    left: 193px;
+    width: 100px;
   }
   .fruit__chunk1-multiMix {
     width: 150px;
-    left: -68px;
-    top: 120px;
+    left: 63px;
+    top: 54px;
   }
 
   .fruit__chunk2-multiMix {
     width: 263px;
-    top: -68px;
-    right: 2px;
+    top: -120px;
+    left: 461px;
   }
   .fruit__chunk3-multiMix {
     width: 210px;
-    right: 1px;
-    top: 163px;
+    left: 515px;
+    top: 100px;
     transform: rotate(0deg);
   }
   .fruit__chunk4-multiMix {
     width: 170px;
-    left: 20px;
-    top: 300px;
+    left: 170px;
+    top: 240px;
   }
-  .juice-text2 {
+
+  .juice-text2-apple {
     width: 136px;
+    max-width: unset;
+  }
+  .juice-text2-appleCitrus {
+    width: 320px;
+    max-width: unset;
+  }
+  .juice-text2-tomato {
+    width: 130px;
+    max-width: unset;
+  }
+  .juice-text2-multiMix {
+    width: 245px;
+    max-width: unset;
   }
   .return-btn {
     display: none;
@@ -319,7 +308,7 @@
     width: 325px;
     &__elem {
       display: inline-block;
-      padding-right: 26px;
+      padding-right: 40px;
       width: auto;
     }
   }
@@ -341,6 +330,7 @@
       text-align: center;
     }
   }
+
   form {
     overflow: visible;
 
@@ -355,6 +345,7 @@
           & .form__uname {
             margin-top: 0;
           }
+
           & #fakeInput {
             display: none;
           }
@@ -363,7 +354,7 @@
           & textarea {
             height: 200px;
             width: 105%;
-            padding-right: 15%;
+            padding: 0 30px 0 15px;
             overflow-y: auto;
           }
           & .textarea__bg {

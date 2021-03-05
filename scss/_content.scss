@@ -92,9 +92,23 @@
 
 .juice-text2 {
   width: 60%;
-  & > img {
+
+  & > img,
+  picture {
     width: 100%;
   }
+}
+.juice-text2-apple {
+  max-width: 210px;
+}
+.juice-text2-appleCitrus {
+  max-width: 210px;
+}
+.juice-text2-tomato {
+  max-width: 210px;
+}
+.juice-text2-multiMix {
+  max-width: 210px;
 }
 
 .sugar,
@@ -149,6 +163,8 @@
 .specific-description {
   position: relative;
   padding-top: 10px;
+  display: flex;
+  align-items: center;
   padding-bottom: 15px;
   & > .descriptions-bg {
     display: none;
@@ -162,7 +178,6 @@
   width: 85%;
 }
 .specific-description--appleCitrus {
-  padding-top: 30px;
   width: 87%;
 }
 .specific-description--multiMix {
@@ -344,10 +359,10 @@
     width: 100%;
     margin-top: 7px;
     font-size: 12px;
-    padding-left: 15px;
+    padding-left: 10px;
     padding-top: 10px;
-    //padding-right: 26px;
-    min-height: 38px;
+    padding-bottom: 10px;
+    // min-height: 38px;
     background-repeat: no-repeat;
   }
   &__elem--ferrum {

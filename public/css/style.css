@@ -275,7 +275,6 @@ h2 {
 
 .container {
   width: 83%;
-  max-width: 1100px;
   margin: auto;
 }
 
@@ -852,54 +851,37 @@ form .slider-track {
   margin: 0;
   height: 100%;
   width: 100%;
+  background-color: transparent;
 }
 
-.home-page img {
+.home-page img,
+.home-page picture {
   width: 100%;
 }
 
-.home-page--apple {
-  background-color: transparent;
-}
-
-.home-page--tomato {
-  background-color: transparent;
-}
-
-.home-page--appleCitrus {
-  background-color: transparent;
-}
-
-.home-page--multiMix {
-  background-color: transparent;
-}
-
-.hero {
-  position: absolute;
+.home__wrap {
+  position: relative;
   top: 24%;
+  margin: auto;
   width: 100%;
   height: 55%;
   z-index: 1;
 }
 
-.hero__wrap {
-  position: relative;
-}
-
-.hero__wrap > div {
+.home__wrap > div {
   position: absolute;
 }
 
 .play-btn {
   cursor: pointer;
   position: absolute;
-  left: 20%;
-  top: 40%;
+  left: 40px;
+  top: 110px;
   z-index: 5;
 }
 
-.hero__bottle {
-  max-width: 600px;
+.home__bottle {
+  max-width: 665px;
   width: 63vh;
   min-width: 360px;
   height: auto;
@@ -909,9 +891,10 @@ form .slider-track {
 
 .fruit-chunks {
   position: relative;
-  top: 15%;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 66%;
+  height: 100%;
   margin: auto;
   z-index: 2;
 }
@@ -920,7 +903,7 @@ form .slider-track {
   position: absolute;
 }
 
-.hero__name-apple {
+.home__name-apple {
   width: 71%;
   height: auto;
   max-width: 321px;
@@ -931,28 +914,28 @@ form .slider-track {
 .fruit__chunk1-apple {
   width: 220px;
   right: -90px;
-  top: 0px;
+  top: -60px;
 }
 
 .fruit__chunk2-apple {
-  width: 160px;
-  left: -79px;
-  top: 55px;
+  width: 180px;
+  left: -90px;
+  top: -5px;
 }
 
 .fruit__chunk3-apple {
   width: 140px;
   right: -40px;
-  bottom: 0;
+  top: 180px;
 }
 
 .fruit__chunk4-apple {
   width: 142px;
   left: 0px;
-  top: 240px;
+  top: 195px;
 }
 
-.hero__name-tomato {
+.home__name-tomato {
   width: 65%;
   height: auto;
   max-width: 270px;
@@ -961,30 +944,30 @@ form .slider-track {
 }
 
 .fruit__chunk1-tomato {
-  top: 0;
+  top: -35px;
   width: 214px;
   left: -145px;
 }
 
 .fruit__chunk2-tomato {
   width: 115px;
-  top: 20px;
+  top: -30px;
   right: -40px;
 }
 
 .fruit__chunk3-tomato {
   right: -80px;
   width: 205px;
-  top: 195px;
+  top: 120px;
 }
 
 .fruit__chunk4-tomato {
   left: -14px;
-  top: 225px;
+  top: 160px;
   width: 204px;
 }
 
-.hero__name-appleCitrus {
+.home__name-appleCitrus {
   width: 72%;
   max-width: 270px;
   height: auto;
@@ -994,37 +977,37 @@ form .slider-track {
 
 .fruit__chunk1-appleCitrus {
   width: 145px;
-  top: -30px;
+  top: -90px;
   left: -70px;
 }
 
 .fruit__chunk2-appleCitrus {
   right: -41px;
-  top: 0px;
+  top: -50px;
   width: 110px;
 }
 
 .fruit__chunk3-appleCitrus {
-  top: 170px;
-  width: 205px;
-  right: -93px;
+  top: 100px;
+  width: 218px;
+  right: -100px;
 }
 
 .fruit__chunk4-appleCitrus {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   width: 120px;
-  top: 150px;
+  top: 100px;
   left: -60px;
 }
 
 .fruit__chunk5-appleCitrus {
-  top: 290px;
+  top: 230px;
   left: 10px;
   width: 100px;
 }
 
-.hero__name-multiMix {
+.home__name-multiMix {
   width: 61%;
   height: auto;
   max-width: 240px;
@@ -1034,13 +1017,13 @@ form .slider-track {
 
 .fruit__chunk1-multiMix {
   width: 155px;
-  top: 10px;
+  top: -45px;
   left: -50px;
 }
 
 .fruit__chunk2-multiMix {
-  width: 250px;
-  top: -25px;
+  width: 260px;
+  top: -84px;
   right: -100px;
   z-index: 2;
 }
@@ -1048,14 +1031,14 @@ form .slider-track {
 .fruit__chunk3-multiMix {
   width: 190px;
   right: -45px;
-  top: 170px;
+  top: 140px;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
 .fruit__chunk4-multiMix {
   width: 140px;
-  top: 250px;
+  top: 190px;
   left: 10px;
 }
 
@@ -1176,8 +1159,25 @@ form .slider-track {
   width: 60%;
 }
 
-.juice-text2 > img {
+.juice-text2 > img,
+.juice-text2 picture {
   width: 100%;
+}
+
+.juice-text2-apple {
+  max-width: 210px;
+}
+
+.juice-text2-appleCitrus {
+  max-width: 210px;
+}
+
+.juice-text2-tomato {
+  max-width: 210px;
+}
+
+.juice-text2-multiMix {
+  max-width: 210px;
 }
 
 .sugar,
@@ -1249,6 +1249,12 @@ form .slider-track {
 .specific-description {
   position: relative;
   padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 15px;
 }
 
@@ -1265,7 +1271,6 @@ form .slider-track {
 }
 
 .specific-description--appleCitrus {
-  padding-top: 30px;
   width: 87%;
 }
 
@@ -1470,9 +1475,9 @@ form .slider-track {
   width: 100%;
   margin-top: 7px;
   font-size: 12px;
-  padding-left: 15px;
+  padding-left: 10px;
   padding-top: 10px;
-  min-height: 38px;
+  padding-bottom: 10px;
   background-repeat: no-repeat;
 }
 
@@ -1704,7 +1709,7 @@ form {
 form input,
 form textarea {
   position: absolute;
-  padding: 0px 50px 15px 15px;
+  padding: 0px 10px 15px 10px;
   width: 100%;
   bottom: 0px;
   left: 0px;
@@ -1975,35 +1980,10 @@ form .slider-track--translate {
           transform: translateY(-8px) rotate(-45deg);
 }
 
-@media only screen and (min-width: 450px) {
-  .hero__wrap {
-    max-width: 872px;
+@media only screen and (min-width: 540px) {
+  .home__wrap {
     width: 80%;
     margin: auto;
-  }
-  .fruit-chunks {
-    width: 90%;
-  }
-  .juice-glass--apple {
-    right: -40px;
-  }
-  .juice-glass--tomato {
-    right: 0;
-  }
-  .juice-glass--appleCitrus {
-    right: -40px;
-  }
-  .juice-glass--multiMix {
-    right: 0;
-  }
-}
-
-@media only screen and (min-width: 540px) {
-  .fruit-chunks {
-    width: 540px;
-  }
-  .juice-text2 {
-    width: 180px;
   }
   .descriptions > .descriptions-bg {
     display: none;
@@ -2122,126 +2102,137 @@ form .slider-track--translate {
     width: 30px;
     height: 182px;
   }
-  .hero {
+  .home__wrap {
     top: 25%;
+    width: 100%;
+    max-width: 880px;
   }
-  .hero__bottle {
-    max-width: unset;
-    width: 600px;
-    left: 300px;
-    top: -100px;
+  .home__bottle {
+    min-width: 600px;
+    left: 280px;
+    top: -95px;
   }
-  .hero__name-apple {
-    left: 11%;
+  .home__name-apple {
+    left: 100px;
   }
-  .hero__name-tomato {
-    left: 17%;
+  .home__name-tomato {
+    left: 130px;
   }
-  .hero__name-appleCitrus {
+  .home__name-appleCitrus {
     top: 10px;
-    left: 17%;
+    left: 130px;
   }
-  .hero__name-multiMix {
+  .home__name-multiMix {
     top: 10px;
-    left: 21%;
+    left: 160px;
   }
   .play-btn {
-    left: 12%;
-    top: 45%;
-    width: 90px;
-  }
-  .fruit-chunks {
-    width: 568px;
+    left: 225px;
+    top: 140px;
+    width: 95px;
   }
   .fruit__chunk1-apple {
-    right: -35px;
+    width: 220px;
+    left: 530px;
+    top: -60px;
   }
   .fruit__chunk2-apple {
-    width: 150px;
-    top: 77px;
-    left: -145px;
+    width: 165px;
+    left: 0px;
+    top: 15px;
   }
   .fruit__chunk3-apple {
-    width: 110px;
-    right: 70px;
-    top: 258px;
+    width: 130px;
+    left: 540px;
+    top: 180px;
   }
   .fruit__chunk4-apple {
-    width: 178px;
-    left: -54px;
-    top: 300px;
+    width: 180px;
+    left: 125px;
+    top: 239px;
   }
   .fruit__chunk1-tomato {
     width: 214px;
-    left: 385px;
-    top: 55px;
+    left: 540px;
+    top: -10px;
   }
   .fruit__chunk2-tomato {
-    width: 106px;
-    top: 240px;
-    left: 362px;
+    width: 100px;
+    top: 180px;
+    left: 525px;
   }
   .fruit__chunk3-tomato {
     width: 215px;
-    left: -58px;
-    top: 85px;
+    left: 70px;
+    top: 20px;
   }
   .fruit__chunk4-tomato {
     width: 230px;
-    left: 0px;
-    top: 273px;
+    left: 160px;
+    top: 220px;
   }
   .fruit__chunk1-appleCitrus {
     width: 160px;
-    top: -30px;
-    left: -110px;
+    top: -107px;
+    left: 40px;
   }
   .fruit__chunk2-appleCitrus {
+    left: 570px;
+    top: 205px;
     width: 90px;
-    top: 260px;
-    right: 60px;
   }
   .fruit__chunk3-appleCitrus {
     width: 270px;
-    right: -57px;
-    top: -33px;
+    left: 501px;
+    top: -55px;
   }
   .fruit__chunk4-appleCitrus {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg);
-    width: 130px;
-    left: -80px;
-    top: 200px;
+    width: 120px;
+    top: 130px;
+    left: 60px;
   }
   .fruit__chunk5-appleCitrus {
-    width: 110px;
-    left: 30px;
-    top: 362px;
+    top: 310px;
+    left: 193px;
+    width: 100px;
   }
   .fruit__chunk1-multiMix {
     width: 150px;
-    left: -68px;
-    top: 120px;
+    left: 63px;
+    top: 54px;
   }
   .fruit__chunk2-multiMix {
     width: 263px;
-    top: -68px;
-    right: 2px;
+    top: -120px;
+    left: 461px;
   }
   .fruit__chunk3-multiMix {
     width: 210px;
-    right: 1px;
-    top: 163px;
+    left: 515px;
+    top: 100px;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   .fruit__chunk4-multiMix {
     width: 170px;
-    left: 20px;
-    top: 300px;
+    left: 170px;
+    top: 240px;
   }
-  .juice-text2 {
+  .juice-text2-apple {
     width: 136px;
+    max-width: unset;
+  }
+  .juice-text2-appleCitrus {
+    width: 320px;
+    max-width: unset;
+  }
+  .juice-text2-tomato {
+    width: 130px;
+    max-width: unset;
+  }
+  .juice-text2-multiMix {
+    width: 245px;
+    max-width: unset;
   }
   .return-btn {
     display: none;
@@ -2297,7 +2288,7 @@ form .slider-track--translate {
   }
   .elements__elem {
     display: inline-block;
-    padding-right: 26px;
+    padding-right: 40px;
     width: auto;
   }
   .contacts-feedback__mobile,
@@ -2348,7 +2339,7 @@ form .slider-track--translate {
   form .slider-track .slider-slide:last-child textarea {
     height: 200px;
     width: 105%;
-    padding-right: 15%;
+    padding: 0 30px 0 15px;
     overflow-y: auto;
   }
   form .slider-track .slider-slide:last-child .textarea__bg {
