@@ -457,9 +457,10 @@ html {
   flex: 10%;
   align-items: flex-start;
   & .gratitude {
+    line-height: 2rem;
     font-size: 18px;
-    font-weight: 700;
-    margin-top: 70px;
+    font-weight: 500;
+    margin-top: 60px;
     text-align: center;
   }
 }
