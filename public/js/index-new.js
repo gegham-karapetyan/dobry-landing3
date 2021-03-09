@@ -18,9 +18,7 @@ let swiper = new Swiper(".swiper-container", {
   threshold: 5,
   longSwipesMs: 200,
   touchRatio: 0.6,
-  // autoplay: {
-  //   delay: 5000,
-  // },
+
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -39,6 +37,7 @@ const body = document.querySelector("body");
 const header = document.querySelector(".header");
 const logo = document.querySelector(".logo");
 const playBtns = document.querySelectorAll(".play-btn");
+const bottomBtn = document.querySelector("#bottom-sign");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
 const closeMediaBtn = document.querySelector("#closeMedia");
@@ -192,6 +191,9 @@ function returnBtnHandler() {
   window.scroll(0, 0);
 }
 
+function bottomBtnHandler() {
+  window.scroll(0, viewHeight);
+}
 function formNextBtnHandler() {
   formSliderTrack.classList.add("slider-track--translate");
 }
@@ -413,6 +415,7 @@ function toggleReturnBtnActivity() {
 burgerBtn.onclick = burgerBtnHandler;
 menuAboutUsBtn.onclick = openAboutUsPage;
 navFeedbackBtn.onclick = navFeedbackBtnHandler;
+bottomBtn.onclick = bottomBtnHandler;
 menuFeedbackBtn.onclick = menuFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;
 formNextBtn.onclick = formNextBtnHandler;
