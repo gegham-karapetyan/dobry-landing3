@@ -1921,7 +1921,7 @@ form .slider-track--translate {
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 100%;
+  max-width: 80%;
   z-index: 1;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
@@ -1937,6 +1937,9 @@ form .slider-track--translate {
   position: absolute;
   top: 50%;
   left: 50%;
+  max-width: 80%;
+  width: 560px;
+  height: 315px;
   z-index: 1;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
@@ -1965,6 +1968,13 @@ form .slider-track--translate {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+@media only screen and (min-width: 1366px) {
+  .video-block {
+    width: 1000px;
+    height: 600px;
+  }
 }
 
 @media only screen and (orientation: landscape) {

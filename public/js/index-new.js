@@ -105,7 +105,7 @@ const sections = {
   3: document.querySelector(".multiMix"),
 };
 
-let viewHeight = swiperContainer.offsetHeight;
+let viewHeight = window.innerHeight;
 
 let isAboutUsMobilePageOpen = false;
 let isFeedbackPageOpen = false;
@@ -443,8 +443,9 @@ function addFormToMenuPage() {
 
 function init() {
   menuPage.style.display = "block";
+  viewHeight = swiperContainer.offsetHeight;
   if (window.innerWidth >= 768) changeFormMarkupForDesktop();
-  swiper.autoplay.start();
+  if (window.innerHeight < viewHeight) swiper.autoplay.start();
 
   changeFruitsSliderHeight();
   changeMenuPageBgColor();
