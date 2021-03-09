@@ -1937,7 +1937,7 @@ form .slider-track--translate {
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 80%;
+  max-width: 70%;
   width: 560px;
   height: 315px;
   z-index: 1;
