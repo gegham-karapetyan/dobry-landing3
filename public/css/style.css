@@ -1933,6 +1933,21 @@ form .slider-track--translate {
   outline: none;
 }
 
+.video-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-block:focus {
+  outline: none;
+}
+
 .turnover-phone {
   position: absolute;
   display: -webkit-box;
@@ -1953,9 +1968,8 @@ form .slider-track--translate {
 }
 
 @media only screen and (orientation: landscape) {
-  #video {
+  .video-block {
     z-index: 15;
-    width: 80%;
   }
 }
 

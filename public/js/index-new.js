@@ -41,7 +41,7 @@ const bottomBtn = document.querySelector("#bottom-sign");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
 const closeMediaBtn = document.querySelector("#closeMedia");
-const video = document.querySelector("#video");
+//const video = document.querySelector("#video");
 
 const form = document.querySelector("#form");
 const formSliderTrack = form.querySelector("form .slider-track");
@@ -124,7 +124,7 @@ function playBtnHundler() {
   media.isActive = true;
 }
 function closeMediaBtnHandler() {
-  video.pause();
+  //video.pause();
   this.parentElement.style.display = "none";
 }
 
