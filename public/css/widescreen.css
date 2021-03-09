@@ -35,6 +35,10 @@ html {
   left: 15px;
 }
 
+.swiper-button-prev::before {
+  top: 46%;
+}
+
 .swiper-button-next::after,
 .swiper-button-next::before {
   right: 15px;
@@ -59,6 +63,7 @@ html {
 
 .home__wrap {
   max-width: 1050px;
+  height: 50%;
 }
 
 .home__bottle {
@@ -445,12 +450,13 @@ html {
 
 .elements {
   margin-top: 30px;
-  width: 400px;
+  width: 450px;
 }
 
 .elements__elem {
   font-size: 16px;
-  padding: 17px 45px 25px 17px;
+  padding: 17px 35px 25px 20px;
+  margin-top: 10px;
 }
 
 .elements__elem--ferrum {
@@ -562,7 +568,11 @@ form label {
 }
 
 form input {
-  padding: 22px 10px 20px 10px;
+  padding: 22px 10px 20px 15px;
+}
+
+form textarea {
+  padding-left: 15px;
 }
 
 form .mail-input__bg,

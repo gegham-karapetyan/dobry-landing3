@@ -20,7 +20,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: "Monsterrat_arm";
+  font-family: "Monsterrat_arm", sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.5rem;

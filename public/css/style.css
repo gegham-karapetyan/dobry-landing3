@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Monsterrat_arm";
-  src: url("../fonts/Montserrat_am3-Regular.woff");
+  src: url("../fonts/Montserratarm-Regular.woff2") format("woff2"), url("../fonts/Montserratarm-Regular.woff") format("woff");
 }
 
 html {
@@ -209,7 +209,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: "Monsterrat_arm";
+  font-family: "Monsterrat_arm", sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.5rem;
@@ -751,7 +751,7 @@ form .slider-track {
 
 @font-face {
   font-family: "Monsterrat_arm";
-  src: url("../fonts/Montserrat_am3-Regular.woff");
+  src: url("../fonts/Montserratarm-Regular.woff2") format("woff2"), url("../fonts/Montserratarm-Regular.woff") format("woff");
 }
 
 .about-us-mobile {
@@ -1950,6 +1950,7 @@ form .slider-track--translate {
 @media only screen and (orientation: landscape) {
   #video {
     z-index: 15;
+    width: 80%;
   }
 }
 
@@ -2103,8 +2104,11 @@ form .slider-track--translate {
     height: 182px;
   }
   .home__wrap {
-    top: 25%;
+    top: 50%;
+    -webkit-transform: translate3d(0, -50%, 0);
+            transform: translate3d(0, -50%, 0);
     width: 100%;
+    height: 30%;
     max-width: 880px;
   }
   .home__bottle {

@@ -1,4 +1,6 @@
 @font-face {
   font-family: "Monsterrat_arm";
-  src: url("../fonts/Montserrat_am3-Regular.woff");
+  //src: url("../fonts/Montserrat_am3-Regular.woff");
+  src: url("../fonts/Montserratarm-Regular.woff2") format("woff2"),
+    url("../fonts/Montserratarm-Regular.woff") format("woff");
 }

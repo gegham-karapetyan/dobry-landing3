@@ -28,6 +28,10 @@ html {
 .swiper-button-prev::before {
   left: 15px;
 }
+
+.swiper-button-prev::before {
+  top: 46%;
+}
 .swiper-button-next::after,
 .swiper-button-next::before {
   right: 15px;
@@ -50,6 +54,7 @@ html {
 }
 .home__wrap {
   max-width: 1050px;
+  height: 50%;
 }
 .home__bottle {
   max-width: unset;
@@ -383,10 +388,11 @@ html {
 
 .elements {
   margin-top: 30px;
-  width: 400px;
+  width: 450px;
   &__elem {
     font-size: 16px;
-    padding: 17px 45px 25px 17px;
+    padding: 17px 35px 25px 20px;
+    margin-top: 10px;
   }
   &__elem--ferrum {
     color: #8bd2b8;
@@ -468,7 +474,10 @@ form {
     margin-bottom: 15px;
   }
   & input {
-    padding: 22px 10px 20px 10px;
+    padding: 22px 10px 20px 15px;
+  }
+  & textarea {
+    padding-left: 15px;
   }
   & .mail-input__bg,
   .name-input__bg,
