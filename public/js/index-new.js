@@ -192,7 +192,7 @@ function returnBtnHandler() {
 }
 
 function bottomBtnHandler() {
-  window.scroll(0, viewHeight);
+  window.scroll(0, swiperContainer.offsetHeight);
 }
 function formNextBtnHandler() {
   formSliderTrack.classList.add("slider-track--translate");
@@ -236,33 +236,33 @@ function swiperPaginatonBulletsHandlers() {
 
 //-----------------< focuse events handlers >-----------------
 function inputUnameBlurHandler() {
-  let svg = this.nextElementSibling;
-  if (!validateName(this.value)) {
-    this.isValid = false;
+  let svg = inputUname.nextElementSibling;
+  if (!validateName(inputUname.value)) {
+    inputUname.isValid = false;
     svg.style.stroke = "red";
   } else {
     svg.style.stroke = "";
-    this.isValid = true;
+    inputUname.isValid = true;
   }
 }
 function inputEmailBlurHandler() {
-  let svg = this.nextElementSibling;
-  if (!validateEmail(this.value)) {
-    this.isValid = false;
+  let svg = inputMail.nextElementSibling;
+  if (!validateEmail(inputMail.value)) {
+    inputMail.isValid = false;
     svg.style.stroke = "red";
   } else {
     svg.style.stroke = "";
-    this.isValid = true;
+    inputMail.isValid = true;
   }
 }
 
 function inputPhoneBlurHandler() {
-  let svg = this.nextElementSibling;
-  if (!validatePhone(this.value)) {
-    this.isValid = false;
+  let svg = inputPhone.nextElementSibling;
+  if (!validatePhone(inputPhone.value)) {
+    inputPhone.isValid = false;
     svg.style.stroke = "red";
   } else {
-    this.isValid = true;
+    inputPhone.isValid = true;
     svg.style.stroke = "";
   }
 }
@@ -313,7 +313,12 @@ formSliderTrack.ontransitionend = function () {
 
 function submitHandler(e) {
   e.preventDefault();
-  if (hasInvalidRequiredInput()) return;
+  if (hasInvalidRequiredInput()) {
+    inputUnameBlurHandler();
+    inputEmailBlurHandler();
+    inputPhoneBlurHandler();
+    return;
+  }
   let formData = new FormData(form);
   fetch("/", {
     method: "POST",
@@ -529,8 +534,7 @@ function validateEmail(email) {
   return re.test(String(email.trim()).toLowerCase());
 }
 function validateName(name) {
-  console.log(name);
-  return name.length > 1;
+  return name && name.length > 1;
 }
 function validatePhone(phone) {
   return phone.length > 1;
