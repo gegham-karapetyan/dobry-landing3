@@ -509,7 +509,6 @@ window.addEventListener(
 window.addEventListener(
   "scroll",
   () => {
-    console.log("scroll");
     if (device === "mobile") {
       if (!isReturnBtnActive && window.scrollY >= viewHeight) {
         toggleReturnBtnActivity();
@@ -552,56 +551,13 @@ function swiperButtonPrevVisibility() {
     swiperButtonPrev.style.visibility = "hidden";
   } else swiperButtonPrev.style.visibility = "visible";
 }
-// function openFullscreen(elem) {
-//   if (elem.requestFullscreen) {
-//     elem.requestFullscreen();
-//   } else if (elem.webkitRequestFullscreen) {
-//     elem.webkitRequestFullscreen();
-//   } else if (elem.msRequestFullscreen) {
-//     elem.msRequestFullscreen();
-//   }
-// }
-// function closeFullscreen(elem) {
-//   if (elem.exitFullscreen) {
-//     elem.exitFullscreen();
-//   } else if (elem.webkitExitFullscreen) {
-//     elem.webkitExitFullscreen();
-//   } else if (elem.msExitFullscreen) {
-//     elem.msExitFullscreen();
-//   }
-// }
-
-//--------------/ helpers------------
-
-//---------------test-----------------//
-// function determineWidth() {
-//   let infoDiv = document.getElementById("infoDiv");
-//   if (!infoDiv) infoDiv = document.createElement("div");
-
-//   infoDiv.id = "infoDiv";
-//   infoDiv.style.position = "fixed";
-//   infoDiv.style.zIndex = "999999";
-//   infoDiv.style.top = "20%";
-//   infoDiv.style.left = "20%";
-//   infoDiv.style.background = "gray";
-//   infoDiv.innerHTML = `<h3>viewHeight : ${viewHeight}</h3>
-//   <h3>innerHeight : ${window.innerHeight}</h3>
-//   <h3>resize : ${window.rr}</h3>
-//   <h3>homePage height : ${swiperContainer.offsetHeight}</h3>
-//   <h3>event : ${window.event.key}</h3>
-//   <h3>100vh : ${gage.offsetHeight}</h3>`;
-//   document.body.append(infoDiv);
-// }
-
-// document.addEventListener("keydown", () => {
-//   determineWidth();
-// });
 
 const mediaQuery = window.matchMedia("(min-width:768px)");
 function changeFormMarkup(e) {
   if (e.matches) {
     device = "desktop";
     changeFormMarkupForDesktop();
+    removeHeaderBg();
   } else {
     device = "mobile";
     changeFormMarkupForMobile();

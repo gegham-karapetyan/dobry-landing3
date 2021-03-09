@@ -2348,6 +2348,7 @@ form .slider-track--translate {
   }
   .form-gratitude .gratitude {
     font-size: 14px;
+    line-height: 2rem;
     margin-top: 40px;
     text-align: center;
   }

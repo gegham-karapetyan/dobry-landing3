@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,IAAI,EAAE,GAAG;EACT,WAAW,EAAE,UAAU;CAKxB;;AAPD,AAGE,eAHa,CAGX,UAAU,CAAC;EACX,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,MAAM;CACnB",
-    "sources": [
-        "../../scss/form-gratitude.scss"
-    ],
-    "names": [],
-    "file": "form-gratitude.css"
-}
