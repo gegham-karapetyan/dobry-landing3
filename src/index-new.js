@@ -45,7 +45,7 @@ const playBtns = document.querySelectorAll(".play-btn");
 const bottomBtn = document.querySelector("#bottom-sign");
 const turnOverPhone = document.querySelector(".turnover-phone");
 const media = document.querySelector(".media");
-const videoIframe = document.querySelector(".video-block-iframe");
+//const videoIframe = document.querySelector(".video-block-iframe");
 const closeMediaBtn = document.querySelector("#closeMedia");
 //const video = document.querySelector("#video");
 
@@ -453,7 +453,7 @@ function addFormToMenuPage() {
 }
 
 function init() {
-  videoIframe.src = "https://www.youtube.com/embed/7bJfOfefk_o";
+  //videoIframe.src = "https://www.youtube.com/embed/7bJfOfefk_o";
   menuPage.style.display = "block";
   viewHeight = swiperContainer.offsetHeight;
   if (window.innerWidth >= 768) changeFormMarkupForDesktop();
