@@ -574,10 +574,6 @@ form input {
   padding: 22px 10px 20px 15px;
 }
 
-form textarea {
-  padding-left: 15px;
-}
-
 form .mail-input__bg,
 form .name-input__bg,
 form .phone-input__bg {
@@ -615,6 +611,7 @@ form .slider-track .slider-slide:first-child #fakeInput {
 
 form .slider-track .slider-slide:last-child textarea {
   height: 295px;
+  padding: 8px 30px 0 17px;
 }
 
 form .slider-track .slider-slide:last-child .textarea__bg {
