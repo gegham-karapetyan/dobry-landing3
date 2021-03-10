@@ -1917,7 +1917,7 @@ form .slider-track--translate {
   background: #000;
 }
 
-.player {
+.video-player {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1931,7 +1931,7 @@ form .slider-track--translate {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.player:focus {
+.video-player:focus {
   outline: none;
 }
 
@@ -1955,14 +1955,14 @@ form .slider-track--translate {
 }
 
 @media only screen and (min-width: 1366px) {
-  .video-block {
+  .video-player {
     width: 1000px;
     height: 600px;
   }
 }
 
 @media only screen and (orientation: landscape) {
-  .video-block {
+  .video-player {
     z-index: 15;
   }
 }

@@ -114,7 +114,7 @@ const sections = {
 let viewHeight = window.innerHeight;
 
 let isAboutUsMobilePageOpen = false;
-let isFeedbackPageOpen = false;
+
 let isMenuPageOpen = false;
 let isReturnBtnActive = false;
 let device = window.innerWidth >= 768 ? "desktop" : "mobile";
@@ -124,14 +124,16 @@ function playBtnHundler() {
   let { activeIndex } = swiper;
   let fruitName = classes[activeIndex];
   let color = colors[fruitName];
-  turnOverPhone.style.background = color;
+  turnOverPhone.style.backgroundColor = color;
 
   media.style.display = "flex";
   media.isActive = true;
 }
 function closeMediaBtnHandler() {
-  //video.pause();
   this.parentElement.style.display = "none";
+  if (YT) {
+    player.stopVideo();
+  }
 }
 
 function navFeedbackBtnHandler() {
@@ -447,11 +449,6 @@ function addFormToSection() {
   container.append(form);
 }
 
-function addFormToMenuPage() {
-  let container = document.querySelector(".menu-page .form-container");
-  container.append(form);
-}
-
 function init() {
   //videoIframe.src = "https://www.youtube.com/embed/7bJfOfefk_o";
   menuPage.style.display = "block";
@@ -544,13 +541,6 @@ function validateName(name) {
 }
 function validatePhone(phone) {
   return phone.length > 1;
-}
-
-function preventScrolling(elem) {
-  elem.classList.add("prevent-scrolling");
-}
-function allowScrolling(elem) {
-  elem.classList.remove("prevent-scrolling");
 }
 
 function swiperButtonPrevVisibility() {
