@@ -131,8 +131,8 @@ function playBtnHundler() {
 }
 function closeMediaBtnHandler() {
   this.parentElement.style.display = "none";
-  if (YT) {
-    player.stopVideo();
+  if (YT && player instanceof YT.Player) {
+    player.pauseVideo();
   }
 }
 
