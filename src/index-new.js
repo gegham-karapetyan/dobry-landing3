@@ -124,9 +124,9 @@ function playBtnHundler() {
   let { activeIndex } = swiper;
   let fruitName = classes[activeIndex];
   let color = colors[fruitName];
-  turnOverPhone.style.backgroundColor = color;
+  media.style.backgroundColor = color;
 
-  media.style.display = "flex";
+  media.style.display = "block";
   media.isActive = true;
 }
 function closeMediaBtnHandler() {

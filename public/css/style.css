@@ -1924,7 +1924,8 @@ form .slider-track--translate {
   max-width: 70%;
   width: 560px;
   height: 315px;
-  z-index: 1;
+  z-index: 10;
+  visibility: hidden;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -1937,21 +1938,16 @@ form .slider-track--translate {
 
 .turnover-phone {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  width: 100%;
-  height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
+  background-color: transparent;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.turnover-phone img {
+  margin: 20px;
 }
 
 @media only screen and (min-width: 1366px) {
@@ -1963,7 +1959,7 @@ form .slider-track--translate {
 
 @media only screen and (orientation: landscape) {
   .video-player {
-    z-index: 15;
+    visibility: visible;
   }
 }
 
