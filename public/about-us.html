@@ -5,28 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <link rel="stylesheet" href="css/about-us.css" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
     <div class="about-us-desktop">
-      <button
+      <a
         type="button"
         class="close-page-icon"
-        onclick="window.location.href='//127.0.0.1:5500/public/index.html'"
+        href="//127.0.0.1:5500/public/index.html"
       >
         <img src="images/menu-vector1.svg" alt="burger-vector1" />
         <img src="images/menu-vector2.svg" alt="burger-vector2" />
-      </button>
+      </a>
       <div class="bottles">
         <picture>
-          <source media="(min-width:1650px)" srcset="images/bottles-big.png" />
+          <source media="(min-width:1650px)" srcset="images/bottles-big.webp" />
           <source
             media="(min-width:1366px)"
-            srcset="images/bottles-middle.png"
+            srcset="images/bottles-middle.webp"
           />
           <img
-            src="images/bottles.png"
+            src="images/bottles.webp"
             alt="bottles-middle"
             style="width: auto"
           />
@@ -56,15 +58,6 @@
     </div>
 
     <script>
-      // function determineLeftSize() {
-      //   let partOneWidth = document.querySelector(".part-one").offsetWidth;
-      //   let bottles = document.querySelector(".bottles");
-      //   let bottlesWidth = bottles.offsetWidth;
-      //   bottles.style.left = partOneWidth - bottlesWidth / 2 + "px";
-      // }
-
-      // window.addEventListener("load", determineLeftSize);
-      // window.addEventListener("resize", determineLeftSize);
       const mediaQuery = window.matchMedia("(max-width:768px)");
       function changelocation(e) {
         if (e.matches) {

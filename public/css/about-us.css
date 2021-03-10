@@ -384,6 +384,7 @@ template {
 
 .close-page-icon {
   position: absolute;
+  text-decoration: none;
   width: 40px;
   height: 40px;
   z-index: 1;
@@ -392,21 +393,13 @@ template {
 }
 
 .close-page-icon > img:first-child {
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateY(6px) rotate(45deg);
-          transform: translateY(6px) rotate(45deg);
+  -webkit-transform: translateY(20px) rotate(45deg);
+          transform: translateY(20px) rotate(45deg);
 }
 
 .close-page-icon > img:last-child {
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateY(-8px) rotate(-45deg);
-          transform: translateY(-8px) rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 @media only screen and (min-width: 1650px) {
