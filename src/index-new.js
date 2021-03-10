@@ -1,3 +1,8 @@
+import Swiper from "swiper";
+import SwiperCore, { Navigation, Parallax, Autoplay } from "swiper/core";
+
+SwiperCore.use([Navigation, Parallax, Autoplay]);
+
 const swiperContainer = document.querySelector(".swiper-container");
 const swiperSlides = document.querySelectorAll(".swiper-slide");
 const swiperPaginatonBullets = document.querySelectorAll(
