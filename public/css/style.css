@@ -1917,23 +1917,7 @@ form .slider-track--translate {
   background: #000;
 }
 
-#video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 80%;
-  z-index: 1;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0);
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-#video:focus {
-  outline: none;
-}
-
-.video-block {
+.player {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1947,7 +1931,7 @@ form .slider-track--translate {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.video-block:focus {
+.player:focus {
   outline: none;
 }
 
