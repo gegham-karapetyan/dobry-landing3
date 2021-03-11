@@ -1681,7 +1681,18 @@
           width: "100%",
           videoId: "7bJfOfefk_o",
           rel: 0,
+          origin: "http://127.0.0.1:5500/public/index.html",
+          events: {
+            onStateChange: onPlayerStateChange,
+          },
         });
+      }
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.ENDED) {
+          console.log("video ended");
+
+          player.stopVideo();
+        }
       }
 
       // 4. The API will call this function when the video player is ready.
