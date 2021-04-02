@@ -1,6 +1,8 @@
 import Swiper from "swiper";
 import SwiperCore, { Navigation, Parallax, Autoplay } from "swiper/core";
 
+const scroll = new SmoothScroll();
+
 SwiperCore.use([Navigation, Parallax, Autoplay]);
 
 const swiperContainer = document.querySelector(".swiper-container");
@@ -30,7 +32,6 @@ let swiper = new Swiper(".swiper-container", {
   },
   on: {
     init() {
-      console.log("init");
       swiperSlides.forEach((slide) => slide.classList.add("overflow-visible"));
     },
   },
@@ -67,7 +68,10 @@ const burgerBtn = document.querySelector(".burger");
 const menuPage = document.querySelector(".menu-page");
 const menuAboutUsBtn = document.querySelector("#menuAboutUs");
 const navFeedbackBtn = document.querySelector("#navFeedback");
+const navAboutUsBtn = document.querySelector("#navAboutUs");
+const closeAboutUsDesktopBtn = document.querySelector("#closeAboutUsDesktop");
 const aboutUsMobilePage = document.querySelector(".about-us-mobile");
+const aboutUsDesktopPage = document.querySelector(".about-us-desktop");
 
 const menuFeedbackBtn = document.querySelector("#feedback");
 const menuPagePartTop = document.querySelector(".menu-page__part-top");
@@ -103,6 +107,12 @@ const colors = {
   appleCitrus: "#f29768",
   multiMix: "#f1bb23",
 };
+const videoID = {
+  0: "ZlU3grnfbYc",
+  1: "A3INew9TAB8",
+  2: "tEaPHgMQa1s",
+  3: "Vaix8Jt-gSo",
+};
 
 const sections = {
   0: document.querySelector(".apple"),
@@ -122,6 +132,10 @@ let device = window.innerWidth >= 768 ? "desktop" : "mobile";
 // ----------------< buttons onClick events handlers >--------------
 function playBtnHundler() {
   let { activeIndex } = swiper;
+  if (YT && playerYT instanceof YT.Player) {
+    playerYT.cueVideoById(videoID[activeIndex]);
+  }
+
   let fruitName = classes[activeIndex];
   let color = colors[fruitName];
   media.style.backgroundColor = color;
@@ -131,8 +145,8 @@ function playBtnHundler() {
 }
 function closeMediaBtnHandler() {
   this.parentElement.style.display = "none";
-  if (YT && player instanceof YT.Player) {
-    player.pauseVideo();
+  if (YT && playerYT instanceof YT.Player) {
+    playerYT.pauseVideo();
   }
 }
 
@@ -144,7 +158,7 @@ function navFeedbackBtnHandler() {
       sections[2].offsetHeight,
       sections[3].offsetHeight
     ) + viewHeight;
-  window.scroll(0, documentHeight);
+  scroll.animateScroll(documentHeight);
 }
 
 function menuFeedbackBtnHandler() {
@@ -171,20 +185,26 @@ function closeMenu() {
   isMenuPageOpen = false;
 }
 
-function openAboutUsPage() {
+function openAboutUsMobilePage() {
   aboutUsMobilePage.classList.add("about-us-mobile--active");
   isAboutUsMobilePageOpen = true;
   logo.style.visibility = "hidden";
 }
-function closeAboutUsPage() {
+function closeAboutUsMobilePage() {
   aboutUsMobilePage.classList.remove("about-us-mobile--active");
   isAboutUsMobilePageOpen = false;
   logo.style.visibility = "visible";
 }
+function openAboutUsDesktopPage() {
+  aboutUsDesktopPage.classList.add("about-us-desktop--active");
+}
+function closeAboutUsDesktopPage() {
+  aboutUsDesktopPage.classList.remove("about-us-desktop--active");
+}
 
 function burgerBtnHandler() {
   if (isAboutUsMobilePageOpen) {
-    closeAboutUsPage();
+    closeAboutUsMobilePage();
     return;
   }
 
@@ -196,11 +216,11 @@ function burgerBtnHandler() {
 }
 
 function returnBtnHandler() {
-  window.scroll(0, 0);
+  scroll.animateScroll(0);
 }
 
 function bottomBtnHandler() {
-  window.scroll(0, swiperContainer.offsetHeight);
+  scroll.animateScroll(swiperContainer.offsetHeight);
 }
 function formNextBtnHandler() {
   formSliderTrack.classList.add("slider-track--translate");
@@ -293,7 +313,7 @@ function successMessage() {
   const gratitude = document.querySelector(".gratitude");
   formContainers.forEach((container) => {
     container.classList.add("form-gratitude");
-    console.log(container);
+
     container.append(gratitude.cloneNode(true));
   });
 }
@@ -426,8 +446,10 @@ function toggleReturnBtnActivity() {
 
 //---------------< initialize onClick events handlers >-----------------
 burgerBtn.onclick = burgerBtnHandler;
-menuAboutUsBtn.onclick = openAboutUsPage;
+menuAboutUsBtn.onclick = openAboutUsMobilePage;
 navFeedbackBtn.onclick = navFeedbackBtnHandler;
+navAboutUsBtn.onclick = openAboutUsDesktopPage;
+closeAboutUsDesktopBtn.onclick = closeAboutUsDesktopPage;
 bottomBtn.onclick = bottomBtnHandler;
 menuFeedbackBtn.onclick = menuFeedbackBtnHandler;
 returnBtn.onclick = returnBtnHandler;

@@ -307,6 +307,33 @@ h2 {
   width: 100px;
 }
 
+.close-page-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 20;
+  right: 30px;
+  top: 30px;
+}
+
+.close-page-icon > img:first-child {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transform: translateY(6px) rotate(45deg);
+          transform: translateY(6px) rotate(45deg);
+}
+
+.close-page-icon > img:last-child {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+          transform: translateY(-8px) rotate(-45deg);
+}
+
 .swiper-container {
   width: 100%;
   height: 100vh;
@@ -855,6 +882,117 @@ form .slider-track {
 .about-us-mobile--active {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
+}
+
+.about-us-desktop {
+  position: fixed;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  font-family: "Monsterrat_arm", sans-serif;
+  line-height: 1.7rem;
+  color: white;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.about-us-desktop__wrap {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.about-us-desktop .bottles {
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  bottom: unset;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+
+.about-us-desktop .part-one {
+  background: #8bd2b8;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 25%;
+          flex: 0 1 25%;
+}
+
+.about-us-desktop .part-two {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 24%;
+          flex: 0 1 24%;
+  background: #e7524c;
+  width: 337px;
+}
+
+.about-us-desktop .part-three {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 35%;
+          flex: 0 1 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fa7d3c;
+}
+
+.about-us-desktop .part-three__inner {
+  width: 100%;
+  padding: 50px;
+}
+
+.about-us-desktop .part-three__inner .about-us-text {
+  width: 202px;
+  margin-bottom: 35px;
+}
+
+.about-us-desktop .part-four {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 29%;
+          flex: 0 1 29%;
+  background: #f1bb23;
+  -webkit-box-flex: 15%;
+      -ms-flex: 15%;
+          flex: 15%;
+}
+
+.about-us-desktop--active {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media only screen and (min-width: 1650px) {
+  .about-us-desktop .part-three__inner {
+    font-size: 14px;
+    line-height: 2rem;
+    padding: 75px;
+  }
+  .about-us-desktop .part-three__inner .about-us-text {
+    width: 284px;
+    margin-bottom: 52px;
+  }
 }
 
 .home-page {
@@ -1967,33 +2105,6 @@ form .slider-track--translate {
   .video-player {
     visibility: visible;
   }
-}
-
-.close-page-icon {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  z-index: 20;
-  right: 30px;
-  top: 30px;
-}
-
-.close-page-icon > img:first-child {
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateY(6px) rotate(45deg);
-          transform: translateY(6px) rotate(45deg);
-}
-
-.close-page-icon > img:last-child {
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transform: translateY(-8px) rotate(-45deg);
-          transform: translateY(-8px) rotate(-45deg);
 }
 
 @media only screen and (min-width: 540px) {

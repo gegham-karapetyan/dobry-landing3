@@ -242,7 +242,7 @@
       </a>
     </div>
     <nav>
-      <a
+      <button
         type="button"
         class="nav-about-us"
         id="navAboutUs"
@@ -250,7 +250,7 @@
         href="about-us.html"
       >
         <img src="images/about-us2.svg" alt="about-us" />
-      </a>
+      </button>
       <button type="button" class="nav-feedback" id="navFeedback" tabindex="0">
         <img src="images/feedback2.svg" alt="feedback" />
       </button>
@@ -1662,20 +1662,61 @@
   </div>
 </div>
 
+      <div class="about-us-desktop">
+  <button type="button" class="close-page-icon" id="closeAboutUsDesktop">
+    <img src="images/menu-vector1.svg" alt="burger-vector1" />
+    <img src="images/menu-vector2.svg" alt="burger-vector2" />
+  </button>
+  <div class="bottles">
+    <picture>
+      <source media="(min-width:1650px)" srcset="images/bottles-big.webp" />
+      <source media="(min-width:1366px)" srcset="images/bottles-middle.webp" />
+      <img
+        src="images/bottles.webp"
+        alt="bottles-middle"
+        loading="lazy"
+        style="width: auto"
+      />
+    </picture>
+  </div>
+  <div class="about-us-desktop__wrap">
+    <div class="part-one"></div>
+    <div class="part-two"></div>
+
+    <div class="part-three">
+      <div class="part-three__inner">
+        <div class="about-us-text">
+          <img src="./images/about-us2.svg" alt="about-us" width="100%" />
+        </div>
+        <p>
+          «Դոբրի»-ն ներկայացնում է 100%<br />
+          բնական հյութերի նոր տեսականի:<br />
+          Յուրաքանչյուր տուփում միայն 100%-անոց հյութեր են, որոնք պահպանել են
+          հասած մրգերի, բանջարեղենի և հատապտուղների բոլոր օգտակար
+          հատկությունները:<br />
+          Եվ ոչ մի գրամ հավելյալ շաքար:
+        </p>
+      </div>
+    </div>
+    <div class="part-four"></div>
+  </div>
+</div>
+
       <button type="button" class="return-btn">
         <img src="images/up-arrow.svg" alt="up-arrow" />
       </button>
     </div>
-
+    <!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script> -->
+    <script src="smooth-scroll.js"></script>
     <script src="main.js"></script>
     <script>
       var tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      var player;
+      var playerYT;
       function onYouTubeIframeAPIReady() {
-        player = new YT.Player("player", {
+        playerYT = new YT.Player("player", {
           height: "100%",
           width: "100%",
           videoId: "7bJfOfefk_o",
@@ -1689,7 +1730,7 @@
       }
       function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.ENDED) {
-          player.stopVideo();
+          playerYT.stopVideo();
         }
       }
       function onPlayerError(e) {
