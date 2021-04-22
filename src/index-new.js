@@ -150,12 +150,12 @@ function closeMediaBtnHandler() {
   }
 }
 
-const feedbackPags = document.querySelectorAll(".feedback-page");
+const feedbackPages = document.querySelectorAll(".feedback-page");
 
 function navFeedbackBtnHandler() {
-  let anchor = feedbackPags[swiper.activeIndex];
+  let anchor = feedbackPages[swiper.activeIndex];
   let toggle = navFeedbackBtn;
-  let options = { speed: 500, easing: "easeOutCubic" };
+  let options = { speed: 500, easing: "Linear" };
 
   scroll.animateScroll(anchor, toggle, options);
 }
