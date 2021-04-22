@@ -150,14 +150,24 @@ function closeMediaBtnHandler() {
   }
 }
 
-const feedbackPages = document.querySelectorAll(".feedback-page");
+const feedbackPags = document.querySelectorAll(".feedback-page");
 
 function navFeedbackBtnHandler() {
-  let anchor = feedbackPages[swiper.activeIndex];
+  // let documentHeight =
+  //   Math.max(
+  //     sections[0].offsetHeight,
+  //     sections[1].offsetHeight,
+  //     sections[2].offsetHeight,
+  //     sections[3].offsetHeight
+  //   ) + viewHeight;
+  //scroll.animateScroll(documentHeight);
+  let anchor = feedbackPags[swiper.activeIndex];
   let toggle = navFeedbackBtn;
-  let options = { speed: 500, easing: "Linear" };
+  let options = { speed: 500, easing: "easeOutCubic" };
 
   scroll.animateScroll(anchor, toggle, options);
+  // console.log(swiper);
+  // window.scroll(0, documentHeight);
 }
 
 function menuFeedbackBtnHandler() {
