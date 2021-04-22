@@ -150,15 +150,14 @@ function closeMediaBtnHandler() {
   }
 }
 
+const feedbackPags = document.querySelectorAll(".feedback-page");
+
 function navFeedbackBtnHandler() {
-  let documentHeight =
-    Math.max(
-      sections[0].offsetHeight,
-      sections[1].offsetHeight,
-      sections[2].offsetHeight,
-      sections[3].offsetHeight
-    ) + viewHeight;
-  scroll.animateScroll(documentHeight);
+  let anchor = feedbackPags[swiper.activeIndex];
+  let toggle = navFeedbackBtn;
+  let options = { speed: 500, easing: "easeOutCubic" };
+
+  scroll.animateScroll(anchor, toggle, options);
 }
 
 function menuFeedbackBtnHandler() {
